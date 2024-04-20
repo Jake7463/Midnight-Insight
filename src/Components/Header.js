@@ -1,5 +1,5 @@
 import React from "react";
-import LogoMain from "../img/LogoMain.jpg"
+import Logo from "../img/Logo.svg"
 
 const headerStyle = {
     color: "#f1f1f1",
@@ -15,8 +15,8 @@ const logoStyle = {
     display: "block",
     marginLeft: "auto",
     marginRight: "auto",
-    maxHeight: "15vh",
-//     aspectRatio: "1/1",
+    height: "15vh",
+    aspectRatio: "1/1",
     paddingTop: "5px",
     paddingBottom: "5px",
     justifySelf: "center",
@@ -25,7 +25,7 @@ const logoStyle = {
 export default function Header(){
     return(
         <header style={headerStyle}>
-            <img src={LogoMain} style={logoStyle} alt="logo"/>
+            <img src={Logo} style={logoStyle} alt="logo"/>
         </header>
     )
 }
