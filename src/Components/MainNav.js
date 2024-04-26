@@ -5,7 +5,6 @@ import styled from "styled-components";
 const NavStyle = styled.nav`
     min-height: 32px;
     height: fit-content;
-
     display: flex;
     flex-direction: column;
     gap: auto;
