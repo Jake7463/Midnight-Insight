@@ -19,6 +19,7 @@ const LogoStyle = styled.img`
     height: 15vh;
     aspect-ratio: 1/1;
     padding-top: 5px;
+    transform: translateX(-35px);
     padding-bottom: 5px;
     justify-self: center;
 `;

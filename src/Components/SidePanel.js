@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import sideX from "../img/sideMenuX.svg";
 import hamburger from "../img/hamburgerMenu.svg";
@@ -6,7 +6,7 @@ import profilePic from "../img/profile-boy-icon 1.svg";
 
 const HamburgerStyleButton = styled.button`
     all: unset;
-    padding-left: 10%;
+    padding-left: 35px;
 `;
 
 const HamburgerClose = styled.button`
@@ -59,7 +59,8 @@ const SideNavA3 = styled.a`
     font-style: normal;
     font-size: 16px;
     color: #f1f1f1;
-    padding-top: 20px;
+    justify-self: flex-end;
+    margin: auto 0 50% 0;
 `;
 
 const ProfilePhoto = styled.img`
@@ -77,10 +78,10 @@ export default function SidePanel () {
 
     return(
         <>
-            <HamburgerStyleButton onClick={ToggleSidebar}><img src={hamburger}/></HamburgerStyleButton>
+            <HamburgerStyleButton onClick={ToggleSidebar}><img src={hamburger} alt=""/></HamburgerStyleButton>
             {isHamburgerMenuOpen && (
                 <SideNav>
-                    <HamburgerClose onClick={ToggleSidebar}><img src={sideX}/></HamburgerClose>
+                    <HamburgerClose onClick={ToggleSidebar}><img src={sideX} alt=""/></HamburgerClose>
                     <ProfilePhoto src={profilePic} alt="profile picture place holder"/>
                     <SideNavA1 href="/">Add a Dream</SideNavA1>
                     <SideNavA href="/">Dashboard</SideNavA>

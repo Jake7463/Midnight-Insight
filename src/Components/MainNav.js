@@ -45,6 +45,13 @@ const StyledSep = styled.div`
     display: block;
 `;
 
+const StyledSep2 = styled.div`
+    width: 2px;
+    height: 26px;
+    background-color: #265CAE;
+    display: block;
+`;
+
 const Span1 = styled.span`
     display: flex;
     background-color: #265CAE;
@@ -60,7 +67,7 @@ export default function MainNav(){
     return(
         <NavStyle>
             <Span1>
-                <StyledSep></StyledSep>
+                <StyledSep2></StyledSep2>
                 <StyleA2 href="/">Add a <br/>Dream</StyleA2>
                 <StyledSep></StyledSep>
                 <StyleA href="/">My Profile</StyleA>
@@ -68,7 +75,7 @@ export default function MainNav(){
                 <StyleA href="/">Journal</StyleA>
                 <StyledSep></StyledSep>
                 <StyleA href="/">Reports</StyleA>
-                <StyledSep></StyledSep>
+                <StyledSep2></StyledSep2>
             </Span1>
         </NavStyle>
     )
