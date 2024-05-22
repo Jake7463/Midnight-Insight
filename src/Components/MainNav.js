@@ -8,6 +8,8 @@ const NavStyle = styled.nav`
     display: flex;
     flex-direction: column;
     gap: auto;
+    maring: 0;
+    padding: 0;
 `;
 
 const StyleA = styled.a`

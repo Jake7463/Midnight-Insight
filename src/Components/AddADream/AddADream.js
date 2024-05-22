@@ -2,7 +2,6 @@ import styled from "styled-components";
 import TranscribeFromAudio from "./TranscribeFromAudio";
 import ImgtoText from './ImgToText';
 import AddADreamForm from "./AddADreamForm";
-import StyledTextArea from "./StyledTextArea";
 import ApproveBtn from "./ApproveBtn";
 
 const StyledMain =styled.main`

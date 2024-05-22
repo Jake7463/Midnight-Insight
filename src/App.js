@@ -2,16 +2,26 @@ import React from 'react'
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import MainNav from "./Components/MainNav";
-
 import AddADream from './Components/AddADream/AddADream';
+import styled from 'styled-components';
+
+const StyledDiv = styled.div`
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+`;
 
 export default function App(){
     return(
-        <div style={{display:"flex", flexDirection: "column", minHeight: "100vh"}}>
+        <StyledDiv>
         <Header />
         <MainNav />
         <AddADream />
         <Footer />
-        </div>
+        </StyledDiv>
     )
 };

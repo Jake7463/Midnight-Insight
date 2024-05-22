@@ -9,6 +9,8 @@ const FooterStyle = styled.footer`
     justify-content: center;
     text-align: center;
     justify-self: end;
+    margin: 0;
+    padding: 0;
 `;
 
 export default function Footer(){
