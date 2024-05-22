@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import TranscribeFromAudio from "./TranscribeFromAudio";
 import ImgtoText from './ImgToText';
+import AddADreamForm from "./AddADreamForm";
+import StyledTextArea from "./StyledTextArea";
+import ApproveBtn from "./ApproveBtn";
 
 const StyledMain =styled.main`
         background-color: #0B1B32;
@@ -9,6 +12,7 @@ const StyledMain =styled.main`
         width: 100vw;
         justify-content: center;
         align-items: center;
+        margin: 20px 0;
 `;
 
 const StyledSpan = styled.span`
@@ -18,7 +22,7 @@ const StyledSpan = styled.span`
     @media (min-width: 768.1px) {
         flex-direction: row;
         justify-conent: center;
-        gap: 0;
+        gap: 80px;
         margin: 0 10%;
       }
 `;
@@ -43,7 +47,8 @@ function AddADream(){
                 <ImgtoText />
             </StyledSpan>
             <StyledH2>Or start typing</StyledH2>
-            <textarea></textarea>
+            <ApproveBtn />
+            <AddADreamForm />
         </StyledMain>
     )
 };

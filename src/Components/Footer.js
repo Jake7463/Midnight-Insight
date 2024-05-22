@@ -1,24 +1,20 @@
 import React from "react";
+import styled from "styled-components";
 
-const footerStyle = {
-    display: "flex",
-    width: "100vw",
-    backgroundColor: "#000000",
-    color: "#f1f1f1",
-    justifyContent: "center",
-    // textAlign: "center",
-    alignSelf: "end",
-    position: "absolute",
-    left: 0,
-    bottom: 0,
-    right: 0,
-    zIndex: 20,
-}
+const FooterStyle = styled.footer`
+    margin-top: auto;
+    width: 100vw;
+    background-color: #000000;
+    color: #f1f1f1;
+    justify-content: center;
+    text-align: center;
+    justify-self: end;
+`;
 
 export default function Footer(){
     return(
-        <footer style={footerStyle}>
+        <FooterStyle>
             <p>This footer is so footery OMG!</p>
-        </footer>
+        </FooterStyle>
     )
 }
