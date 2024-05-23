@@ -12,6 +12,7 @@ const StyledMain =styled.main`
         justify-content: center;
         align-items: center;
         margin: 20px 0;
+        color: #f1f1f1;
 `;
 
 const StyledSpan = styled.span`

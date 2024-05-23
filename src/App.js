@@ -13,6 +13,7 @@ const StyledDiv = styled.div`
     margin: 0;
     padding: 0;
     width: 100vw;
+    color: #f1f1f1;
 `;
 
 export default function App(){

@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import StyledTextArea from "./StyledTextArea";
-import StyledTagInput from "./StyledTagInput";
+import StyledFormInputs from "./StyledFormInputs";
+import StyledLabelForm from "./StyledLabelForm";
 
 const StyledForm = styled.form`
         font-family: "Mulish", sans-serif;
@@ -14,16 +14,21 @@ const StyledForm = styled.form`
 `;
 
 
-
 function AddADreamForm (){
     return(
         <StyledForm>
-            <StyledTextArea placeholder="Start writing here"></StyledTextArea>
-            <StyledTagInput className="dream-name" type="text" placeholder="Name of the dream here, ex: Underwater blue dragon castle knight fight"></StyledTagInput>
-            <StyledTagInput className="dream-emotion-tags" type="text" placeholder="Emotions tags"></StyledTagInput>
-            <StyledTagInput className="dream-people-tags" type="text" placeholder="People tags"></StyledTagInput>
-            <StyledTagInput className="dream-places-tags" type="text" placeholder="Places tags"></StyledTagInput>
-            <StyledTagInput className="dream-general-tags" type="text" placeholder="General tags"></StyledTagInput>
+            <StyledLabelForm for="textAreaInput">Dream Content</StyledLabelForm>
+            <StyledFormInputs.StyledContentTextInput id="textAreaInput" placeholder="Start writing here" />
+            <StyledLabelForm for="dreamNameInput">What would be a good name for the dream?</StyledLabelForm>
+            <StyledFormInputs.StyledTagInput id="dreamNameInput" className="dream-name" type="text" placeholder="ex: Underwater blue dragon castle knight fight"/>
+            <StyledLabelForm for="emotionTagsInput">What emotions have you experienced?</StyledLabelForm>
+            <StyledFormInputs.StyledTagInput className="emotionTagsInput" type="text" placeholder="Emotions tags"/>
+            <StyledLabelForm for="peopleTagsInput">Who was there in your dream?</StyledLabelForm>
+            <StyledFormInputs.StyledTagInput className="peopleTagsInput" type="text" placeholder="People tags"/>
+            <StyledLabelForm for="placesTagsInput">Where were you in the dream?</StyledLabelForm>
+            <StyledFormInputs.StyledTagInput id="" className="placesTagsInput" type="text" placeholder="ex: 3rd grade house, middle school, volcano, previous workplace"/>
+            <StyledLabelForm for="gerealTagsInput">General Tags</StyledLabelForm>
+            <StyledTagInput id="generalTagsInput" className="dream-general-tags" type="text" placeholder="General tags"/>
         </StyledForm>)
 }
 
