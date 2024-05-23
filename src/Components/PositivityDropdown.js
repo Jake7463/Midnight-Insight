@@ -11,7 +11,7 @@ const StyledSelect = styled.select`
 
 function PositivityDropdown (props){
     return(
-        <StyledSelect>
+        <StyledSelect {...props}>
             <option value="positive">Positive</option>
             <option value="neutral">Neutral</option>
             <option value="negative">Negative</option>

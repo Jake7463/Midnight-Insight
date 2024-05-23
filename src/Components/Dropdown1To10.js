@@ -18,7 +18,7 @@ const StyledOption = styled.option`
 function Dropdown1To10 (props){
     
     return(
-        <StyledSelect>
+        <StyledSelect {...props}>
             <StyledOption value="1">1</StyledOption>
             <StyledOption value="2">2</StyledOption>
             <StyledOption value="3">3</StyledOption>
