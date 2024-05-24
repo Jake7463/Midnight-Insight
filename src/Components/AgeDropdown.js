@@ -18,9 +18,7 @@ function AgeDropdown(props){
             <option value="childhood">Child</option>
             <option value="teenage">Teenager</option>
             <option value="youngAdult">Young Adult</option>
-            <option value="in30s">In the 30`s</option>
-            <option value="in40s">In the 40`s</option>
-            <option value="in40s">In the 50`s</option>
+            <option value="other">Other</option>
         </StyledSelect>
     )
 }

@@ -7,7 +7,9 @@ const StyledLabel = styled.label`
     color: #f1f1f1;
     margin: 15px 0 0 0;
     font-size: 16px;
-    word-break: break-all;
+
+    max-width: 240px;
+    text-align: center;
 `;
 
 function StyledLabelForm(props){
