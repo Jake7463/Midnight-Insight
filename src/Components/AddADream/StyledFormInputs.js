@@ -51,11 +51,22 @@ const StyledLabel4LAndN = styled.label`
     width: 80px;
 `;
 
+const StyledLabel = styled.label`
+    all: unset;
+    padding: 0;
+    color: #f1f1f1;
+    margin: 15px 0 0 0;
+    font-size: 16px;
+    max-width: 240px;
+    text-align: center;
+`;
+
 const StyledContentTextInput = (props) => <StyledTextArea {...props} />;
 const StyledTagInput = (props) => <StyledTags {...props} />;
 const StyledSectionInput =(props) => <StyledSection {...props}/>;
 const StyledSpanInput = (props) => <StyledSpan {...props} />
 const StyledH1Input = (props) => <StyledH1 {...props}/>;
 const StyledLabelLN = (props) => <StyledLabel4LAndN {...props}/>
+const StyledLabelForm = (props) => <StyledLabel {...props}/>
 
-export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN };
+export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledLabelForm};

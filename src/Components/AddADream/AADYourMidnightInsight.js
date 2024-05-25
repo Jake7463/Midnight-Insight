@@ -1,9 +1,8 @@
 import PositivityDropdown from '../PositivityDropdown';
 import Dropdown1To10 from '../Dropdown1To10';
-import { StyledContentTextInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledTagInput} from './StyledFormInputs'
+import { StyledContentTextInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledTagInput, StyledLabelForm} from './StyledFormInputs'
 import AgeDropdown from '../AgeDropdown';
 import POVDropdown from '../POVDropdown';
-import StyledLabelForm from "./StyledLabelForm";
 
 function AADYourMidnightInsight(){
     return(
