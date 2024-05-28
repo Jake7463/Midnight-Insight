@@ -4,8 +4,6 @@ import AADFormLucidNightmare from "./AADFormLucidNightmare";
 import AADYourMidnightInsight from "./AADYourMidnightInsight";
 
 const StyledForm = styled.form`
-        font-family: "Mulish", sans-serif;
-        font-size: 16px;
         display: flex;
         flex-direction: column;
         justify-content: center;

@@ -24,11 +24,11 @@ function AADYourMidnightInsight(){
             <StyledLabelLN htmlFor="AADPOV">POV</StyledLabelLN>
             <POVDropdown id="AADPOV" name="AADPOV"/>
         </StyledSpanInput>
-        <StyledSpanInput style={{alignSelf: "start"}}>
+        <StyledSpanInput >
             <input type="radio" id="isUnique" name="uniqueDream" value="Unique Dream"/>
             <label htmlFor="isUnique">Unique Dream</label>
         </StyledSpanInput>
-        <StyledSpanInput style={{alignSelf: "start"}}>
+        <StyledSpanInput>
             <input type="radio" id="isNotUnique" name="uniqueDream"value="Repeating / Part of a sreies"/>
             <label htmlFor="isNotUnique">Repeating / Part of a sreies</label>
         </StyledSpanInput>

@@ -7,7 +7,6 @@ const NavStyle = styled.nav`
     height: fit-content;
     display: flex;
     flex-direction: column;
-    gap: auto;
     maring: 0;
     padding: 0;
 `;
@@ -58,11 +57,13 @@ const Span1 = styled.span`
     display: flex;
     background-color: #265CAE;
     min-height: 32px;
+    width: 100%;
     height: fit-content;
     color: #f1f1f1;
     justify-content: space-between;
     align-items: center;
     padding: 0;
+    margin: 0;
 `;
 
 export default function MainNav(){

@@ -12,17 +12,18 @@ const StyledDiv = styled.div`
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    width: 100vw;
+    width: 100%;
     color: #f1f1f1;
+    overflow-x: hidden;
 `;
 
 export default function App(){
     return(
         <StyledDiv>
-        <Header />
-        <MainNav />
-        <Main />
-        <Footer />
+            <Header />
+            <MainNav />
+            <Main />
+            <Footer />
         </StyledDiv>
     )
 };

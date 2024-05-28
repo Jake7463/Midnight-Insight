@@ -59,6 +59,9 @@ const StyledLabel = styled.label`
     font-size: 16px;
     max-width: 240px;
     text-align: center;
+    @media (min-width: 768.1px){
+      max-width: 400px;
+    }
 `;
 
 const StyledContentTextInput = (props) => <StyledTextArea {...props} />;

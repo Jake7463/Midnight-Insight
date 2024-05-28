@@ -9,7 +9,7 @@ const HeaderStyle = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     margin: 0;
     padding: 0;
 `;
@@ -21,9 +21,11 @@ const LogoStyle = styled.img`
     height: 15vh;
     aspect-ratio: 1/1;
     padding-top: 5px;
-    transform: translateX(-35px);
     padding-bottom: 5px;
     justify-self: center;
+    @media (max-width: 768px){
+        transform: translateX(-35px);
+    }
 `;
 
 export default function Header(){

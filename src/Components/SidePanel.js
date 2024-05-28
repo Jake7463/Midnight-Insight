@@ -7,6 +7,9 @@ import profilePic from "../img/profile-boy-icon 1.svg";
 const HamburgerStyleButton = styled.button`
     all: unset;
     padding-left: 35px;
+    @media (min-width: 768.1px){
+        display: none;
+    }
 `;
 
 const HamburgerClose = styled.button`

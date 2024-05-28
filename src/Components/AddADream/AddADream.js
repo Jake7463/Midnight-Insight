@@ -4,11 +4,11 @@ import ImgtoText from './ImgToText';
 import AddADreamForm from "./AddADreamForm";
 import ApproveBtn from "./ApproveBtn";
 
-const StyledMain =styled.main`
+const StyledDiv =styled.div`
         background-color: #0B1B32;
         display: flex;
         flex-direction: column;
-        width: 100vw;
+        width: 100%;
         justify-content: center;
         align-items: center;
         margin: 20px 0;
@@ -29,11 +29,9 @@ const StyledSpan = styled.span`
 
 const StyledH2 = styled.h2`
     text-decoration: none;
-    font-family: "Mulish", sans-serif;
     font-weight: 1000;
     font-size: 19px;
     width: 150px;
-
     text-align: center;
     color: #f1f1f1;
 `;
@@ -41,7 +39,7 @@ const StyledH2 = styled.h2`
 function AddADream(){
 
     return (
-        <StyledMain>
+        <StyledDiv>
             <StyledSpan>
                 <TranscribeFromAudio />
                 <ImgtoText />
@@ -49,7 +47,7 @@ function AddADream(){
             <StyledH2>Or start typing</StyledH2>
             <ApproveBtn />
             <AddADreamForm />
-        </StyledMain>
+        </StyledDiv>
     )
 };
 
