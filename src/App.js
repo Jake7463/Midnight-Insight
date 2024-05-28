@@ -2,8 +2,8 @@ import React from 'react'
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import MainNav from "./Components/MainNav";
-import AddADream from './Components/AddADream/AddADream';
 import styled from 'styled-components';
+import Main from './Components/Main';
 
 const StyledDiv = styled.div`
     all: unset;
@@ -21,7 +21,7 @@ export default function App(){
         <StyledDiv>
         <Header />
         <MainNav />
-        <AddADream />
+        <Main />
         <Footer />
         </StyledDiv>
     )

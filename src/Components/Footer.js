@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const FooterStyle = styled.footer`
+    margin: 0;
     margin-top: auto;
     width: 100vw;
     background-color: #000000;
@@ -9,7 +10,6 @@ const FooterStyle = styled.footer`
     justify-content: center;
     text-align: center;
     justify-self: end;
-    margin: 0;
     padding: 0;
 `;
 
