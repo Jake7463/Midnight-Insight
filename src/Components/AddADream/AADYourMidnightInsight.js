@@ -32,9 +32,9 @@ function AADYourMidnightInsight(){
             <input type="radio" id="isNotUnique" name="uniqueDream"value="Repeating / Part of a sreies"/>
             <label htmlFor="isNotUnique">Repeating / Part of a sreies</label>
         </StyledSpanInput>
-        <StyledSpanInput style={{flexDirection: "column"}}>
-            <StyledLabelForm htmlFor="nameRepeatingSeries">Name The Series</StyledLabelForm>
-            <StyledTagInput id="nameRepeatingSeries" type="text" placeholder="Start typing here..."/>
+        <StyledSpanInput style={{flexDirection: "column", marginTop: "0"}}>
+            <StyledLabelForm htmlFor="nameRepeatingSeries" style={{margin: "0"}}>Name The Series</StyledLabelForm>
+            <StyledTagInput id="nameRepeatingSeries" type="text" placeholder="Start typing here..." style={{margin: "0"}}/>
         </StyledSpanInput>
         <StyledSpanInput style={{flexDirection: "column"}}>
             <StyledLabelForm htmlFor="situationIRL">What Would've You Done In This Situation In real Life</StyledLabelForm>

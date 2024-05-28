@@ -10,13 +10,16 @@ const FooterStyle = styled.footer`
     justify-content: center;
     text-align: center;
     justify-self: end;
-    padding: 0;
+`;
+
+const StyledP = styled.p`
+    padding: 13px 0;
 `;
 
 export default function Footer(){
     return(
         <FooterStyle>
-            <p>This footer is so footery OMG!</p>
+            <StyledP>This footer is so footery OMG!</StyledP>
         </FooterStyle>
     )
 }

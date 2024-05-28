@@ -38,8 +38,9 @@ function TranscribeFromAudio(){
     
     return(
         <StyledBtn >
-            <StyledImg src={uploadAudio}></StyledImg>
-             <StyledP>Upload audio<br/>or<br/>Start recording</StyledP> </StyledBtn>
+            <StyledImg src={uploadAudio}/>
+             <StyledP>Upload audio<br/>or<br/>Start recording</StyledP>
+        </StyledBtn>
     )
 }
 
