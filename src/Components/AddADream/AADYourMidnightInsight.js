@@ -3,6 +3,17 @@ import Dropdown1To10 from '../Dropdown1To10';
 import { StyledContentTextInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledTagInput, StyledLabelForm} from './StyledFormInputs'
 import AgeDropdown from '../AgeDropdown';
 import POVDropdown from '../POVDropdown';
+import styled from 'styled-components';
+
+const StyledSpan4Radio = styled(StyledSpanInput)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: 768.1px){
+        flex-direction: row;
+    }
+`;
 
 function AADYourMidnightInsight(){
     return(
@@ -24,14 +35,17 @@ function AADYourMidnightInsight(){
             <StyledLabelLN htmlFor="AADPOV">POV</StyledLabelLN>
             <POVDropdown id="AADPOV" name="AADPOV"/>
         </StyledSpanInput>
-        <StyledSpanInput >
-            <input type="radio" id="isUnique" name="uniqueDream" value="Unique Dream"/>
-            <label htmlFor="isUnique">Unique Dream</label>
-        </StyledSpanInput>
-        <StyledSpanInput>
-            <input type="radio" id="isNotUnique" name="uniqueDream"value="Repeating / Part of a sreies"/>
-            <label htmlFor="isNotUnique">Repeating / Part of a sreies</label>
-        </StyledSpanInput>
+        <h3>Was it a unique dream?</h3>
+        <StyledSpan4Radio>
+            <StyledSpanInput>
+                <input type="radio" id="isUnique" name="uniqueDream" value="uniqueDream"/>
+                <label htmlFor="isUnique">Unique Dream</label>
+            </StyledSpanInput>
+            <StyledSpanInput >
+                <input type="radio" id="isNotUnique" name="isNotUnique" value="notUnique"/>
+                <label htmlFor="isNotUnique">Repeating / Part of a sreies</label>
+            </StyledSpanInput>
+        </StyledSpan4Radio>
         <StyledSpanInput style={{flexDirection: "column", marginTop: "0"}}>
             <StyledLabelForm htmlFor="nameRepeatingSeries" style={{margin: "0"}}>Name The Series</StyledLabelForm>
             <StyledTagInput id="nameRepeatingSeries" type="text" placeholder="Start typing here..." style={{margin: "0"}}/>
