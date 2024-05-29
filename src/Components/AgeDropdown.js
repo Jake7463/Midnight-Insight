@@ -13,6 +13,7 @@ function AgeDropdown(props){
 
     return(
         <StyledSelect {...props}>
+            <option value="choose">Choose</option>
             <option value="current">Current</option>
             <option value="baby">Baby</option>
             <option value="childhood">Child</option>

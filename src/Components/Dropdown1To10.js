@@ -19,6 +19,7 @@ function Dropdown1To10 (props){
     
     return(
         <StyledSelect {...props}>
+            <option value="choose">Choose</option>
             <StyledOption value="1">1</StyledOption>
             <StyledOption value="2">2</StyledOption>
             <StyledOption value="3">3</StyledOption>

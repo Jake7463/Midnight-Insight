@@ -12,6 +12,7 @@ const StyledSelect = styled.select`
 function POVDropdown(props){
     return(
         <StyledSelect {...props}>
+            <option value="choose">Choose</option>
             <option value="self">Self</option>
             <option value="other">Other</option>
         </StyledSelect>
