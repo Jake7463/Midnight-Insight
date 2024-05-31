@@ -1,34 +1,36 @@
 import styled from "styled-components"
 import { StyledContentTextInput, StyledTagInput, StyledLabelForm, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN } from "./StyledFormInputs";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Dropdown1To10 from "../Dropdown1To10";
 import PositivityDropdown from '../PositivityDropdown';
 import AgeDropdown from '../AgeDropdown';
 import POVDropdown from '../POVDropdown';
+import useStorage from "../useStorage";
 
 const obj = {
-  dreamContent: "",
-  dreamName: "",
-  emotionTags: [],
-  peopleTags: [],
-  placesTags: [],
-  generalTags: [],
-  isLucid: false,
-  lucidClarity: null,
-  lucidCohesion: null,
-  lucidControl: null,
-  isNightmare: false,
-  nightmareIntensity: null,
-  nightmareReaction: {fightBack: false, run: false, hide: false, freeze: false,},
-  positivityScore: null,
-  personalScore: null,
-  age: "",
-  pov: "",
-  isUnique: true,
-  seriesName: "",
-  situationIRL: "",
-  prideScore: null,
-  personalInterpretation: "",
+    id: 0,
+    dreamContent: "",
+    dreamName: "",
+    emotionTags: [],
+    peopleTags: [],
+    placesTags: [],
+    generalTags: [],
+    isLucid: false,
+    lucidClarity: null,
+    lucidCohesion: null,
+    lucidControl: null,
+    isNightmare: false,
+    nightmareIntensity: null,
+    nightmareReaction: {fightBack: false, run: false, hide: false, freeze: false,},
+    positivityScore: null,
+    personalScore: null,
+    age: "",
+    pov: "",
+    isUnique: true,
+    seriesName: "",
+    situationIRL: "",
+    prideScore: null,
+    personalInterpretation: "",
 }
 
 const StyledForm = styled.form`
@@ -49,14 +51,23 @@ const StyledSpan4Radio = styled(StyledSpanInput)`
     }
 `;
 
+
 function AddADreamForm (){
     const [addDreamFormState, setAddDreamFormState] = useState(obj);
-    useEffect(() => {
-        console.log(addDreamFormState);
-        }, [addDreamFormState]);
+    // const id = Storage.dreamKey;
+    // console.log(id);
+    const { updateStorage, dreamKey } = useStorage();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        updateStorage(addDreamFormState);
+    }
+    // useEffect(() => {
+    //     console.log(addDreamFormState);
+    //     }, [addDreamFormState]);
+
 
     return(
-        <StyledForm>
+        <StyledForm onSubmit={handleSubmit}>
             <StyledLabelForm htmlFor="textAreaInput">Dream Content</StyledLabelForm>
             <StyledContentTextInput
                 id="textAreaInput"
@@ -254,6 +265,7 @@ function AddADreamForm (){
                         onChange={(e)=>{setAddDreamFormState({...addDreamFormState, personalInterpretation: e.target.value})}}/>
                 </StyledSpanInput>
             </StyledSectionInput>
+            <button type="submit">Submit</button>
         </StyledForm>)
 }
 
