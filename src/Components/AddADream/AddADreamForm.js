@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { StyledContentTextInput, StyledTagInput, StyledLabelForm, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN } from "./StyledFormInputs";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Dropdown1To10 from "../Dropdown1To10";
 import PositivityDropdown from '../PositivityDropdown';
 import AgeDropdown from '../AgeDropdown';
@@ -32,6 +32,7 @@ const obj = {
     prideScore: null,
     personalInterpretation: "",
 }
+const refresh = JSON.parse(JSON.stringify(obj));
 
 const StyledForm = styled.form`
         display: flex;
@@ -56,23 +57,24 @@ function AddADreamForm (){
     const [addDreamFormState, setAddDreamFormState] = useState(obj);
     // const id = Storage.dreamKey;
     // console.log(id);
+    useEffect(() => {
+        console.log(addDreamFormState);
+        }, [addDreamFormState]);
     const { updateStorage, dreamKey } = useStorage();
     const handleSubmit = (e) => {
         e.preventDefault();
         updateStorage(addDreamFormState);
+        setAddDreamFormState(refresh);
     }
-    // useEffect(() => {
-    //     console.log(addDreamFormState);
-    //     }, [addDreamFormState]);
 
-
+    const id = dreamKey.length+1
     return(
         <StyledForm onSubmit={handleSubmit}>
             <StyledLabelForm htmlFor="textAreaInput">Dream Content</StyledLabelForm>
             <StyledContentTextInput
                 id="textAreaInput"
                 placeholder="Start writing here"
-                onChange={(e)=>{setAddDreamFormState({...addDreamFormState, dreamContent: e.target.value});
+                onChange={(e)=>{setAddDreamFormState({...addDreamFormState, dreamContent: e.target.value, id: id});
             }}/>
             <StyledLabelForm htmlFor="dreamNameInput">What would be a good name for the dream?</StyledLabelForm>
             <StyledTagInput
