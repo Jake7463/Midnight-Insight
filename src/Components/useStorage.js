@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 function useStorage() {
-    const [dreamKey, setDreamKey] = useState([]);
+    const [dreams, setDreams] = useState([]);
 
     function updateStorage(obj) {
-        setDreamKey(prevDreamKey => [...prevDreamKey, obj]);
-        console.log(dreamKey);
+        setDreams(prevDreams => [...prevDreams, obj]);
+        console.log(dreams);
     }
 
     const importFromBrowser = (obj) => {
@@ -20,7 +20,7 @@ function useStorage() {
         updateStorage,
         importFromBrowser,
         exportToBrowser,
-        dreamKey,
+        dreams,
     }
 }
 

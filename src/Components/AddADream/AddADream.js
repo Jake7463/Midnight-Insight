@@ -47,7 +47,6 @@ function AddADream(){
                 <ImgtoText />
             </StyledSpan>
             <StyledH2>Or start typing</StyledH2>
-            <ApproveBtn />
             <AddADreamForm />
         </StyledDiv>
     )

@@ -1,11 +1,12 @@
 import styled from "styled-components"
 import { StyledContentTextInput, StyledTagInput, StyledLabelForm, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN } from "./StyledFormInputs";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Dropdown1To10 from "../Dropdown1To10";
 import PositivityDropdown from '../PositivityDropdown';
 import AgeDropdown from '../AgeDropdown';
 import POVDropdown from '../POVDropdown';
 import useStorage from "../useStorage";
+import ApproveBtn from "./ApproveBtn";
 
 const obj = {
     id: 0,
@@ -57,17 +58,14 @@ function AddADreamForm (){
     const [addDreamFormState, setAddDreamFormState] = useState(obj);
     // const id = Storage.dreamKey;
     // console.log(id);
-    useEffect(() => {
-        console.log(addDreamFormState);
-        }, [addDreamFormState]);
-    const { updateStorage, dreamKey } = useStorage();
+    const { updateStorage, dreams } = useStorage();
     const handleSubmit = (e) => {
         e.preventDefault();
         updateStorage(addDreamFormState);
         setAddDreamFormState(refresh);
     }
 
-    const id = dreamKey.length+1
+    const id = dreams.length+1;
     return(
         <StyledForm onSubmit={handleSubmit}>
             <StyledLabelForm htmlFor="textAreaInput">Dream Content</StyledLabelForm>
@@ -76,6 +74,7 @@ function AddADreamForm (){
                 placeholder="Start writing here"
                 onChange={(e)=>{setAddDreamFormState({...addDreamFormState, dreamContent: e.target.value, id: id});
             }}/>
+            <ApproveBtn />
             <StyledLabelForm htmlFor="dreamNameInput">What would be a good name for the dream?</StyledLabelForm>
             <StyledTagInput
                 id="dreamNameInput"
@@ -111,7 +110,7 @@ function AddADreamForm (){
                 type="text"
                 placeholder="General tags"
                 onChange={(e)=>{setAddDreamFormState({...addDreamFormState, generalTags: e.target.value})}}/>
-            <StyledSectionInput>
+            <StyledSectionInput id="lucidAndNightmareSection">
                 <StyledH1Input>Lucid And Nightmare</StyledH1Input>
                 <StyledSpanInput>
                     <input
