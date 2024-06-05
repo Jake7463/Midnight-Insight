@@ -1,5 +1,6 @@
 import { Route , Routes } from 'react-router-dom';
 import AddADream from './AddADream/AddADream';
+import JournalPage from './JornalPage/JournalPage';
 
 
 
@@ -10,6 +11,7 @@ function Main() {
   return (
     <Routes>
       <Route path="/" element={<AddADream />} />
+      <Route path="/" element={<JournalPage />} />
 
     </Routes>
   )

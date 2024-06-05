@@ -2,7 +2,6 @@ import styled from "styled-components";
 import TranscribeFromAudio from "./TranscribeFromAudio";
 import ImgtoText from './ImgToText';
 import AddADreamForm from "./AddADreamForm";
-import ApproveBtn from "./ApproveBtn";
 
 const StyledDiv =styled.div`
         background-color: #0B1B32;
