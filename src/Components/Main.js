@@ -10,8 +10,8 @@ function Main() {
     // <Route path='/' element={<Reports />} />
   return (
     <Routes>
-      <Route path="/" element={<AddADream />} />
       <Route path="/" element={<JournalPage />} />
+      <Route path="/" element={<AddADream />} />
 
     </Routes>
   )
