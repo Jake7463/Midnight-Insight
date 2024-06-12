@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { json } from "react-router";
 
 function useStorage() {
     const [dreams, setDreams] = useState(() => {
@@ -10,10 +9,10 @@ function useStorage() {
         console.log("Dreams state updated:", dreams);
         localStorage.setItem("dreams", JSON.stringify(dreams));
     }, [dreams]);
-    const updateStorage = (obj) => {setDreams(prevDreams => [...prevDreams, obj])}
+    const updateStorage = (obj) => {setDreams((prevDreams) => [...prevDreams, obj])}
 
     const importFromBrowser = () => {
-        setDreams(json.parse(localStorage.getItem("dreams")));
+        setDreams(JSON.parse(localStorage.getItem("dreams")));
     }
 
     const exportToBrowser = () => {

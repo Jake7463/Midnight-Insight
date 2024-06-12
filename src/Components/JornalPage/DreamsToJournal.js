@@ -4,12 +4,14 @@ import useStorage from "../useStorage";
 const pColor = "#808080";
 
 function DreamsToJournal (props){
-    console.log(useStorage().dreams)
+    const { dreams } = useStorage();
+    console.log(dreams)
     return(
-        useStorage().dreams.forEach(dream => {
-            <StyledSpanInput style={{backgroundColor: "#f1f1f1"}}>
-                <p style={{backgroundColor: pColor}}>#dream.id</p>
-                <p style={{backgroundColor: pColor}}>dream.date</p>
+        <>
+        {dreams.map((dream) => (
+            <StyledSpanInput key={dream.id} style={{backgroundColor: "#f1f1f1"}}>
+                <p style={{backgroundColor: pColor}}># {dream.id}</p>
+                <p style={{backgroundColor: pColor}}>{dream.date}</p>
                 <p style={{backgroundColor: pColor}}>{dream.dreamName}</p>
                 <p style={{backgroundColor: pColor}}>{dream.isLucid}</p>
                 <p style={{backgroundColor: pColor}}>{dream.isNightmare}</p>
@@ -17,8 +19,9 @@ function DreamsToJournal (props){
                 <p style={{backgroundColor: pColor}}>{dream.prideScore}</p>
                 <p style={{backgroundColor: pColor}}>{dream.personalScore}</p>
             </StyledSpanInput>
-        })
-    )
+        ))}
+        </>
+    );
 }
 
 export default DreamsToJournal;

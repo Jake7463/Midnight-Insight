@@ -5,7 +5,7 @@ import Dropdown1To10 from "../Dropdown1To10";
 import PositivityDropdown from '../PositivityDropdown';
 import AgeDropdown from '../AgeDropdown';
 import POVDropdown from '../POVDropdown';
-import useStorage, {exportToBrowser} from "../useStorage";
+import useStorage from "../useStorage";
 import ApproveBtn from "./ApproveBtn";
 import { useNavigate } from "react-router";
 
@@ -58,8 +58,6 @@ const StyledSpan4Radio = styled(StyledSpanInput)`
 
 function AddADreamForm (){
     const [addDreamFormState, setAddDreamFormState] = useState(obj);
-    // const id = Storage.dreamKey;
-    // console.log(id);
 
     const { updateStorage, exportToBrowser, dreams } = useStorage();
     const navigate = useNavigate();
@@ -69,7 +67,7 @@ function AddADreamForm (){
         console.log(addDreamFormState)
         setAddDreamFormState(refresh);
         exportToBrowser();
-        navigate("/journal-page");
+         navigate("/journal-page");
     }
 
     useEffect(() => {

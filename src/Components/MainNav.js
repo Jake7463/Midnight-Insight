@@ -75,7 +75,7 @@ export default function MainNav(){
                 <StyledSep></StyledSep>
                 <StyleA href="/">My Profile</StyleA>
                 <StyledSep></StyledSep>
-                <StyleA href="/">Journal</StyleA>
+                <StyleA href="/journal-page">Journal</StyleA>
                 <StyledSep></StyledSep>
                 <StyleA href="/">Reports</StyleA>
                 <StyledSep2></StyledSep2>
