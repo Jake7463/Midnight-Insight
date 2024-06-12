@@ -5,11 +5,13 @@ import Dropdown1To10 from "../Dropdown1To10";
 import PositivityDropdown from '../PositivityDropdown';
 import AgeDropdown from '../AgeDropdown';
 import POVDropdown from '../POVDropdown';
-import useStorage from "../useStorage";
+import useStorage, {updateStorage} from "../useStorage";
 import ApproveBtn from "./ApproveBtn";
+import { useNavigate } from "react-router";
 
 const obj = {
     id: 0,
+    date: "",
     dreamContent: "",
     dreamName: "",
     emotionTags: [],
@@ -58,11 +60,14 @@ function AddADreamForm (){
     const [addDreamFormState, setAddDreamFormState] = useState(obj);
     // const id = Storage.dreamKey;
     // console.log(id);
+
     const { updateStorage, dreams } = useStorage();
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         updateStorage(addDreamFormState);
         setAddDreamFormState(refresh);
+        navigate("/journal-page");
     }
 
     const id = dreams.length+1;
@@ -72,7 +77,12 @@ function AddADreamForm (){
             <StyledContentTextInput
                 id="textAreaInput"
                 placeholder="Start writing here"
-                onChange={(e)=>{setAddDreamFormState({...addDreamFormState, dreamContent: e.target.value, id: id});
+                onChange={(e)=>{setAddDreamFormState({
+                    ...addDreamFormState,
+                    dreamContent: e.target.value,
+                    id: id,
+                    date: `${(new Date()).getDate()}/${(new Date()).getMonth()+1}/${(new Date()).getFullYear()}`
+                });
             }}/>
             <ApproveBtn />
             <StyledLabelForm htmlFor="dreamNameInput">What would be a good name for the dream?</StyledLabelForm>

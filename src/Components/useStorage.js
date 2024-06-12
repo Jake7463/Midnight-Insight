@@ -1,18 +1,17 @@
 import { useState } from "react";
 
 function useStorage() {
-    const [dreams, setDreams] = useState([]);
+    const [dreams, setDreams] = useState([{}]);
 
     function updateStorage(obj) {
         setDreams(prevDreams => [...prevDreams, obj]);
-        console.log(dreams);
     }
 
-    const importFromBrowser = (obj) => {
+    const importFromBrowser = () => {
         // Implementation here
     }
 
-    const exportToBrowser = (obj) => {
+    const exportToBrowser = () => {
         // Implementation here
     }
 

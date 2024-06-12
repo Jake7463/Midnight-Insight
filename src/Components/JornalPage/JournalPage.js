@@ -1,4 +1,5 @@
 import { SearchInput, SpanSpaceBetween, StyledDivPage, StyledH1Input, StyledLabelCentered, StyledLabelForm, StyledSectionInput, StyledSpanInput } from "../AddADream/StyledFormInputs";
+import DreamsToJournal from "./DreamsToJournal";
 import FilterDropdown from "./FilterDropdown";
 import SortDropdown from "./SortDropdown";
 
@@ -11,7 +12,7 @@ function JournalPage(){
                 <StyledH1Input>Your Dream Journal</StyledH1Input>
                 <StyledSpanInput style={{flexDirection: "row"}}>
                     <StyledLabelCentered>Dates</StyledLabelCentered>
-                    <SearchInput type="date" style={{width: "100px", textIndent: "5px"}} />
+                    <SearchInput type="date" style={{width: "120px", textIndent: "5px"}} />
                 </StyledSpanInput>
                 <StyledSpanInput style={{flexDirection: "row"}}>
                     <StyledLabelCentered>Search:</StyledLabelCentered>
@@ -32,6 +33,7 @@ function JournalPage(){
                 </SpanSpaceBetween>
             </StyledSectionInput>
             <StyledSectionInput>
+                <DreamsToJournal />
             </StyledSectionInput>
         </StyledDivPage>
     )
