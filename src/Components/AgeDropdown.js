@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 function AgeDropdown(props){
-    
+
     const StyledSelect = styled.select`
     border-radius: 5px;
     width: 80px;

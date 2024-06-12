@@ -1,11 +1,11 @@
 import styled from "styled-components"
 import { StyledContentTextInput, StyledTagInput, StyledLabelForm, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN } from "./StyledFormInputs";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Dropdown1To10 from "../Dropdown1To10";
 import PositivityDropdown from '../PositivityDropdown';
 import AgeDropdown from '../AgeDropdown';
 import POVDropdown from '../POVDropdown';
-import useStorage, {updateStorage} from "../useStorage";
+import useStorage, {exportToBrowser} from "../useStorage";
 import ApproveBtn from "./ApproveBtn";
 import { useNavigate } from "react-router";
 
@@ -61,14 +61,20 @@ function AddADreamForm (){
     // const id = Storage.dreamKey;
     // console.log(id);
 
-    const { updateStorage, dreams } = useStorage();
+    const { updateStorage, exportToBrowser, dreams } = useStorage();
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
         updateStorage(addDreamFormState);
+        console.log(addDreamFormState)
         setAddDreamFormState(refresh);
+        exportToBrowser();
         navigate("/journal-page");
     }
+
+    useEffect(() => {
+        console.log("Dreams state updated:", dreams);
+    }, [dreams]);
 
     const id = dreams.length+1;
     return(

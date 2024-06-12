@@ -1,18 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { json } from "react-router";
 
 function useStorage() {
-    const [dreams, setDreams] = useState([{}]);
-
-    function updateStorage(obj) {
-        setDreams(prevDreams => [...prevDreams, obj]);
-    }
+    const [dreams, setDreams] = useState(() => {
+        const savedDreams = localStorage.getItem("dreams");
+        return savedDreams ? JSON.parse(savedDreams) : [];
+    });
+    useEffect(() => {
+        console.log("Dreams state updated:", dreams);
+        localStorage.setItem("dreams", JSON.stringify(dreams));
+    }, [dreams]);
+    const updateStorage = (obj) => {setDreams(prevDreams => [...prevDreams, obj])}
 
     const importFromBrowser = () => {
-        // Implementation here
+        setDreams(json.parse(localStorage.getItem("dreams")));
     }
 
     const exportToBrowser = () => {
-        // Implementation here
+        localStorage.setItem("dreams", JSON.stringify(dreams));
     }
 
     return {
