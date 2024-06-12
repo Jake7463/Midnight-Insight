@@ -33,6 +33,16 @@ function JournalPage(){
                 </SpanSpaceBetween>
             </StyledSectionInput>
             <StyledSectionInput>
+                <SpanSpaceBetween style={{fontSize: "14px", fontWeight: "200"}}>
+                    <p>#</p>
+                    <p>Date</p>
+                    <p>Name</p>
+                    <p>L</p>
+                    <p>N</p>
+                    <p>Positivity</p>
+                    <p>Pride</p>
+                    <p>Score</p>
+                </SpanSpaceBetween>
                 <DreamsToJournal />
             </StyledSectionInput>
         </StyledDivPage>
