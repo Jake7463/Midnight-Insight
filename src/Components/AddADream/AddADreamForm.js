@@ -67,7 +67,7 @@ function AddADreamForm (){
         console.log(addDreamFormState)
         setAddDreamFormState(refresh);
         exportToBrowser();
-         navigate("/journal-page");
+        // navigate("/journal-page");
     }
 
     useEffect(() => {
