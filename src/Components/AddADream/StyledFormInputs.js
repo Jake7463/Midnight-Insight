@@ -115,12 +115,18 @@ const SpecialSpan = styled.span`
 
 const AllP = styled.p`
     background-color: #808080;
-    border-radius: 3px;
+    border-radius: 7px;
     padding: 0 2px;
+    font-size: 16px;
+      font-weight: 600;
+    @media (max-width: 480px){
+      font-size: 14px;
+      font-weight: 200;
+      border-radius: 3px;
+    }
 `;
 
 const BigP = styled(AllP)`
-  margin: 0 -10px;
   @media (max-width: 480px){
     display: none;
   }

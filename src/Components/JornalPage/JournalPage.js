@@ -32,7 +32,7 @@ function JournalPage(){
                     </StyledSpanInput>
                 </SpanSpaceBetween>
             </StyledSectionInput>
-            <StyledSectionInput>
+            <StyledSectionInput style={{marginBottom: "25px"}}>
                 <SpanSpaceBetween style={{fontSize: "14px", fontWeight: "200"}}>
                     <PAll>#</PAll>
                     <PAll>Date</PAll>

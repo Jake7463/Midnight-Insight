@@ -8,7 +8,7 @@ function DreamsToJournal (props){
         <>
         {dreams.map((dream) => (
             <SpanSpaceBetween key={dream.id} style={{backgroundColor: "#f1f1f1"}}>
-                <PAll># {dream.id}</PAll>
+                <PAll>#{dream.id}</PAll>
                 <PAll>{dream.date}</PAll>
                 <PAll>{dream.dreamName? dream.dreamName : "Unnamed"}</PAll>
                 <PBig>{dream.isLucid? "V" : "X"}</PBig>
