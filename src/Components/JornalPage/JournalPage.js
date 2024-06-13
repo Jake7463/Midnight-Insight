@@ -1,4 +1,4 @@
-import { SearchInput, SpanSpaceBetween, StyledDivPage, StyledH1Input, StyledLabelCentered, StyledLabelForm, StyledSectionInput, StyledSpanInput } from "../AddADream/StyledFormInputs";
+import { PAll, PBig, SearchInput, SpanSpaceBetween, StyledDivPage, StyledH1Input, StyledLabelCentered, StyledLabelForm, StyledSectionInput, StyledSpanInput } from "../AddADream/StyledFormInputs";
 import DreamsToJournal from "./DreamsToJournal";
 import FilterDropdown from "./FilterDropdown";
 import SortDropdown from "./SortDropdown";
@@ -34,14 +34,14 @@ function JournalPage(){
             </StyledSectionInput>
             <StyledSectionInput>
                 <SpanSpaceBetween style={{fontSize: "14px", fontWeight: "200"}}>
-                    <p>#</p>
-                    <p>Date</p>
-                    <p>Name</p>
-                    <p>L</p>
-                    <p>N</p>
-                    <p>Positivity</p>
-                    <p>Pride</p>
-                    <p>Score</p>
+                    <PAll>#</PAll>
+                    <PAll>Date</PAll>
+                    <PAll>Name</PAll>
+                    <PBig>L</PBig>
+                    <PBig>N</PBig>
+                    <PBig>Positivity</PBig>
+                    <PBig>Pride</PBig>
+                    <PBig>Score</PBig>
                 </SpanSpaceBetween>
                 <DreamsToJournal />
             </StyledSectionInput>

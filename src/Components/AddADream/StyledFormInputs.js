@@ -113,6 +113,19 @@ const SpecialSpan = styled.span`
   }
 `;
 
+const AllP = styled.p`
+    background-color: #808080;
+    border-radius: 3px;
+    padding: 0 2px;
+`;
+
+const BigP = styled(AllP)`
+  margin: 0 -10px;
+  @media (max-width: 480px){
+    display: none;
+  }
+`;
+
 const StyledContentTextInput = (props) => <StyledTextArea {...props} />;
 const StyledTagInput = (props) => <StyledTags {...props} />;
 const StyledSectionInput =(props) => <StyledSection {...props}/>;
@@ -124,6 +137,8 @@ const StyledDivPage = (props) => <StyledDiv {...props}/>
 const StyledLabelCentered = (props) => <StyledLabel2 {...props}/>
 const SearchInput = (props) => <Inp {...props}/>
 const SpanSpaceBetween = (props) => <SpecialSpan {...props}/>
+const PBig = (props) => <BigP {...props}/>
+const PAll = (props) => <AllP {...props}/>
 
 
-export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledLabelForm, StyledDivPage, StyledLabelCentered, SearchInput, SpanSpaceBetween};
+export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledLabelForm, StyledDivPage, StyledLabelCentered, SearchInput, SpanSpaceBetween, PBig, PAll};
