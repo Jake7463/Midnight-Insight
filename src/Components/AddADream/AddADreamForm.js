@@ -86,7 +86,7 @@ function AddADreamForm (){
                     ...addDreamFormState,
                     dreamContent: e.target.value,
                     id: id,
-                    date: `${(new Date()).getDate()}/${(new Date()).getMonth()+1}/${((new Date()).getYear())-1}`
+                    date: `${(new Date()).getDate()}/${(new Date()).getMonth()+1}/${((new Date()).getYear())-100}`
                 });
             }}/>
             <ApproveBtn />
