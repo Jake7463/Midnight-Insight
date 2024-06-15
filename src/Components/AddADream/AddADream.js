@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import TranscribeFromAudio from "./TranscribeFromAudio";
-import ImgtoText from './ImgToText';
+
 import AddADreamForm from "./AddADreamForm";
+import { StyledH1Input, StyledSectionInput } from "./StyledFormInputs";
 
 const StyledDiv =styled.div`
         background-color: #0B1B32;
@@ -14,38 +14,12 @@ const StyledDiv =styled.div`
         color: #f1f1f1;
 `;
 
-const StyledSpan = styled.span`
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    @media (min-width: 768.1px) {
-        flex-direction: row;
-        justify-conent: center;
-        gap: 80px;
-        margin: 0 10%;
-      }
-`;
-
-const StyledH2 = styled.h2`
-    text-decoration: none;
-    font-weight: 1000;
-    font-size: 19px;
-    width: 150px;
-    text-align: center;
-    color: #f1f1f1;
-`;
-
-
 
 function AddADream(){
 
     return (
         <StyledDiv>
-            <StyledSpan>
-                <TranscribeFromAudio />
-                <ImgtoText />
-            </StyledSpan>
-            <StyledH2>Or start typing</StyledH2>
+            <StyledH1Input style={{fontWeight: "1000", fontSize: "32px", marginTop: "30px"}}>ADD A DREAM</StyledH1Input>
             <AddADreamForm />
         </StyledDiv>
     )

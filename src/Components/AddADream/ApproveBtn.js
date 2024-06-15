@@ -24,8 +24,8 @@ const StyledBtn = styled.button`
     border: 2px solid #D1E2F9;
 `;
 
-function ApproveBtn(){
-    return <StyledBtn>Approve and continue<img src={ArrowRight} fill="#00FB76" alt="" style={{width: "65px"}}/></StyledBtn>;
+function ApproveBtn(props){
+    return <StyledBtn {...props}>Approve and continue<img src={ArrowRight} fill="#00FB76" alt="" style={{width: "65px"}}/></StyledBtn>;
 }
 
 export default ApproveBtn;

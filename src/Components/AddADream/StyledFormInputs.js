@@ -43,6 +43,18 @@ const StyledSpan = styled.span`
   margin: 8px 0;
 `;
 
+const StyledSpan4btns = styled.span`
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    @media (min-width: 768.1px) {
+        flex-direction: row;
+        justify-conent: center;
+        gap: 80px;
+        margin: 0 10%;
+      }
+`;
+
 const StyledH1 = styled.h1`
   font-weight: 800;
 `;
@@ -132,6 +144,36 @@ const BigP = styled(AllP)`
   }
 `;
 
+const StyledH2 = styled.h2`
+    text-decoration: none;
+    font-weight: 1000;
+    font-size: 19px;
+    width: 150px;
+    text-align: center;
+    color: #f1f1f1;
+`;
+
+const StyledBtn = styled.button`
+    all: unset;
+    padding: 2px 10px;
+    border: solid 1px #265CAE;
+    margin: 15px auto;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    background-color: #f1f1f1;
+    border-radius: 19px;
+    width: 250px;
+    gap: 10px;
+    &:hover{
+        cursor: pointer;
+        transform: scale(102%);
+    }
+`;
+
 const StyledContentTextInput = (props) => <StyledTextArea {...props} />;
 const StyledTagInput = (props) => <StyledTags {...props} />;
 const StyledSectionInput =(props) => <StyledSection {...props}/>;
@@ -145,6 +187,10 @@ const SearchInput = (props) => <Inp {...props}/>
 const SpanSpaceBetween = (props) => <SpecialSpan {...props}/>
 const PBig = (props) => <BigP {...props}/>
 const PAll = (props) => <AllP {...props}/>
+const StyledTrasncriberSpan = (props) => <StyledSpan4btns {...props}/>
+const StyledH2Form = (props) => <StyledH2 {...props} />
+const StyledTextFromBtn = (props) => <StyledBtn {...props} />
 
 
-export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledLabelForm, StyledDivPage, StyledLabelCentered, SearchInput, SpanSpaceBetween, PBig, PAll};
+
+export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledLabelForm, StyledDivPage, StyledLabelCentered, SearchInput, SpanSpaceBetween, PBig, PAll, StyledTrasncriberSpan, StyledH2Form, StyledTextFromBtn};
