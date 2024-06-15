@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import uploadImage from "../../img/upload-image-icon.svg";
+import uploadImage from "../../img/camera.svg";
 
 function ImgtoText(){
     const StyledBtn = styled.button`
@@ -38,8 +38,8 @@ function ImgtoText(){
 
     return(
         <StyledBtn >
-            <StyledImg src={uploadImage}></StyledImg>
-             <StyledP>Upload Image<br/>or<br/>Capture</StyledP> </StyledBtn>
+            <StyledImg src={uploadImage} style={{fill: "currentColor",color: "#00fb76"}}></StyledImg>
+             <StyledP>Text From Image Capture</StyledP> </StyledBtn>
     )
 }
 

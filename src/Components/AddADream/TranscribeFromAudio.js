@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import uploadAudio from "../../img/upload-mp3-icon.svg";
+import uploadAudio from "../../img/microphone.svg";
 
 const StyledBtn = styled.button`
     all: unset;
@@ -35,11 +35,11 @@ const StyledP = styled.p`
 `;
     // const handleClick1 = () => console.log("did!");
 function TranscribeFromAudio(){
-    
+
     return(
         <StyledBtn >
-            <StyledImg src={uploadAudio}/>
-             <StyledP>Upload audio<br/>or<br/>Start recording</StyledP>
+            <StyledImg src={uploadAudio} style={{height: "10vh"}}/>
+             <StyledP>Start recording</StyledP>
         </StyledBtn>
     )
 }
