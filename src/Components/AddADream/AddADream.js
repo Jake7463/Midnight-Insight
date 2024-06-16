@@ -17,6 +17,7 @@ import advance1 from "../../img/advance1.svg"
 import advance2 from "../../img/advance2.svg"
 import advance3 from "../../img/advance3.svg"
 import advance4 from "../../img/advance4.svg"
+import useUpdateStorage from "./useUpdateStorage";
 
 const obj = () => ({
     id: 0,
@@ -75,12 +76,17 @@ function AddADreamForm (){
     const [advance, setAdvance] = useState(advancement)
     const { updateStorage, exportToBrowser, dreams } = useStorage();
     // const navigate = useNavigate();
-    
-    async function handleSubmit(e){
+    let temp = addDreamFormState;
+    useEffect(()=>{
+        temp = addDreamFormState;
+        console.log(addDreamFormState);
+    },[addDreamFormState]);
+    const handleSubmit = (e) => {
         e.preventDefault();
-        await updateStorage(addDreamFormState);
-        await setAddDreamFormState(obj());
+        updateStorage(temp)
+        console.log(dreams);
         exportToBrowser();
+        setAddDreamFormState(obj());
         // navigate("/journal-page");
     }
 
@@ -116,7 +122,7 @@ function AddADreamForm (){
 
     return(
         <StyledDivForPages>
-            <StyledForm onSubmit={handleSubmit}>
+            <StyledForm onSubmit={(e)=>handleSubmit(e)}>
                 <StyledSectionInput style={{display: advance.a}}>
                     <StyledH1Input style={{fontWeight: "1000", fontSize: "32px", marginTop: "30px"}}>ADD A DREAM</StyledH1Input>
                     <StyledTrasncriberSpan>
@@ -374,7 +380,7 @@ function AddADreamForm (){
                             value={addDreamFormState.personalInterpretation }
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, personalInterpretation: e.target.value})}}/>
                     </StyledSpanInput>
-                <ApproveBtn type="submit" onClick={handleSubmit}/>
+                <ApproveBtn type="submit"/>
                 </StyledSectionInput>
             </StyledForm>
         </StyledDivForPages>
