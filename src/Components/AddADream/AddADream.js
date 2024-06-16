@@ -1,7 +1,7 @@
 import TranscribeFromAudio from "./TranscribeFromAudio";
 import ImgtoText from './ImgToText';
 import styled from "styled-components"
-import { StyledContentTextInput, StyledH2Form, StyledTrasncriberSpan, StyledTagInput, StyledLabelForm, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledDivForPages } from "./StyledFormInputs";
+import { StyledContentTextInput, StyledH2Form, StyledTrasncriberSpan, StyledTagInput, StyledLabelForm, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledDivForPages, AdvanceImg } from "./StyledFormInputs";
 import { useState, useEffect } from 'react';
 import Dropdown1To10 from "../Dropdown1To10";
 import PositivityDropdown from '../PositivityDropdown';
@@ -12,6 +12,11 @@ import ApproveBtn from "./ApproveBtn";
 import { useNavigate } from "react-router";
 import arrowBack from "../../img/arrowBack.svg"
 import { ArrowBack, ArrowImage } from "./arrowBack";
+import advance0 from "../../img/advance0.svg"
+import advance1 from "../../img/advance1.svg"
+import advance2 from "../../img/advance2.svg"
+import advance3 from "../../img/advance3.svg"
+import advance4 from "../../img/advance4.svg"
 
 const obj = () => ({
     id: 0,
@@ -118,9 +123,13 @@ function AddADreamForm (){
                     <ApproveBtn type="button" onClick={(e)=>click2Continue(e, "b")} style={{display: advance.a}} />
                 </StyledSectionInput>
                 <StyledSectionInput style={{display: advance.b}}>
-                    <ArrowBack onClick={(e) => click2GoBack(e, "a")} style={{display: advance.b}}>
-                        <ArrowImage src={arrowBack} alt = ""/>
-                    </ArrowBack>
+                    <StyledSpanInput>
+                        <ArrowBack onClick={(e) => click2GoBack(e, "a")} style={{display: advance.b}}>
+                            <ArrowImage src={arrowBack} alt = ""/>
+                        </ArrowBack>
+                        <AdvanceImg src={advance1}/>
+                    </StyledSpanInput>
+                    <StyledH1Input style={{maxWidth:"65vw", minWidth: "35vw", textAlign: "center"}}>Name & Tags</StyledH1Input>
                     <StyledLabelForm htmlFor="dreamNameInput">What would be a good name for the dream?</StyledLabelForm>
                     <StyledTagInput
                         id="dreamNameInput"
@@ -164,10 +173,13 @@ function AddADreamForm (){
                         <ApproveBtn type="button" onClick={(e)=>click2Continue(e, "c")} style={{display: advance.b}}/>
                 </StyledSectionInput>
                 <StyledSectionInput id="lucidAndNightmareSection" style={{display: advance.c}}>
-                    <ArrowBack onClick={(e) => click2GoBack(e, "b")} style={{display: advance.c}}>
-                        <ArrowImage src={arrowBack} alt = ""/>
-                    </ArrowBack>
-                    <StyledH1Input>Lucid And Nightmare</StyledH1Input>
+                    <StyledSpanInput>
+                        <ArrowBack onClick={(e) => click2GoBack(e, "b")} style={{display: advance.c}}>
+                            <ArrowImage src={arrowBack} alt = ""/>
+                        </ArrowBack>
+                        <AdvanceImg src={advance2}/>
+                    </StyledSpanInput>
+                    <StyledH1Input style={{maxWidth:"65vw", minWidth: "35vw", textAlign: "center"}}>Lucid And Nightmare</StyledH1Input>
                     <StyledSpanInput>
                         <input
                             type="checkbox"
@@ -250,10 +262,13 @@ function AddADreamForm (){
                     <ApproveBtn type="button" onClick={(e)=>click2Continue(e, "d")} style={{display: advance.c}}/>
                 </StyledSectionInput>
                 <StyledSectionInput style={{display: advance.d}}>
-                    <ArrowBack onClick={(e) => click2GoBack(e, "c")} style={{display: advance.d}}>
-                        <ArrowImage src={arrowBack} alt = ""/>
-                    </ArrowBack>
-                    <StyledH1Input>Your Insight</StyledH1Input>
+                    <StyledSpanInput style={{justifyContent: "center", alignItems: "center"}}>
+                        <ArrowBack onClick={(e) => click2GoBack(e, "c")} style={{display: advance.d}}>
+                            <ArrowImage src={arrowBack} alt = ""/>
+                        </ArrowBack>
+                        <AdvanceImg src={advance3}/>
+                    </StyledSpanInput>
+                    <StyledH1Input style={{maxWidth:"65vw", minWidth: "35vw", textAlign: "center"}}>Your Insight</StyledH1Input>
                     <StyledSpanInput>
                         <StyledLabelLN htmlFor="AADPositivity">Positivity:</StyledLabelLN>
                         <PositivityDropdown

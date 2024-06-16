@@ -57,6 +57,7 @@ const StyledSpan4btns = styled.span`
 
 const StyledH1 = styled.h1`
   font-weight: 800;
+
 `;
 
 const StyledLabel4LAndN = styled.label`
@@ -185,6 +186,15 @@ const StyledDivPages =styled.div`
         color: #f1f1f1;
 `;
 
+const StyledImg4AadNav = styled.img`
+  width: 55vw;
+  @media (min-width: 768.1px){
+    width: auto;
+    aspect-ration: initial;
+    width: 20vw;
+  }
+`;
+
 const StyledContentTextInput = (props) => <StyledTextArea {...props} />;
 const StyledTagInput = (props) => <StyledTags {...props} />;
 const StyledSectionInput =(props) => <StyledSection {...props}/>;
@@ -202,7 +212,8 @@ const StyledTrasncriberSpan = (props) => <StyledSpan4btns {...props}/>
 const StyledH2Form = (props) => <StyledH2 {...props} />
 const StyledTextFromBtn = (props) => <StyledBtn {...props} />
 const StyledDivForPages = (props) => <StyledDivPages {...props} />
+const AdvanceImg = (props) => <StyledImg4AadNav {...props} />
 
 
 
-export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledLabelForm, StyledDivPage, StyledLabelCentered, SearchInput, SpanSpaceBetween, PBig, PAll, StyledTrasncriberSpan, StyledH2Form, StyledTextFromBtn, StyledDivForPages};
+export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledLabelForm, StyledDivPage, StyledLabelCentered, SearchInput, SpanSpaceBetween, PBig, PAll, StyledTrasncriberSpan, StyledH2Form, StyledTextFromBtn, StyledDivForPages, AdvanceImg};
