@@ -174,6 +174,17 @@ const StyledBtn = styled.button`
     }
 `;
 
+const StyledDivPages =styled.div`
+        background-color: #0B1B32;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+        color: #f1f1f1;
+`;
+
 const StyledContentTextInput = (props) => <StyledTextArea {...props} />;
 const StyledTagInput = (props) => <StyledTags {...props} />;
 const StyledSectionInput =(props) => <StyledSection {...props}/>;
@@ -190,7 +201,8 @@ const PAll = (props) => <AllP {...props}/>
 const StyledTrasncriberSpan = (props) => <StyledSpan4btns {...props}/>
 const StyledH2Form = (props) => <StyledH2 {...props} />
 const StyledTextFromBtn = (props) => <StyledBtn {...props} />
+const StyledDivForPages = (props) => <StyledDivPages {...props} />
 
 
 
-export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledLabelForm, StyledDivPage, StyledLabelCentered, SearchInput, SpanSpaceBetween, PBig, PAll, StyledTrasncriberSpan, StyledH2Form, StyledTextFromBtn};
+export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledLabelForm, StyledDivPage, StyledLabelCentered, SearchInput, SpanSpaceBetween, PBig, PAll, StyledTrasncriberSpan, StyledH2Form, StyledTextFromBtn, StyledDivForPages};
