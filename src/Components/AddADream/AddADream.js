@@ -76,10 +76,10 @@ function AddADreamForm (){
     const { updateStorage, exportToBrowser, dreams } = useStorage();
     // const navigate = useNavigate();
     
-    const handleSubmit = (e) => {
+    async function handleSubmit(e){
         e.preventDefault();
-        updateStorage(addDreamFormState);
-        setAddDreamFormState(obj());
+        await updateStorage(addDreamFormState);
+        await setAddDreamFormState(obj());
         exportToBrowser();
         // navigate("/journal-page");
     }
@@ -96,6 +96,22 @@ function AddADreamForm (){
     function click2GoBack (e, step){
         e.preventDefault();
         setAdvance({a: "none", b: "none", c: "none", d:"none", [step]:"flex"});
+    }
+
+    const styledSubmit = {
+        all: "unset",
+        borderRadius: "19px",
+        backgroundColor: "#265CAE",
+        color: "#e2d351",
+        fontSize: "20px",
+        fontWeight: "800",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "180px",
+        padding: "12px 20px",
+        border: "2px solid #D1E2F9",
+        margin: "15px 0 25px 0"
     }
 
     return(
@@ -358,7 +374,7 @@ function AddADreamForm (){
                             value={addDreamFormState.personalInterpretation }
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, personalInterpretation: e.target.value})}}/>
                     </StyledSpanInput>
-                <button type="submit">Submit</button>
+                <ApproveBtn type="submit" onClick={handleSubmit}/>
                 </StyledSectionInput>
             </StyledForm>
         </StyledDivForPages>
