@@ -6,7 +6,7 @@ const StyledBtn = styled.button`
     all: unset;
     border-radius: 19px;
     background-color: #265CAE;
-    color: #00FB76;
+    color: #f1f1f1;
     font-family: "Mulish", sans-serif;
     font-size: 20px;
     font-weight: 800;
@@ -18,10 +18,10 @@ const StyledBtn = styled.button`
     align-items: center;
     justify-content: center;
     overflow-wrap: break-word;
-    padding: 4px 10px;
-    width: 220px;
+    width: 180px;
     padding: 12px 20px;
     border: 2px solid #D1E2F9;
+    margin: 15px 0 25px 0;
 `;
 
 function ApproveBtn(props){

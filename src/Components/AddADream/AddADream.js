@@ -10,8 +10,8 @@ import POVDropdown from '../POVDropdown';
 import useStorage from "../useStorage";
 import ApproveBtn from "./ApproveBtn";
 import { useNavigate } from "react-router";
-import ArrowBack from "./ArrowBack";
 import arrowBack from "../../img/arrowBack.svg"
+import { ArrowBack, ArrowImage } from "./arrowBack";
 
 const obj = () => ({
     id: 0,
@@ -79,9 +79,6 @@ function AddADreamForm (){
         // navigate("/journal-page");
     }
 
-    useEffect(() => {
-        console.log("Dreams state updated:", dreams);
-    }, [dreams]);
 
     const click2Continue = (e, step) => {
         e.preventDefault();
@@ -122,7 +119,7 @@ function AddADreamForm (){
                 </StyledSectionInput>
                 <StyledSectionInput style={{display: advance.b}}>
                     <ArrowBack onClick={(e) => click2GoBack(e, "a")} style={{display: advance.b}}>
-                        <img src={arrowBack}/>
+                        <ArrowImage src={arrowBack} alt = ""/>
                     </ArrowBack>
                     <StyledLabelForm htmlFor="dreamNameInput">What would be a good name for the dream?</StyledLabelForm>
                     <StyledTagInput
@@ -168,7 +165,7 @@ function AddADreamForm (){
                 </StyledSectionInput>
                 <StyledSectionInput id="lucidAndNightmareSection" style={{display: advance.c}}>
                     <ArrowBack onClick={(e) => click2GoBack(e, "b")} style={{display: advance.c}}>
-                        <img src={arrowBack}/>
+                        <ArrowImage src={arrowBack} alt = ""/>
                     </ArrowBack>
                     <StyledH1Input>Lucid And Nightmare</StyledH1Input>
                     <StyledSpanInput>
@@ -254,7 +251,7 @@ function AddADreamForm (){
                 </StyledSectionInput>
                 <StyledSectionInput style={{display: advance.d}}>
                     <ArrowBack onClick={(e) => click2GoBack(e, "c")} style={{display: advance.d}}>
-                        <img src={arrowBack}/>
+                        <ArrowImage src={arrowBack} alt = ""/>
                     </ArrowBack>
                     <StyledH1Input>Your Insight</StyledH1Input>
                     <StyledSpanInput>

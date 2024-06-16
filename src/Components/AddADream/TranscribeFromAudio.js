@@ -16,7 +16,7 @@ const StyledP = styled.p`
     width: 150px;
     text-align: left;
 `;
-    // const handleClick1 = () => console.log("did!");
+
 function TranscribeFromAudio(){
 
     return(

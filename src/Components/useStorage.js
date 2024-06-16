@@ -5,10 +5,7 @@ function useStorage() {
         const savedDreams = localStorage.getItem("dreams");
         return savedDreams ? JSON.parse(savedDreams) : [];
     });
-    useEffect(() => {
-        console.log("Dreams state updated:", dreams);
-        localStorage.setItem("dreams", JSON.stringify(dreams));
-    }, [dreams]);
+    
     const updateStorage = (obj) => {setDreams((prevDreams) => [...prevDreams, obj])}
 
     const importFromBrowser = () => {

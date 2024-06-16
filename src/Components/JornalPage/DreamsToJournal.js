@@ -3,7 +3,6 @@ import useStorage from "../useStorage";
 
 function DreamsToJournal (props){
     const { dreams } = useStorage();
-    console.log(dreams)
     return(
         <>
         {dreams.map((dream) => (

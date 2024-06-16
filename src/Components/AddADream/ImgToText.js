@@ -16,7 +16,6 @@ function ImgtoText(){
         width: 150px;
         text-align: left;
     `;
-    // const handleClick1 = () => console.log("did!");
 
     return(
         <StyledSpanInput style={{flexDirection: "column"}}>
