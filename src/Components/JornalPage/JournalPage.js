@@ -34,14 +34,14 @@ function JournalPage(){
             </StyledSectionInput>
             <StyledSectionInput style={{marginBottom: "25px"}}>
                 <SpanSpaceBetween style={{fontSize: "14px", fontWeight: "200"}}>
-                    <PAll>#</PAll>
+                    <PAll style={{marginLeft: "10px"}}>#</PAll>
                     <PAll>Date</PAll>
-                    <PAll>Name</PAll>
+                    <PAll style={{marginRight: "10px"}}>Name</PAll>
                     <PBig>L</PBig>
                     <PBig>N</PBig>
-                    <PBig>Positivity</PBig>
-                    <PBig>Pride</PBig>
-                    <PBig>Score</PBig>
+                    <PBig style={{marginRight: "-40px"}}>PoS</PBig>
+                    <PBig style={{marginLeft: "40px"}}>PrS</PBig>
+                    <PBig>PS</PBig>
                 </SpanSpaceBetween>
                 <DreamsToJournal />
             </StyledSectionInput>
