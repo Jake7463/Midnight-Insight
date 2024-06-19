@@ -76,6 +76,9 @@ function AddADreamForm (){
     const [advance, setAdvance] = useState(advancement)
     const { updateStorage, exportToBrowser, dreams } = useStorage();
     // const navigate = useNavigate();
+    const [isError, setIsError] = useState({
+        error: true,
+        color: "#f1f1f1"})
     let temp = addDreamFormState;
     useEffect(()=>{
         temp = addDreamFormState;
@@ -120,6 +123,11 @@ function AddADreamForm (){
         margin: "15px 0 25px 0"
     }
 
+    const mustFill = () =>{
+        setIsError({...isError, color: "#e71c00"})
+        document.querySelector("#textAreaInput").focus();
+    }
+
     return(
         <StyledDivForPages>
             <StyledForm onSubmit={(e)=>handleSubmit(e)}>
@@ -130,7 +138,7 @@ function AddADreamForm (){
                         <ImgtoText />
                     </StyledTrasncriberSpan>
                     <StyledH2Form>Or start typing</StyledH2Form>
-                    <StyledLabelForm htmlFor="textAreaInput">Dream Content</StyledLabelForm>
+                    <StyledLabelForm htmlFor="textAreaInput" id="dreamContent" required="true" style={{color: isError.color}}>Dream Content <sup>*</sup></StyledLabelForm>
                     <StyledContentTextInput
                         id="textAreaInput"
                         placeholder="Start writing here"
@@ -141,8 +149,11 @@ function AddADreamForm (){
                             id: id,
                             date: `${(new Date()).getDate()}/${(new Date()).getMonth()+1}/${((new Date()).getYear())-100}`
                         });
+                        addDreamFormState.dreamContent == "" ? setIsError({error: true, color: "#e71c00"}) : setIsError({error: false, color: "#f1f1f1"})
                     }}/>
-                    <ApproveBtn type="button" onClick={(e)=>click2Continue(e, "b")} style={{display: advance.a}} />
+                    <ApproveBtn type="button"  style={{display: advance.a}}
+                    onClick={(e)=>{isError.error ? mustFill() : click2Continue(e, "b")}}
+                        onMouseUp={mustFill}/>
                 </StyledSectionInput>
                 <StyledSectionInput style={{display: advance.b}}>
                     <StyledSpanInput>

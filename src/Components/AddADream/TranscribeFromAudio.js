@@ -21,7 +21,7 @@ function TranscribeFromAudio(){
 
     return(
         <StyledSpanInput style={{flexDirection: "column"}}>
-        <StyledLabelForm>Transcribe from audio</StyledLabelForm>
+        <StyledLabelForm style={{marginBottom: "-30px"}}>Transcribe from audio</StyledLabelForm>
             <StyledTextFromBtn >
                 <StyledImg src={uploadAudio} style={{height: "10vh"}}/>
                 <StyledP>Start recording</StyledP>

@@ -19,7 +19,7 @@ function ImgtoText(){
 
     return(
         <StyledSpanInput style={{flexDirection: "column"}}>
-        <StyledLabelForm> Extract text from Image</StyledLabelForm>
+        <StyledLabelForm style={{marginBottom: "-30px"}}> Extract text from Image</StyledLabelForm>
         <StyledTextFromBtn >
             <StyledImg src={uploadImage} style={{fill: "currentColor",color: "#00fb76"}}></StyledImg>
             <StyledP>Image Capture</StyledP>
