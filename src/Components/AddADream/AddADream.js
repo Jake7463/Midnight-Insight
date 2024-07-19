@@ -71,7 +71,7 @@ const StyledSpan4Radio = styled(StyledSpanInput)`
 `;
 
 
-function AddADreamForm (){
+function AddADream (){
     const [addDreamFormState, setAddDreamFormState] = useState(obj());
     const [advance, setAdvance] = useState(advancement)
     const { updateStorage, exportToBrowser, dreams } = useStorage();
@@ -107,20 +107,29 @@ function AddADreamForm (){
         setAdvance({a: "none", b: "none", c: "none", d:"none", [step]:"flex"});
     }
 
-    const styledSubmit = {
-        all: "unset",
-        borderRadius: "19px",
-        backgroundColor: "#265CAE",
-        color: "#e2d351",
-        fontSize: "20px",
-        fontWeight: "800",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "180px",
-        padding: "12px 20px",
-        border: "2px solid #D1E2F9",
-        margin: "15px 0 25px 0"
+    const [tempTags, setTempTags] = useState({
+        emotions: "",
+        people: "",
+        places: "",
+        general: ""
+    });
+
+
+    const toArray = (string) => {
+        const arr = string.split(",").map(item => item.trim()).filter(Boolean);
+        return arr;
+    }
+
+    const arrayFinalize = () => {
+        console.log(tempTags);
+        setAddDreamFormState({
+            ...addDreamFormState,
+            emotionTags: toArray(tempTags.emotions),
+            peopleTags: toArray(tempTags.people),
+            placesTags: toArray(tempTags.places),
+            generalTags: toArray(tempTags.general)
+        });
+        console.log(addDreamFormState);
     }
 
     const mustFill = () =>{
@@ -176,34 +185,37 @@ function AddADreamForm (){
                         id="emotionTagsInput"
                         className="emotionTagsInput"
                         type="text"
-                        value={addDreamFormState.emotionTags}
+                        // value={addDreamFormState.emotionTags}
                         placeholder="Emotions tags"
-                        onChange={(e)=>{setAddDreamFormState({...addDreamFormState, emotionTags: e.target.value})}}/>
+                        onChange={(e)=>{setTempTags({...tempTags, emotions: e.target.value})}}/>
                     <StyledLabelForm htmlFor="peopleTagsInput">Who was there in your dream?</StyledLabelForm>
                     <StyledTagInput
                         id="peopleTagsInput"
                         className="peopleTagsInput"
                         type="text"
-                        value={addDreamFormState.peopleTags}
+                        // value={addDreamFormState.peopleTags}
                         placeholder="People tags"
-                        onChange={(e)=>{setAddDreamFormState({...addDreamFormState, peopleTags: e.target.value})}}/>
+                        onChange={(e)=>{setTempTags({...tempTags, people: e.target.value})}}/>
                     <StyledLabelForm htmlFor="placesTagsInput">Where were you in the dream?</StyledLabelForm>
                     <StyledTagInput
                         id="placesTagsInput"
                         className="placesTagsInput"
                         type="text"
-                        value={addDreamFormState.placesTags}
+                        // value={addDreamFormState.placesTags}
                         placeholder="ex: 3rd grade house, middle school, volcano, previous workplace"
-                        onChange={(e)=>{setAddDreamFormState({...addDreamFormState, placesTags: e.target.value})}}/>
+                        onChange={(e)=>{setTempTags({...tempTags, places: e.target.value})}}/>
                     <StyledLabelForm htmlFor="generalTagsInput">General Tags</StyledLabelForm>
                     <StyledTagInput
                         id="generalTagsInput"
                         className="dreamGeneralTags"
                         type="text"
-                        value={addDreamFormState.generalTags}
+                        // value={addDreamFormState.generalTags}
                         placeholder="General tags"
-                        onChange={(e)=>{setAddDreamFormState({...addDreamFormState, generalTags: e.target.value})}}/>
-                        <ApproveBtn type="button" onClick={(e)=>click2Continue(e, "c")} style={{display: advance.b}}/>
+                        onChange={(e)=>{setTempTags({...tempTags, general: e.target.value})}}/>
+                        <ApproveBtn type="button" onClick={(e)=>
+                                {click2Continue(e, "c");
+                                arrayFinalize();}}
+                            style={{display: advance.b}}/>
                 </StyledSectionInput>
                 <StyledSectionInput id="lucidAndNightmareSection" style={{display: advance.c}}>
                     <StyledSpanInput>
@@ -398,4 +410,4 @@ function AddADreamForm (){
         )
 }
 
-export default AddADreamForm;
+export default AddADream;
