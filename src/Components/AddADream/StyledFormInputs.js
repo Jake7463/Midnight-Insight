@@ -175,6 +175,28 @@ const StyledBtn = styled.button`
     }
 `;
 
+const StyledSbmtBtn = styled.button`
+    all: unset;
+    border-radius: 19px;
+    background-color: #265CAE;
+    color: #E2D351;
+    font-family: "Mulish", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    &:hover{
+        cursor: pointer;
+        transform: scale(102%);
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-wrap: break-word;
+    width: 180px;
+    padding: 12px 20px;
+    border: 2px solid #E2D351;
+    margin: 15px 0 25px 0;
+`;
+
 const StyledDivPages =styled.div`
         background-color: #0B1B32;
         display: flex;
@@ -213,7 +235,8 @@ const StyledH2Form = (props) => <StyledH2 {...props} />
 const StyledTextFromBtn = (props) => <StyledBtn {...props} />
 const StyledDivForPages = (props) => <StyledDivPages {...props} />
 const AdvanceImg = (props) => <StyledImg4AadNav {...props} />
+const SbmtBtn = (props) => <StyledSbmtBtn {...props} />
 
 
 
-export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledLabelForm, StyledDivPage, StyledLabelCentered, SearchInput, SpanSpaceBetween, PBig, PAll, StyledTrasncriberSpan, StyledH2Form, StyledTextFromBtn, StyledDivForPages, AdvanceImg};
+export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledLabelForm, StyledDivPage, StyledLabelCentered, SearchInput, SpanSpaceBetween, PBig, PAll, StyledTrasncriberSpan, StyledH2Form, StyledTextFromBtn, StyledDivForPages, AdvanceImg, SbmtBtn};

@@ -1,7 +1,7 @@
 import TranscribeFromAudio from "./TranscribeFromAudio";
 import ImgtoText from './ImgToText';
 import styled from "styled-components"
-import { StyledContentTextInput, StyledH2Form, StyledTrasncriberSpan, StyledTagInput, StyledLabelForm, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledDivForPages, AdvanceImg } from "./StyledFormInputs";
+import { StyledContentTextInput, StyledH2Form, StyledTrasncriberSpan, StyledTagInput, StyledLabelForm, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledDivForPages, AdvanceImg, SbmtBtn } from "./StyledFormInputs";
 import { useState, useEffect } from 'react';
 import Dropdown1To10 from "../Dropdown1To10";
 import PositivityDropdown from '../PositivityDropdown';
@@ -9,7 +9,7 @@ import AgeDropdown from '../AgeDropdown';
 import POVDropdown from '../POVDropdown';
 import useStorage from "../useStorage";
 import ApproveBtn from "./ApproveBtn";
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 import arrowBack from "../../img/arrowBack.svg"
 import { ArrowBack, ArrowImage } from "./arrowBack";
 import advance0 from "../../img/advance0.svg"
@@ -18,6 +18,7 @@ import advance2 from "../../img/advance2.svg"
 import advance3 from "../../img/advance3.svg"
 import advance4 from "../../img/advance4.svg"
 import useUpdateStorage from "./useUpdateStorage";
+import UpdateAndFX from "./FunctionAndFX";
 
 const obj = () => ({
     id: 0,
@@ -70,7 +71,6 @@ const StyledSpan4Radio = styled(StyledSpanInput)`
     }
 `;
 
-
 function AddADream (){
     const [addDreamFormState, setAddDreamFormState] = useState(obj());
     const [advance, setAdvance] = useState(advancement)
@@ -79,18 +79,20 @@ function AddADream (){
     const [isError, setIsError] = useState({
         error: true,
         color: "#f1f1f1"})
+
     let temp = addDreamFormState;
+
     useEffect(()=>{
         temp = addDreamFormState;
         console.log(addDreamFormState);
     },[addDreamFormState]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        updateStorage(temp)
-        console.log(dreams);
-        exportToBrowser();
-        setAddDreamFormState(obj());
-        // navigate("/journal-page");
+        UpdateAndFX(temp, updateStorage);
+        UpdateAndFX(dreams, exportToBrowser);
+        UpdateAndFX(obj, setAddDreamFormState)
+        Navigate("/journal-page");
     }
 
 
@@ -121,7 +123,6 @@ function AddADream (){
     }
 
     const arrayFinalize = () => {
-        console.log(tempTags);
         setAddDreamFormState({
             ...addDreamFormState,
             emotionTags: toArray(tempTags.emotions),
@@ -129,7 +130,6 @@ function AddADream (){
             placesTags: toArray(tempTags.places),
             generalTags: toArray(tempTags.general)
         });
-        console.log(addDreamFormState);
     }
 
     const mustFill = () =>{
@@ -158,7 +158,7 @@ function AddADream (){
                             id: id,
                             date: `${(new Date()).getDate()}/${(new Date()).getMonth()+1}/${((new Date()).getYear())-100}`
                         });
-                        addDreamFormState.dreamContent == "" ? setIsError({error: true, color: "#e71c00"}) : setIsError({error: false, color: "#f1f1f1"})
+                        addDreamFormState.dreamContent === "" ? setIsError({error: true, color: "#e71c00"}) : setIsError({error: false, color: "#f1f1f1"})
                     }}/>
                     <ApproveBtn type="button"  style={{display: advance.a}}
                     onClick={(e)=>{isError.error ? mustFill() : click2Continue(e, "b")}}
@@ -231,7 +231,7 @@ function AddADream (){
                             id="isLucid"
                             name="isLucid"
                             value={addDreamFormState.isLucid}
-                            onChange={(e)=>{setAddDreamFormState({...addDreamFormState, isLucid: e.target.value})}}/>
+                            onChange={(e)=>{setAddDreamFormState({...addDreamFormState, isLucid: e.target.checked})}}/>
                         <label htmlFor="isLucid"><h2>Lucid Dream</h2></label>
                     </StyledSpanInput>
                     <StyledSpanInput>
@@ -264,7 +264,7 @@ function AddADream (){
                             id="isNightmare"
                             name="isNightmare"
                             value={addDreamFormState.isNightmare}
-                            onChange={(e)=>{setAddDreamFormState({...addDreamFormState, isNightmare: e.target.value})}}/>
+                            onChange={(e)=>{setAddDreamFormState({...addDreamFormState, isNightmare: e.target.checked})}}/>
                         <label htmlFor="isNightmare"><h2>Nightmare</h2></label>
                     </StyledSpanInput>
                     <StyledSpanInput>
@@ -403,7 +403,7 @@ function AddADream (){
                             value={addDreamFormState.personalInterpretation }
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, personalInterpretation: e.target.value})}}/>
                     </StyledSpanInput>
-                <ApproveBtn type="submit"/>
+                <SbmtBtn type="submit">Finish & Submit</SbmtBtn>
                 </StyledSectionInput>
             </StyledForm>
         </StyledDivForPages>
