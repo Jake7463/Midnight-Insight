@@ -18,7 +18,6 @@ import advance2 from "../../img/advance2.svg"
 import advance3 from "../../img/advance3.svg"
 import advance4 from "../../img/advance4.svg"
 import useUpdateStorage from "./useUpdateStorage";
-import UpdateAndFX from "./FunctionAndFX";
 
 const obj = () => ({
     id: 0,
@@ -75,7 +74,7 @@ function AddADream (){
     const [addDreamFormState, setAddDreamFormState] = useState(obj());
     const [advance, setAdvance] = useState(advancement)
     const { updateStorage, exportToBrowser, dreams } = useStorage();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [isError, setIsError] = useState({
         error: true,
         color: "#f1f1f1"})
@@ -84,15 +83,16 @@ function AddADream (){
 
     useEffect(()=>{
         temp = addDreamFormState;
-        console.log(addDreamFormState);
     },[addDreamFormState]);
 
-    const handleSubmit = (e) => {
+    
+    async function handleSubmit(e) {
         e.preventDefault();
-        UpdateAndFX(temp, updateStorage);
-        UpdateAndFX(dreams, exportToBrowser);
-        UpdateAndFX(obj, setAddDreamFormState)
-        Navigate("/journal-page");
+        await new Promise.resolve(temp).
+        then(updateStorage(temp)).
+        then(exportToBrowser(dreams));
+        setAddDreamFormState(obj)
+        navigate("/journal-page");
     }
 
 
