@@ -88,8 +88,8 @@ function AddADream (){
     const handleSubmit = (e) => {
         e.preventDefault();
         updateStorage(temp)
-        // setTimeout(setAddDreamFormState(obj), 5000);
-        navigate("/journal-page");
+        // setAddDreamFormState(obj);
+        // navigate("/journal-page");
     }
 
 
