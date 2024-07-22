@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
 import { json } from "react-router";
 
-let something = 0;
-let something2 = 0;
-
 function useStorage() {
     const [dreams, setDreams] = useState(() => {
         const savedDreams = localStorage.getItem("dreams");
@@ -13,10 +10,6 @@ function useStorage() {
     useEffect(()=>{
         localStorage.setItem("dreams", JSON.stringify(dreams))
     }, [dreams])
-    
-    // useEffect((obj)=>{
-    //     setDreams((prevDreams) => [...prevDreams, obj]);
-    // }, something2)
 
     const updateStorage = (obj) => {
         const anotherTemp = JSON.stringify(obj);

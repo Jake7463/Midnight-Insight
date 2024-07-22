@@ -89,10 +89,8 @@ function AddADream (){
         e.preventDefault();
         updateStorage(temp)
         setAddDreamFormState(obj);
-
-        setTimeout(()=>navigate("/journal-page"),1500);
+        setTimeout(()=>navigate("/journal-page"),1800);
     }
-
 
     const click2Continue = (e, step) => {
         e.preventDefault();
