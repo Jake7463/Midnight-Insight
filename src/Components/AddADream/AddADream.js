@@ -82,14 +82,15 @@ function AddADream (){
     let temp = addDreamFormState;
 
     useEffect(()=>{
-        temp = addDreamFormState;
+        temp = JSON.parse(JSON.stringify(addDreamFormState));
     },[addDreamFormState]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         updateStorage(temp)
-        // setAddDreamFormState(obj);
-        // navigate("/journal-page");
+        setAddDreamFormState(obj);
+
+        setTimeout(()=>navigate("/journal-page"),1500);
     }
 
 

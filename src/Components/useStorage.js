@@ -22,14 +22,6 @@ function useStorage() {
         const anotherTemp = JSON.stringify(obj);
         const finalTemp = JSON.parse(anotherTemp);
         setDreams((prevDreams) => [...prevDreams, obj]);
-        console.log("this is dreams: ", dreams);
-        console.log("this is last plase of dreams: ", dreams[dreams.length-1]);
-        console.log("this is obj: ", obj);
-        console.log("this is final Temp: ", finalTemp);
-        setTimeout(()=>{
-            console.log("this is dreams: ", dreams);
-            console.log("this is last plase of dreams: ", dreams[dreams.length-1]);
-        },20000);
         return dreams;
     }
 
@@ -37,14 +29,9 @@ function useStorage() {
         setDreams(JSON.parse(localStorage.getItem("dreams")));
     }
 
-    const exportToBrowser = () => {
-        something++;
-    }
-
     return {
         updateStorage,
         importFromBrowser,
-        exportToBrowser,
         dreams,
     }
 }
