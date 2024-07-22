@@ -85,12 +85,9 @@ function AddADream (){
         temp = addDreamFormState;
     },[addDreamFormState]);
 
-    
-    async function handleSubmit(e) {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        await new Promise.resolve(temp).
-        then(updateStorage(temp)).
-        then(exportToBrowser(dreams));
+        updateStorage(temp);
         setAddDreamFormState(obj)
         navigate("/journal-page");
     }
