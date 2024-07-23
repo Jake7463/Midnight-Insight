@@ -77,7 +77,17 @@ function AddADream (){
     const navigate = useNavigate();
     const [isError, setIsError] = useState({
         error: true,
-        color: "#f1f1f1"})
+        color: "#f1f1f1"
+    })
+    const [isLucidCollapse, setIsLucidCollapse] = useState(false);
+    const [isNightmareCollapse, setIsNightmareCollapse] = useState(false);
+
+    const collapseLucid = (bool) => {
+        setIsLucidCollapse(bool);
+    }
+    const collapseNightmare = (bool) => {
+        setIsNightmareCollapse(bool);
+    }
 
     let temp = addDreamFormState;
 
@@ -146,7 +156,7 @@ function AddADream (){
                     <StyledLabelForm htmlFor="textAreaInput" id="dreamContent" required="true" style={{color: isError.color}}>Dream Content <sup>*</sup></StyledLabelForm>
                     <StyledContentTextInput
                         id="textAreaInput"
-                        placeholder="Start writing here"
+                        placeholder="Not sure how to describe your dream? Try to think of your basic senses - What did you see, feel, smell, taste, touch? Where? Who was there, what happened? If you don't remember 'anything at all', descriptions like 'I remember a blue blob and I remember thinking it had some importance, maybe', are better that not writing at all"
                         value={addDreamFormState.dreamContent}
                         onChange={(e)=>{setAddDreamFormState({
                             ...addDreamFormState,
@@ -182,7 +192,7 @@ function AddADream (){
                         className="emotionTagsInput"
                         type="text"
                         // value={addDreamFormState.emotionTags}
-                        placeholder="Emotions tags"
+                        placeholder="ex: happiness, excited, impatient, disgust, fear, ..."
                         onChange={(e)=>{setTempTags({...tempTags, emotions: e.target.value})}}/>
                     <StyledLabelForm htmlFor="peopleTagsInput">Who was there in your dream?</StyledLabelForm>
                     <StyledTagInput
@@ -190,7 +200,7 @@ function AddADream (){
                         className="peopleTagsInput"
                         type="text"
                         // value={addDreamFormState.peopleTags}
-                        placeholder="People tags"
+                        placeholder="ex: mom, pete, prev boss, highschool crush, ..."
                         onChange={(e)=>{setTempTags({...tempTags, people: e.target.value})}}/>
                     <StyledLabelForm htmlFor="placesTagsInput">Where were you in the dream?</StyledLabelForm>
                     <StyledTagInput
@@ -206,7 +216,7 @@ function AddADream (){
                         className="dreamGeneralTags"
                         type="text"
                         // value={addDreamFormState.generalTags}
-                        placeholder="General tags"
+                        placeholder="ex: superpowers ,friendship, lizards, dragon eggs, giant apples, ..."
                         onChange={(e)=>{setTempTags({...tempTags, general: e.target.value})}}/>
                         <ApproveBtn type="button" onClick={(e)=>
                                 {click2Continue(e, "c");
@@ -227,32 +237,37 @@ function AddADream (){
                             id="isLucid"
                             name="isLucid"
                             value={addDreamFormState.isLucid}
-                            onChange={(e)=>{setAddDreamFormState({...addDreamFormState, isLucid: e.target.checked})}}/>
+                            onChange={(e)=>{
+                                setAddDreamFormState({...addDreamFormState, isLucid: e.target.checked});
+                                collapseLucid(e.target.checked);
+                                }}/>
                         <label htmlFor="isLucid"><h2>Lucid Dream</h2></label>
                     </StyledSpanInput>
-                    <StyledSpanInput>
-                        <StyledLabelLN htmlFor="AADClarityScore">Clarity:</StyledLabelLN>
-                        <Dropdown1To10
-                            id="AADClarityScore"
-                            name="AADClarityScore"
-                            value={addDreamFormState.lucidClarity}
-                            onChange={(e)=>{setAddDreamFormState({...addDreamFormState, lucidClarity: e.target.value})}}/>
-                    </StyledSpanInput>
-                    <StyledSpanInput>
-                        <StyledLabelLN htmlFor="AADCohesionScore">Cohesion:</StyledLabelLN>
-                        <Dropdown1To10
-                            id="AADCohesionScore"
-                            name="AADCohesionScore"
-                            value={addDreamFormState.lucidCohesion}
-                            onChange={(e)=>{setAddDreamFormState({...addDreamFormState, lucidCohesion: e.target.value})}} />
-                    </StyledSpanInput>
-                    <StyledSpanInput>
-                        <StyledLabelLN htmlFor="AADControlScore">Control:</StyledLabelLN>
-                        <Dropdown1To10
-                            id="AADControlScore"
-                            name="AADControlScore"
-                            value={addDreamFormState.lucidControl}
-                            onChange={(e)=>{setAddDreamFormState({...addDreamFormState, lucidControl: e.target.value})}}/>
+                    <StyledSpanInput style={{display: isLucidCollapse ? "flex" : "none", flexDirection: "column"}}>
+                        <StyledSpanInput>
+                            <StyledLabelLN htmlFor="AADClarityScore">Clarity:</StyledLabelLN>
+                            <Dropdown1To10
+                                id="AADClarityScore"
+                                name="AADClarityScore"
+                                value={addDreamFormState.lucidClarity}
+                                onChange={(e)=>{setAddDreamFormState({...addDreamFormState, lucidClarity: e.target.value})}}/>
+                        </StyledSpanInput>
+                        <StyledSpanInput>
+                            <StyledLabelLN htmlFor="AADCohesionScore">Cohesion:</StyledLabelLN>
+                            <Dropdown1To10
+                                id="AADCohesionScore"
+                                name="AADCohesionScore"
+                                value={addDreamFormState.lucidCohesion}
+                                onChange={(e)=>{setAddDreamFormState({...addDreamFormState, lucidCohesion: e.target.value})}} />
+                        </StyledSpanInput>
+                        <StyledSpanInput>
+                            <StyledLabelLN htmlFor="AADControlScore">Control:</StyledLabelLN>
+                            <Dropdown1To10
+                                id="AADControlScore"
+                                name="AADControlScore"
+                                value={addDreamFormState.lucidControl}
+                                onChange={(e)=>{setAddDreamFormState({...addDreamFormState, lucidControl: e.target.value})}}/>
+                        </StyledSpanInput>
                     </StyledSpanInput>
                     <StyledSpanInput>
                         <input
@@ -260,45 +275,50 @@ function AddADream (){
                             id="isNightmare"
                             name="isNightmare"
                             value={addDreamFormState.isNightmare}
-                            onChange={(e)=>{setAddDreamFormState({...addDreamFormState, isNightmare: e.target.checked})}}/>
+                            onChange={(e)=>{
+                                setAddDreamFormState({...addDreamFormState, isNightmare: e.target.checked});
+                                collapseNightmare(e.target.checked);
+                            }}/>
                         <label htmlFor="isNightmare"><h2>Nightmare</h2></label>
                     </StyledSpanInput>
-                    <StyledSpanInput>
-                        <StyledLabelLN htmlFor="AADNightmareIntensity">Intensity:</StyledLabelLN>
-                        <Dropdown1To10
-                            id="AADNightmareIntensity"
-                            name="AADNightmareIntensity"
-                            value={addDreamFormState.nightmareIntensity}
-                            onChange={(e)=>{setAddDreamFormState({...addDreamFormState, nightmareIntensity: e.target.value})}}/>
-                    </StyledSpanInput>
-                    <h3>Reaction</h3>
-                    <StyledSpanInput>
-                        <input type="checkbox" id="didRun" name="didRun"
-                            value={addDreamFormState.nightmareReaction.run}
-                            onChange={(e)=>{
-                                setAddDreamFormState({...addDreamFormState, nightmareReaction:{
-                                    ...addDreamFormState.nightmareReaction, run: e.target.checked}})}}/>
-                        <StyledLabelLN htmlFor="didRun">Run</StyledLabelLN>
-                        <input type="checkbox" id="didFightBack" name="didFightBack"
-                            value={addDreamFormState.nightmareReaction.fightBack}
-                            onChange={(e)=>{
-                                setAddDreamFormState({...addDreamFormState, nightmareReaction:{
-                                    ...addDreamFormState.nightmareReaction, fightBack: e.target.checked}})}}/>
-                        <StyledLabelLN htmlFor="didFightBack">Fight Back</StyledLabelLN>
-                    </StyledSpanInput>
-                    <StyledSpanInput>
-                        <input type="checkbox" id="didHide" name="didHide"
-                            value={addDreamFormState.nightmareReaction.hide}
-                            onChange={(e)=>{
-                                setAddDreamFormState({...addDreamFormState, nightmareReaction:{
-                                    ...addDreamFormState.nightmareReaction, hide: e.target.checked}})}}/>
-                        <StyledLabelLN htmlFor="didHide">Hide</StyledLabelLN>
-                        <input type="checkbox" id="Freeze" name="Freeze"
-                            value={addDreamFormState.nightmareReaction.freeze}
-                            onChange={(e)=>{
-                                setAddDreamFormState({...addDreamFormState, nightmareReaction:{
-                                    ...addDreamFormState.nightmareReaction, freeze: e.target.checked}})}}/>
-                        <StyledLabelLN htmlFor="Freeze">Freeze</StyledLabelLN>
+                    <StyledSpanInput style={{display: isNightmareCollapse ? "flex" : "none", flexDirection: "column"}}>
+                        <StyledSpanInput>
+                            <StyledLabelLN htmlFor="AADNightmareIntensity">Intensity:</StyledLabelLN>
+                            <Dropdown1To10
+                                id="AADNightmareIntensity"
+                                name="AADNightmareIntensity"
+                                value={addDreamFormState.nightmareIntensity}
+                                onChange={(e)=>{setAddDreamFormState({...addDreamFormState, nightmareIntensity: e.target.value})}}/>
+                        </StyledSpanInput>
+                        <h3>Reaction</h3>
+                        <StyledSpanInput>
+                            <input type="checkbox" id="didRun" name="didRun"
+                                value={addDreamFormState.nightmareReaction.run}
+                                onChange={(e)=>{
+                                    setAddDreamFormState({...addDreamFormState, nightmareReaction:{
+                                        ...addDreamFormState.nightmareReaction, run: e.target.checked}})}}/>
+                            <StyledLabelLN htmlFor="didRun">Run</StyledLabelLN>
+                            <input type="checkbox" id="didFightBack" name="didFightBack"
+                                value={addDreamFormState.nightmareReaction.fightBack}
+                                onChange={(e)=>{
+                                    setAddDreamFormState({...addDreamFormState, nightmareReaction:{
+                                        ...addDreamFormState.nightmareReaction, fightBack: e.target.checked}})}}/>
+                            <StyledLabelLN htmlFor="didFightBack">Fight Back</StyledLabelLN>
+                        </StyledSpanInput>
+                        <StyledSpanInput>
+                            <input type="checkbox" id="didHide" name="didHide"
+                                value={addDreamFormState.nightmareReaction.hide}
+                                onChange={(e)=>{
+                                    setAddDreamFormState({...addDreamFormState, nightmareReaction:{
+                                        ...addDreamFormState.nightmareReaction, hide: e.target.checked}})}}/>
+                            <StyledLabelLN htmlFor="didHide">Hide</StyledLabelLN>
+                            <input type="checkbox" id="Freeze" name="Freeze"
+                                value={addDreamFormState.nightmareReaction.freeze}
+                                onChange={(e)=>{
+                                    setAddDreamFormState({...addDreamFormState, nightmareReaction:{
+                                        ...addDreamFormState.nightmareReaction, freeze: e.target.checked}})}}/>
+                            <StyledLabelLN htmlFor="Freeze">Freeze</StyledLabelLN>
+                        </StyledSpanInput>
                     </StyledSpanInput>
                     <ApproveBtn type="button" onClick={(e)=>click2Continue(e, "d")} style={{display: advance.c}}/>
                 </StyledSectionInput>
@@ -368,7 +388,7 @@ function AddADream (){
                         <StyledTagInput
                             id="nameRepeatingSeries"
                             type="text"
-                            placeholder="Start typing here..."
+                            placeholder="Choose from the list of your dream series or start typing for a new one"
                             style={{margin: "0"}}
                             value={addDreamFormState.seriesName}
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, seriesName: e.target.value})}}/>
@@ -378,7 +398,7 @@ function AddADream (){
                         <StyledContentTextInput
                             id="situationIRL"
                             type="text"
-                            placeholder="Start typing here..."
+                            placeholder="An opportunity to assess your reactions, actions, and state of mind and imagine what would you do in real life, now that you had the experience from the dream to learn from"
                             value={addDreamFormState.situationIRL}
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, situationIRL: e.target.value})}}/>
                     </StyledSpanInput>
@@ -395,7 +415,7 @@ function AddADream (){
                         <StyledContentTextInput
                             id="wouldDoIRL"
                             type="text"
-                            placeholder="Start typing here..."
+                            placeholder="If you feel there's a special or specific meaning to that dream, this is the place for this kind of brainstorm and enlightenment"
                             value={addDreamFormState.personalInterpretation }
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, personalInterpretation: e.target.value})}}/>
                     </StyledSpanInput>

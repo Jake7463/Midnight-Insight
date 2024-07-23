@@ -10,7 +10,6 @@ const StyledTextArea = styled.textarea`
   height: 185px;
   text-indent: 10px;
   font-family: "Caveat", cursive;
-  word-break: break-all;
   font-optical-sizing: auto;
   @media (min-width: 768.1px) {
     min-width: 602px;
@@ -190,7 +189,6 @@ const StyledSbmtBtn = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow-wrap: break-word;
     width: 180px;
     padding: 12px 20px;
     border: 2px solid #E2D351;
