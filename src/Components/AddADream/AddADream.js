@@ -82,6 +82,11 @@ function AddADream (){
     const [isLucidCollapse, setIsLucidCollapse] = useState(false);
     const [isNightmareCollapse, setIsNightmareCollapse] = useState(false);
 
+    const [uniqueBool, setUniqueBool] = useState(true);
+
+    // const 
+
+
     const collapseLucid = (bool) => {
         setIsLucidCollapse(bool);
     }
@@ -365,22 +370,27 @@ function AddADream (){
                     <h3>Was it a unique dream?</h3>
                     <StyledSpan4Radio>
                         <StyledSpanInput>
+                        <label htmlFor="isUnique">
                             <input
                                 type="radio"
                                 id="isUnique"
                                 name="uniqueDream"
                                 value={addDreamFormState.isUnique}
                                 onChange={(e)=>{setAddDreamFormState({...addDreamFormState, isUnique: e.target.checked})}}/>
-                            <label htmlFor="isUnique">Unique Dream</label>
+                           Unique Dream</label>
+                        <StyledSpanInput>
                         </StyledSpanInput>
-                        <StyledSpanInput >
-                            <input
+                        <label htmlFor="isNotUnique">
+                            <input 
                                 type="radio"
                                 id="isNotUnique"
                                 name="isNotUnique"
                                 value="notUnique"
-                                onChange={(e)=>{setAddDreamFormState({...addDreamFormState, isUnique: !e.target.checked})}}/>
-                            <label htmlFor="isNotUnique">Repeating / Part of a sreies</label>
+                                onChange={(e)=>{
+                                    setAddDreamFormState({...addDreamFormState, isUnique: !e.target.checked});
+                                    setUniqueBool(!uniqueBool);
+                                    }}/>
+                             Repeating / Part of a sreies</label>
                         </StyledSpanInput>
                     </StyledSpan4Radio>
                     <StyledSpanInput style={{flexDirection: "column", marginTop: "0"}}>
