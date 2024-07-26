@@ -82,9 +82,7 @@ function AddADream (){
     const [isLucidCollapse, setIsLucidCollapse] = useState(false);
     const [isNightmareCollapse, setIsNightmareCollapse] = useState(false);
 
-    const [uniqueBool, setUniqueBool] = useState(true);
     const [unique, setUnique] = useState(true);
-    const [nonUnique, setNonUnique] = useState(false);
     const [showUnique, setShowUnique] = useState("none");
 
     const collapseLucid = (bool) => {
@@ -93,12 +91,12 @@ function AddADream (){
     const collapseNightmare = (bool) => {
         setIsNightmareCollapse(bool);
     }
-    const changeUnique = () => {
-        setUnique(!unique);
-        setNonUnique(!nonUnique);
-        setAddDreamFormState({...addDreamFormState, isUnique: unique});
+    const changeUnique = (change) => {
+        setUnique(change);
     }
-
+    useEffect(()=>{
+        setAddDreamFormState({...addDreamFormState, isUnique: unique});
+    }, [unique]);
     let temp = addDreamFormState;
 
     useEffect(()=>{
@@ -381,8 +379,9 @@ function AddADream (){
                                 type="radio"
                                 id="isUnique"
                                 name="uniqueDream"
-                                value={unique}
-                                onChange={(e)=>changeUnique()}/>
+                                onChange={(e)=>{
+                                    changeUnique(true)
+                                    console.log("true: ", addDreamFormState.isUnique)}}/>
                            Unique Dream</label>
                         <StyledSpanInput>
                         </StyledSpanInput>
@@ -390,16 +389,14 @@ function AddADream (){
                             <input 
                                 type="radio"
                                 id="isNotUnique"
-                                name="isNotUnique"
-                                value={nonUnique}
+                                name="uniqueDream"
                                 onChange={(e)=>{
-                                    setAddDreamFormState({...addDreamFormState, isUnique: !e.target.checked});
-                                    setUniqueBool(!uniqueBool);
-                                    }}/>
+                                    changeUnique(false)
+                                    console.log("false: ", addDreamFormState.isUnique)}}/>
                              Repeating / Part of a sreies</label>
                         </StyledSpanInput>
                     </StyledSpan4Radio>
-                    <StyledSpanInput style={{flexDirection: "column", marginTop: "0"}}>
+                    <StyledSpanInput style={{flexDirection: "column", marginTop: "0", display: addDreamFormState.isUnique ? "none" : "flex"}}>
                         <StyledLabelForm htmlFor="nameRepeatingSeries" style={{margin: "0"}}>Name The Series</StyledLabelForm>
                         <StyledTagInput
                             id="nameRepeatingSeries"
