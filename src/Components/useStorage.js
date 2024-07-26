@@ -6,9 +6,15 @@ function useStorage() {
         return savedDreams ? JSON.parse(savedDreams) : [];
     });
 
+    const [series, setSeries] = useState([]);
+
     useEffect(()=>{
         localStorage.setItem("dreams", JSON.stringify(dreams))
     }, [dreams])
+
+    useEffect(()=>{
+        localStorage.setItem("series", JSON.stringify(series))
+    }, [series])
 
     const updateStorage = (obj) => {
         const anotherTemp = JSON.stringify(obj);
@@ -21,10 +27,21 @@ function useStorage() {
         setDreams(JSON.parse(localStorage.getItem("dreams")));
     }
 
+    const updateSeries = (str) => {
+        setSeries((prevSeries) => [...prevSeries, str]);
+        return series;
+    }
+    const importSeries = () => {
+        setSeries(JSON.parse(localStorage.getItem("series")));
+    }
+
     return {
         updateStorage,
         importFromBrowser,
         dreams,
+        importSeries,
+        updateSeries,
+        series,
     }
 }
 

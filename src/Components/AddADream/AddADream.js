@@ -17,7 +17,6 @@ import advance1 from "../../img/advance1.svg"
 import advance2 from "../../img/advance2.svg"
 import advance3 from "../../img/advance3.svg"
 import advance4 from "../../img/advance4.svg"
-import useUpdateStorage from "./useUpdateStorage";
 
 const obj = () => ({
     id: 0,
@@ -73,7 +72,7 @@ const StyledSpan4Radio = styled(StyledSpanInput)`
 function AddADream (){
     const [addDreamFormState, setAddDreamFormState] = useState(obj());
     const [advance, setAdvance] = useState(advancement)
-    const { updateStorage, dreams } = useStorage();
+    const { updateStorage, dreams, series, updateSeries } = useStorage();
     const navigate = useNavigate();
     const [isError, setIsError] = useState({
         error: true,
@@ -414,7 +413,7 @@ function AddADream (){
                         <StyledTagInput
                             id="nameRepeatingSeries"
                             type="text"
-                            placeholder="Choose from the list of your dream series or start typing for a new one"
+                            selectBoxOptions={series}
                             style={{margin: "0"}}
                             value={addDreamFormState.seriesName}
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, seriesName: e.target.value})}}/>
