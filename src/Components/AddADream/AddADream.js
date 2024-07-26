@@ -372,24 +372,24 @@ function AddADream (){
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, pov: e.target.value})}}/>
                     </StyledSpanInput>
                     <h3 style={{margin: "55px 0 0 0"}}>Was it a unique dream?</h3>
-                    <StyledSpan4Radio>
+                    <StyledSpan4Radio style={{textAlign: "center", width: "80vw"}}>
                         <StyledSpanInput>
                         <label htmlFor="isUnique">
                             <input
                                 type="radio"
                                 id="isUnique"
                                 name="uniqueDream"
+                                style={{marginRight: "10px"}}
                                 onChange={(e)=>{
                                     changeUnique(true)
                                     console.log("true: ", addDreamFormState.isUnique)}}/>
                            Unique Dream</label>
-                        <StyledSpanInput>
-                        </StyledSpanInput>
                         <label htmlFor="isNotUnique">
                             <input 
                                 type="radio"
                                 id="isNotUnique"
                                 name="uniqueDream"
+                                style={{marginRight: "10px"}}
                                 onChange={(e)=>{
                                     changeUnique(false)
                                     console.log("false: ", addDreamFormState.isUnique)}}/>
@@ -407,6 +407,14 @@ function AddADream (){
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, seriesName: e.target.value})}}/>
                     </StyledSpanInput>
                     <h3 style={{margin: "55px 0 0 0"}}>Back To Reality</h3>
+                    <StyledSpanInput>
+                        <StyledLabelLN htmlFor="AADPride">Pride in actions?</StyledLabelLN>
+                        <Dropdown1To10
+                            id="AADPride"
+                            name="AADPersonalScore"
+                            value={addDreamFormState.prideScore}
+                            onChange={(e)=>{setAddDreamFormState({...addDreamFormState, prideScore: e.target.value})}}/>
+                    </StyledSpanInput>
                     <StyledSpanInput style={{flexDirection: "column"}}>
                         <StyledLabelForm htmlFor="situationIRL">What Would've You Done In This Situation In Real Life?</StyledLabelForm>
                         <StyledContentTextInput
@@ -415,14 +423,6 @@ function AddADream (){
                             placeholder="An opportunity to assess your reactions, actions, and state of mind and imagine what would you do in real life, now that you had the experience from the dream to learn from"
                             value={addDreamFormState.situationIRL}
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, situationIRL: e.target.value})}}/>
-                    </StyledSpanInput>
-                    <StyledSpanInput>
-                        <StyledLabelLN htmlFor="AADPride">Pride in actions?</StyledLabelLN>
-                        <Dropdown1To10
-                            id="AADPride"
-                            name="AADPersonalScore"
-                            value={addDreamFormState.prideScore}
-                            onChange={(e)=>{setAddDreamFormState({...addDreamFormState, prideScore: e.target.value})}}/>
                     </StyledSpanInput>
                     <StyledSpanInput style={{flexDirection: "column"}}>
                         <StyledLabelForm htmlFor="wouldDoIRL">Your interpretation, lessons learned from the dream + hidden or underlying messages</StyledLabelForm>
