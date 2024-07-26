@@ -73,7 +73,7 @@ const StyledSpan4Radio = styled(StyledSpanInput)`
 function AddADream (){
     const [addDreamFormState, setAddDreamFormState] = useState(obj());
     const [advance, setAdvance] = useState(advancement)
-    const { updateStorage, exportToBrowser, dreams } = useStorage();
+    const { updateStorage, dreams } = useStorage();
     const navigate = useNavigate();
     const [isError, setIsError] = useState({
         error: true,
@@ -83,15 +83,20 @@ function AddADream (){
     const [isNightmareCollapse, setIsNightmareCollapse] = useState(false);
 
     const [uniqueBool, setUniqueBool] = useState(true);
-
-    // const 
-
+    const [unique, setUnique] = useState(true);
+    const [nonUnique, setNonUnique] = useState(false);
+    const [showUnique, setShowUnique] = useState("none");
 
     const collapseLucid = (bool) => {
         setIsLucidCollapse(bool);
     }
     const collapseNightmare = (bool) => {
         setIsNightmareCollapse(bool);
+    }
+    const changeUnique = () => {
+        setUnique(!unique);
+        setNonUnique(!nonUnique);
+        setAddDreamFormState({...addDreamFormState, isUnique: unique});
     }
 
     let temp = addDreamFormState;
@@ -183,7 +188,7 @@ function AddADream (){
                         <AdvanceImg src={advance1}/>
                     </StyledSpanInput>
                     <StyledH1Input style={{maxWidth:"65vw", minWidth: "35vw", textAlign: "center"}}>Name & Tags</StyledH1Input>
-                    <StyledLabelForm htmlFor="dreamNameInput">What would be a good name for the dream?</StyledLabelForm>
+                    <StyledLabelForm htmlFor="dreamNameInput" style={{width: "80vw", margin: "30px 0 0 0", fontSize: "20px", fontWeight: "600"}}>Name The Dream</StyledLabelForm>
                     <StyledTagInput
                         id="dreamNameInput"
                         className="dream-name"
@@ -191,6 +196,7 @@ function AddADream (){
                         value={addDreamFormState.dreamName}
                         placeholder="ex: Underwater blue dragon castle knight fight"
                         onChange={(e)=>{setAddDreamFormState({...addDreamFormState, dreamName: e.target.value})}}/>
+                        <StyledLabelForm htmlFor="dreamNameInput" style={{width: "80vw", margin: "30px 0 0 0", fontSize: "20px", fontWeight: "600"}}>Tags</StyledLabelForm>
                     <StyledLabelForm htmlFor="emotionTagsInput">What emotions have you experienced?</StyledLabelForm>
                     <StyledTagInput
                         id="emotionTagsInput"
@@ -367,7 +373,7 @@ function AddADream (){
                             value={addDreamFormState.pov}
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, pov: e.target.value})}}/>
                     </StyledSpanInput>
-                    <h3>Was it a unique dream?</h3>
+                    <h3 style={{margin: "55px 0 0 0"}}>Was it a unique dream?</h3>
                     <StyledSpan4Radio>
                         <StyledSpanInput>
                         <label htmlFor="isUnique">
@@ -375,8 +381,8 @@ function AddADream (){
                                 type="radio"
                                 id="isUnique"
                                 name="uniqueDream"
-                                value={addDreamFormState.isUnique}
-                                onChange={(e)=>{setAddDreamFormState({...addDreamFormState, isUnique: e.target.checked})}}/>
+                                value={unique}
+                                onChange={(e)=>changeUnique()}/>
                            Unique Dream</label>
                         <StyledSpanInput>
                         </StyledSpanInput>
@@ -385,7 +391,7 @@ function AddADream (){
                                 type="radio"
                                 id="isNotUnique"
                                 name="isNotUnique"
-                                value="notUnique"
+                                value={nonUnique}
                                 onChange={(e)=>{
                                     setAddDreamFormState({...addDreamFormState, isUnique: !e.target.checked});
                                     setUniqueBool(!uniqueBool);
@@ -403,8 +409,9 @@ function AddADream (){
                             value={addDreamFormState.seriesName}
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, seriesName: e.target.value})}}/>
                     </StyledSpanInput>
+                    <h3 style={{margin: "55px 0 0 0"}}>Back To Reality</h3>
                     <StyledSpanInput style={{flexDirection: "column"}}>
-                        <StyledLabelForm htmlFor="situationIRL">What Would've You Done In This Situation In real Life</StyledLabelForm>
+                        <StyledLabelForm htmlFor="situationIRL">What Would've You Done In This Situation In Real Life?</StyledLabelForm>
                         <StyledContentTextInput
                             id="situationIRL"
                             type="text"
