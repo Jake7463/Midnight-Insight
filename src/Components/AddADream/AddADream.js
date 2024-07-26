@@ -34,7 +34,7 @@ const obj = () => ({
     lucidControl: null,
     isNightmare: false,
     nightmareIntensity: null,
-    nightmareReaction: {fightBack: false, run: false, hide: false, freeze: false,},
+    nightmareReaction: {fightBack: false, run: false, hide: false, freeze: false, goWithIt: false},
     positivityScore: null,
     personalScore: null,
     age: "",
@@ -170,7 +170,7 @@ function AddADream (){
                             ...addDreamFormState,
                             dreamContent: e.target.value,
                             id: id,
-                            date: `${(new Date()).getDate()}/${(new Date()).getMonth()+1}/${((new Date()).getYear())-100}`
+                            date: `${((new Date()).getFullYear())}-${(new Date()).getMonth()+1}-${(new Date()).getDate()}`
                         });
                         addDreamFormState.dreamContent === "" ? setIsError({error: true, color: "#e71c00"}) : setIsError({error: false, color: "#f1f1f1"})
                     }}/>
@@ -185,7 +185,7 @@ function AddADream (){
                         </ArrowBack>
                         <AdvanceImg src={advance1}/>
                     </StyledSpanInput>
-                    <StyledH1Input style={{maxWidth:"65vw", minWidth: "35vw", textAlign: "center"}}>Name & Tags</StyledH1Input>
+                    <StyledH1Input style={{maxWidth:"65vw", minWidth: "35vw", textAlign: "center"}}>Basic Info</StyledH1Input>
                     <StyledLabelForm htmlFor="dreamNameInput" style={{width: "80vw", margin: "30px 0 0 0", fontSize: "20px", fontWeight: "600"}}>Name The Dream</StyledLabelForm>
                     <StyledTagInput
                         id="dreamNameInput"
@@ -194,7 +194,16 @@ function AddADream (){
                         value={addDreamFormState.dreamName}
                         placeholder="ex: Underwater blue dragon castle knight fight"
                         onChange={(e)=>{setAddDreamFormState({...addDreamFormState, dreamName: e.target.value})}}/>
-                        <StyledLabelForm htmlFor="dreamNameInput" style={{width: "80vw", margin: "30px 0 0 0", fontSize: "20px", fontWeight: "600"}}>Tags</StyledLabelForm>
+                    <StyledLabelForm htmlFor="date" style={{width: "80vw", margin: "30px 0 0 0", fontSize: "20px", fontWeight: "600"}}>Date</StyledLabelForm>
+                    <input style={{width: "90px", padding: "4px 9px", borderRadius: "14px", height: '22px', textAlign: "center"}}
+                        id="date"
+                        className="date"
+                        type="text"
+                        placeholder="Date"
+                        onFocus={(e) => (e.target.type = "date")}
+                        onBlur={(e) => (e.target.type = "text")}
+                        onChange={(e)=>{setAddDreamFormState({...addDreamFormState, date: e.target.value})}}/>
+                    <StyledLabelForm htmlFor="dreamNameInput" style={{width: "80vw", margin: "30px 0 0 0", fontSize: "20px", fontWeight: "600"}}>Tags</StyledLabelForm>
                     <StyledLabelForm htmlFor="emotionTagsInput">What emotions have you experienced?</StyledLabelForm>
                     <StyledTagInput
                         id="emotionTagsInput"
@@ -328,6 +337,14 @@ function AddADream (){
                                         ...addDreamFormState.nightmareReaction, freeze: e.target.checked}})}}/>
                             <StyledLabelLN htmlFor="Freeze">Freeze</StyledLabelLN>
                         </StyledSpanInput>
+                        <StyledSpanInput style={{justifyContent: "center"}}>
+                            <input type="checkbox" id="goWithIt" name="goWithIt"
+                                value={addDreamFormState.nightmareReaction.goWithIt}
+                                onChange={(e)=>{
+                                    setAddDreamFormState({...addDreamFormState, nightmareReaction:{
+                                        ...addDreamFormState.nightmareReaction, goWithIt: e.target.checked}})}}/>
+                            <StyledLabelLN htmlFor="goWithIt" style={{width: "auto", textAlign: "center"}}>Just Go With It</StyledLabelLN>
+                        </StyledSpanInput>
                     </StyledSpanInput>
                     <ApproveBtn type="button" onClick={(e)=>click2Continue(e, "d")} style={{display: advance.c}}/>
                 </StyledSectionInput>
@@ -380,19 +397,15 @@ function AddADream (){
                                 id="isUnique"
                                 name="uniqueDream"
                                 style={{marginRight: "10px"}}
-                                onChange={(e)=>{
-                                    changeUnique(true)
-                                    console.log("true: ", addDreamFormState.isUnique)}}/>
+                                onChange={(e)=>changeUnique(true)}/>
                            Unique Dream</label>
                         <label htmlFor="isNotUnique">
-                            <input 
+                            <input
                                 type="radio"
                                 id="isNotUnique"
                                 name="uniqueDream"
                                 style={{marginRight: "10px"}}
-                                onChange={(e)=>{
-                                    changeUnique(false)
-                                    console.log("false: ", addDreamFormState.isUnique)}}/>
+                                onChange={(e)=>changeUnique(false)}/>
                              Repeating / Part of a sreies</label>
                         </StyledSpanInput>
                     </StyledSpan4Radio>
