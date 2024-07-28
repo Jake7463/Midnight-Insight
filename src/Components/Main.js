@@ -1,6 +1,7 @@
 import { Route , Routes } from 'react-router-dom';
 import AddADream from './AddADream/AddADream';
 import JournalPage from './JornalPage/JournalPage';
+import DreamPage from './DreamPage';
 
 
 
@@ -12,7 +13,7 @@ function Main() {
     <Routes>
       <Route path="/" element={<AddADream />} />
       <Route path="/journal-page" element={<JournalPage />} />
-
+      <Route path="/dream-page" element={<DreamPage />} />
     </Routes>
   )
   };

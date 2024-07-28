@@ -17,6 +17,7 @@ import advance1 from "../../img/advance1.svg"
 import advance2 from "../../img/advance2.svg"
 import advance3 from "../../img/advance3.svg"
 import advance4 from "../../img/advance4.svg"
+import DreamPage from "../DreamPage";
 
 const obj = () => ({
     id: 0,
@@ -96,17 +97,23 @@ function AddADream (){
     useEffect(()=>{
         setAddDreamFormState({...addDreamFormState, isUnique: unique});
     }, [unique]);
-    let temp = addDreamFormState;
+    const [temp, setTemp] = useState(addDreamFormState);
 
     useEffect(()=>{
-        temp = JSON.parse(JSON.stringify(addDreamFormState));
+        setTemp(JSON.parse(JSON.stringify(addDreamFormState)));
     },[addDreamFormState]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         updateStorage(temp)
         setAddDreamFormState(obj);
-        setTimeout(()=>navigate("/journal-page"),1800);
+        // setTimeout(()=>navigate("/journal-page"),1800);
+        setTimeout(()=>navigate("/dream-page", {
+            state: {
+              props: temp,
+            }
+          }),1800);
+        <DreamPage props = {temp} />
     }
 
     const click2Continue = (e, step) => {
