@@ -49,7 +49,8 @@ const advancement = {
     a: "flex",
     b: "none",
     c: "none",
-    d: "none"
+    d: "none",
+    e: "none",
 };
 
 const StyledForm = styled.form`
@@ -97,28 +98,17 @@ function AddADream (){
     useEffect(()=>{
         setAddDreamFormState({...addDreamFormState, isUnique: unique});
     }, [unique]);
-    const [temp, setTemp] = useState(addDreamFormState);
-
-    useEffect(()=>{
-        setTemp(JSON.parse(JSON.stringify(addDreamFormState)));
-    },[addDreamFormState]);
+    const [temp, setTemp] = useState();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         updateStorage(temp)
         setAddDreamFormState(obj);
-        // setTimeout(()=>navigate("/journal-page"),1800);
-        setTimeout(()=>navigate("/dream-page", {
-            state: {
-              props: temp,
-            }
-          }),1800);
-        <DreamPage props = {temp} />
     }
 
     const click2Continue = (e, step) => {
         e.preventDefault();
-        setAdvance({a: "none", b: "none", c: "none", d:"none", [step]:"flex"});
+        setAdvance({a: "none", b: "none", c: "none", d:"none", e: "none", [step]:"flex"});
         window.scrollTo(0,0);
     }
 
@@ -126,7 +116,7 @@ function AddADream (){
 
     function click2GoBack (e, step){
         e.preventDefault();
-        setAdvance({a: "none", b: "none", c: "none", d:"none", [step]:"flex"});
+        setAdvance({a: "none", b: "none", c: "none", d:"none", e: "none", [step]:"flex"});
     }
 
     const [tempTags, setTempTags] = useState({
@@ -157,6 +147,13 @@ function AddADream (){
         document.querySelector("#textAreaInput").focus();
     }
 
+    const [componentDreamPage, setComponentDreamPage] = useState("");
+
+    const dreamPage = () => {
+        setComponentDreamPage(<DreamPage {...obj}/>)
+    }
+    console.log(obj.nightmareReaction.run.checked);
+
     return(
         <StyledDivForPages>
             <StyledForm onSubmit={(e)=>handleSubmit(e)}>
@@ -167,7 +164,7 @@ function AddADream (){
                         <ImgtoText />
                     </StyledTrasncriberSpan>
                     <StyledH2Form>Or start typing</StyledH2Form>
-                    <StyledLabelForm htmlFor="textAreaInput" id="dreamContent" required="true" style={{color: isError.color}}>Dream Content <sup>*</sup></StyledLabelForm>
+                    <StyledLabelForm htmlFor="textAreaInput" id="dreamContent" required={true} style={{color: isError.color}}>Dream Content <sup>*</sup></StyledLabelForm>
                     <StyledContentTextInput
                         id="textAreaInput"
                         placeholder="Not sure how to describe your dream? Try to think of your basic senses - What did you see, feel, smell, taste, touch? Where? Who was there, what happened? If you don't remember 'anything at all', descriptions like 'I remember a blue blob and I remember thinking it had some importance, maybe', are better that not writing at all"
@@ -452,7 +449,22 @@ function AddADream (){
                             value={addDreamFormState.personalInterpretation }
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, personalInterpretation: e.target.value})}}/>
                     </StyledSpanInput>
-                <SbmtBtn type="submit">Finish & Submit</SbmtBtn>
+                    <ApproveBtn type="button" onClick={(e)=>{
+                        setTemp(JSON.parse(JSON.stringify(addDreamFormState)));
+                        dreamPage();
+                        click2Continue(e, "e");
+                    }}
+                    style={{display: advance.d}}/>
+                </StyledSectionInput>
+                <StyledSectionInput style={{display: advance.e}}>
+                    <StyledSpanInput style={{justifyContent: "center", alignItems: "center"}}>
+                        <ArrowBack onClick={(e) => {click2GoBack(e, "d")}} style={{display: advance.e}}>
+                            <ArrowImage src={arrowBack} alt = ""/>
+                        </ArrowBack>
+                        <AdvanceImg src={advance4}/>
+                    </StyledSpanInput>
+                    {/* {componentDreamPage} */}
+                    <SbmtBtn type="submit">Finish & Submit</SbmtBtn>
                 </StyledSectionInput>
             </StyledForm>
         </StyledDivForPages>

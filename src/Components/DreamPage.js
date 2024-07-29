@@ -46,7 +46,7 @@ const DreamPage = (props) => {
             justifyContent: "center",
             padding: "10px 20px 20px 10px",
             gap: "15px"
-        }}>
+        }} {...props}>
             <h1 style={{display: dreamName === "" ? "none" : "auto"}}>{dreamName}</h1>
             <h4>{dreamDate}</h4>
             <h2>{dreamContent}</h2>
