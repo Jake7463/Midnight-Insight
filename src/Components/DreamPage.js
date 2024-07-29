@@ -19,17 +19,17 @@ const DreamPage = (props) => {
     const dreamLucidCohesion = props.lucidCohesion;
     const dreamIsNightmare = props.isNightmare;
     const dreamNightmareIntensity = props.nightmareIntensity;
-    const dreamNightmareReactionRun = props.nightmareReaction.run;
-    const dreamNightmareReactionFightBack = props.nightmareReaction.fightBack;
-    const dreamNightmareReactionHide = props.nightmareReaction.hide;
-    const dreamNightmareReactionFreeze = props.nightmareReaction.freeze;
-    const dreamNightmareReactionGoWithIt = props.nightmareReaction.goWithIt;
+    const dreamNightmareReactionRun = props.nightmareReactionRun;
+    const dreamNightmareReactionFightBack = props.nightmareReactionFightBack;
+    const dreamNightmareReactionHide = props.nightmareReactionHide;
+    const dreamNightmareReactionFreeze = props.nightmareReactionFreeze;
+    const dreamNightmareReactionGoWithIt = props.nightmareReactionGoWithIt;
     const wouldDoIRL = props.situationIRL;
     const dreamPersonalInterpretation = props.personalInterpretation;
 
 
 
-    const tagsToP = (arr) => arr.map((tag)=><p>{tag}</p>);
+    const tagsToP = (arr) => arr.map((tag)=><li key={tag} >{tag}</li>);
     const isUnique = (bool) => bool ? "A Unique Dream" : "Part of Series: " + dreamSeriesName;
     const scoreParams = (textParam ,lucidParam) => {
         return(
@@ -38,6 +38,12 @@ const DreamPage = (props) => {
                 <p>{lucidParam}</p>
             </span>
         )
+    }
+
+    const displayTags = (tags) => {
+        if (tags){
+            return tags.length > 0 ? "flex" : "none";
+        }
     }
 
     return(
@@ -53,20 +59,24 @@ const DreamPage = (props) => {
             <h4>{isUnique(dreamUnique)}</h4>
             <section>
                 <h2>Tags</h2>
-                <h3 style={{display: emotionTags.length > 0 ? "auto" : "none"}}>Emotions Tags: {tagsToP(emotionTags)}</h3>
-                <h3 style={{display: peopleTags.length > 0 ? "auto" : "none"}}>People Tags: {tagsToP(peopleTags)}</h3>
-                <h3 style={{display: placesTags.length > 0 ? "auto" : "none"}}>Places Tags: {tagsToP(placesTags)}</h3>
-                <h3 style={{display: generalTags.length > 0 ? "auto" : "none"}}>General Tags: {tagsToP(generalTags)}</h3>
+                <h3 style={{display: emotionTags && emotionTags.length > 0 ? "auto" : "none"}}>
+                    Emotions Tags: <ul>{emotionTags ? tagsToP(emotionTags) : ""}</ul></h3>
+                <h3 style={{display: peopleTags && peopleTags.length > 0 ? "auto" : "none"}}>
+                    People Tags: <ul>{peopleTags ? tagsToP(peopleTags) : ""}</ul></h3>
+                <h3 style={{display: placesTags && placesTags.length > 0 ? "auto" : "none"}}>
+                    Places Tags: <ul>{placesTags ? tagsToP(placesTags): ""}</ul></h3>
+                <h3 style={{display: generalTags && generalTags.length > 0 ? "auto" : "none"}}>
+                    General Tags: <ul>{generalTags ? tagsToP(generalTags) : ""}</ul></h3>
             </section>
-            <section style={{display: dreamIsLucid ? "auto" : "none"}}>
+            <section style={{display: dreamIsLucid ? "flex" : "none" , flexDirection:"column"}}>
                 <h2>Lucid</h2>
-                {scoreParams("Control: ", {dreamLucidControl})}
-                {scoreParams("Clarity: ", {dreamLucidClarity})}
-                {scoreParams("Cohesino: ", {dreamLucidCohesion})}
+                {dreamLucidControl ? scoreParams("Control: ", {dreamLucidControl}) : ""}
+                {dreamLucidClarity ? scoreParams("Clarity: ", {dreamLucidClarity}) : ""}
+                {dreamLucidCohesion ? scoreParams("Cohesino: ", {dreamLucidCohesion}) : ""}
             </section>
             <section  style={{display: dreamIsNightmare ? "auto" : "none"}} >
                 <h2>Nightmare</h2>
-                {scoreParams("Intensity: ", {dreamNightmareIntensity})}
+                {dreamNightmareIntensity ? scoreParams("Intensity: ", {dreamNightmareIntensity}) : ""}
                 <h3>Reaction</h3>
                 <p style={{display: dreamNightmareReactionRun ? "auto" : "none"}}>Run</p>
                 <p style={{display: dreamNightmareReactionFightBack ? "auto" : "none"}}>Fight Back</p>
@@ -75,9 +85,9 @@ const DreamPage = (props) => {
                 <p style={{display: dreamNightmareReactionGoWithIt ? "auto" : "none"}}>Just Go With It</p>
             </section>
             <section>
-                {scoreParams("Dream Personal Score: ", {dreamPersonalScore})}
-                {scoreParams("Dream Positivity Score: ", {dreamPositivityScore})}
-                {scoreParams("Dream Pride Score: ", {dreamPrideScore})}
+                {dreamPersonalScore ? scoreParams("Dream Personal Score: ", {dreamPersonalScore}) : ""}
+                {dreamPositivityScore ? scoreParams("Dream Positivity Score: ", {dreamPositivityScore}) : ""}
+                {dreamPrideScore ? scoreParams("Dream Pride Score: ", {dreamPrideScore}) : ""}
             </section>
             <section>
                 <p>What would you do in real life?</p>

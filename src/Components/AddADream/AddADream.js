@@ -34,7 +34,11 @@ const obj = () => ({
     lucidControl: null,
     isNightmare: false,
     nightmareIntensity: null,
-    nightmareReaction: {fightBack: false, run: false, hide: false, freeze: false, goWithIt: false},
+    nightmareReactionFightBack: false,
+    nightmareReactionRun: false,
+    nightmareReactionHide: false,
+    nightmareReactionFreeze: false,
+    nightmareReactionGoWithIt: false,
     positivityScore: null,
     personalScore: null,
     age: "",
@@ -62,16 +66,16 @@ const StyledForm = styled.form`
 `;
 
 const StyledSpan4Radio = styled(StyledSpanInput)`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    @media (min-width: 768.1px){
-        flex-direction: row;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+@media (min-width: 768.1px){
+    flex-direction: row;
     }
-`;
-
-function AddADream (){
+    `;
+    
+    function AddADream (){
     const [addDreamFormState, setAddDreamFormState] = useState(obj());
     const [advance, setAdvance] = useState(advancement)
     const { updateStorage, dreams, series, updateSeries } = useStorage();
@@ -105,13 +109,13 @@ function AddADream (){
         updateStorage(temp)
         setAddDreamFormState(obj);
     }
-
+    console.log(addDreamFormState);
     const click2Continue = (e, step) => {
         e.preventDefault();
         setAdvance({a: "none", b: "none", c: "none", d:"none", e: "none", [step]:"flex"});
         window.scrollTo(0,0);
     }
-
+    
     const id = dreams.length+1;
 
     function click2GoBack (e, step){
@@ -150,9 +154,8 @@ function AddADream (){
     const [componentDreamPage, setComponentDreamPage] = useState("");
 
     const dreamPage = () => {
-        setComponentDreamPage(<DreamPage {...obj}/>)
+        setComponentDreamPage(<DreamPage {...addDreamFormState}/>)
     }
-    console.log(obj.nightmareReaction.run.checked);
 
     return(
         <StyledDivForPages>
@@ -314,38 +317,33 @@ function AddADream (){
                         <h3>Reaction</h3>
                         <StyledSpanInput>
                             <input type="checkbox" id="didRun" name="didRun"
-                                value={addDreamFormState.nightmareReaction.run}
+                                value={addDreamFormState.nightmareReactionRun}
                                 onChange={(e)=>{
-                                    setAddDreamFormState({...addDreamFormState, nightmareReaction:{
-                                        ...addDreamFormState.nightmareReaction, run: e.target.checked}})}}/>
+                                    setAddDreamFormState({...addDreamFormState, nightmareReactionRun: e.target.checked})}}/>
                             <StyledLabelLN htmlFor="didRun">Run</StyledLabelLN>
                             <input type="checkbox" id="didFightBack" name="didFightBack"
-                                value={addDreamFormState.nightmareReaction.fightBack}
+                                value={addDreamFormState.nightmareReactionFightBack}
                                 onChange={(e)=>{
-                                    setAddDreamFormState({...addDreamFormState, nightmareReaction:{
-                                        ...addDreamFormState.nightmareReaction, fightBack: e.target.checked}})}}/>
+                                    setAddDreamFormState({...addDreamFormState, nightmareReactionFightBack: e.target.checked})}}/>
                             <StyledLabelLN htmlFor="didFightBack">Fight Back</StyledLabelLN>
                         </StyledSpanInput>
                         <StyledSpanInput>
                             <input type="checkbox" id="didHide" name="didHide"
-                                value={addDreamFormState.nightmareReaction.hide}
+                                value={addDreamFormState.nightmareReactionHide}
                                 onChange={(e)=>{
-                                    setAddDreamFormState({...addDreamFormState, nightmareReaction:{
-                                        ...addDreamFormState.nightmareReaction, hide: e.target.checked}})}}/>
+                                    setAddDreamFormState({...addDreamFormState, nightmareReactionHide: e.target.checked})}}/>
                             <StyledLabelLN htmlFor="didHide">Hide</StyledLabelLN>
                             <input type="checkbox" id="Freeze" name="Freeze"
-                                value={addDreamFormState.nightmareReaction.freeze}
+                                value={addDreamFormState.nightmareReactionFreeze}
                                 onChange={(e)=>{
-                                    setAddDreamFormState({...addDreamFormState, nightmareReaction:{
-                                        ...addDreamFormState.nightmareReaction, freeze: e.target.checked}})}}/>
+                                    setAddDreamFormState({...addDreamFormState, nightmareReactionFreeze: e.target.checked})}}/>
                             <StyledLabelLN htmlFor="Freeze">Freeze</StyledLabelLN>
                         </StyledSpanInput>
                         <StyledSpanInput style={{justifyContent: "center"}}>
                             <input type="checkbox" id="goWithIt" name="goWithIt"
-                                value={addDreamFormState.nightmareReaction.goWithIt}
+                                value={addDreamFormState.nightmareReactionGoWithIt}
                                 onChange={(e)=>{
-                                    setAddDreamFormState({...addDreamFormState, nightmareReaction:{
-                                        ...addDreamFormState.nightmareReaction, goWithIt: e.target.checked}})}}/>
+                                    setAddDreamFormState({...addDreamFormState, nightmareReactionGoWithIt: e.target.checked})}}/>
                             <StyledLabelLN htmlFor="goWithIt" style={{width: "auto", textAlign: "center"}}>Just Go With It</StyledLabelLN>
                         </StyledSpanInput>
                     </StyledSpanInput>
@@ -417,7 +415,7 @@ function AddADream (){
                         <StyledTagInput
                             id="nameRepeatingSeries"
                             type="text"
-                            selectBoxOptions={series}
+                            // selectBoxOptions={series}
                             style={{margin: "0"}}
                             value={addDreamFormState.seriesName}
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, seriesName: e.target.value})}}/>
@@ -463,7 +461,7 @@ function AddADream (){
                         </ArrowBack>
                         <AdvanceImg src={advance4}/>
                     </StyledSpanInput>
-                    {/* {componentDreamPage} */}
+                    <DreamPage {...addDreamFormState} />
                     <SbmtBtn type="submit">Finish & Submit</SbmtBtn>
                 </StyledSectionInput>
             </StyledForm>
