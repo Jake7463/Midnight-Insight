@@ -40,12 +40,6 @@ const DreamPage = (props) => {
         )
     }
 
-    const displayTags = (tags) => {
-        if (tags){
-            return tags.length > 0 ? "flex" : "none";
-        }
-    }
-
     return(
         <div style={{
             display: "felx",
