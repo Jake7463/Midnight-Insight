@@ -31,11 +31,11 @@ const DreamPage = (props) => {
 
     const tagsToP = (arr) => arr.map((tag)=><li key={tag} >{tag}</li>);
     const isUnique = (bool) => bool ? "A Unique Dream" : "Part of Series: " + dreamSeriesName;
-    const scoreParams = (textParam ,lucidParam) => {
+    const scoreParams = (textParam ,scoreParam) => {
         return(
             <span>
                 <h4>{textParam}: </h4>
-                <p>{lucidParam}</p>
+                <p>{scoreParam}</p>
             </span>
         )
     }
