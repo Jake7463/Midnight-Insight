@@ -142,7 +142,7 @@ justify-content: center;
             emotionTags: toArray(tempTags.emotions),
             peopleTags: toArray(tempTags.people),
             placesTags: toArray(tempTags.places),
-            generalTags: toArray(tempTags.general)
+            generalTags: toArray(tempTags.general),
         });
     }
 

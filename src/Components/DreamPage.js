@@ -1,6 +1,7 @@
 import { json } from "react-router";
 
 const DreamPage = (props) => {
+    const dreamId = props.id;
     const dreamName = props.dreamName;
     const dreamDate = props.date;
     const dreamContent = props.dreamContent;
@@ -12,7 +13,7 @@ const DreamPage = (props) => {
     const emotionTags = props.emotionTags;
     const peopleTags = props.peopleTags;
     const placesTags = props.placesTags;
-    const generalTags = props.GeneralTags;
+    const generalTags = props.generalTags;
     const dreamIsLucid = props.isLucid;
     const dreamLucidControl = props.lucidControl;
     const dreamLucidClarity = props.lucidClarity;
@@ -32,30 +33,65 @@ const DreamPage = (props) => {
 
 
 
-    const tagsToP = (arr) => arr.map((tag)=><p>&nbsp;{tag}</p>);
+    const tagsToP = (arr) => {
+        return (
+            <span style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
+                {arr.map((tag)=><p style={{
+                    padding: "1px 12px 2px 4px",
+                    backgroundColor: "#808080",
+                    borderRadius: "11px",
+                    textAlign: "center",
+                    display: "block",
+            }}>&nbsp;{tag}</p>)}</span>
+        )
+    }
     const isUnique = (bool) => bool ? "A Unique Dream" : "Part of Series: " + dreamSeriesName;
 
     return(
         <div style={{
+            marginLeft: "auto",
+            marginRight: "auto",
             display: "felx",
             justifyContent: "center",
-            padding: "10px 20px 20px 10px",
+            alignItems: "center",
+            textAlign: "center",
+            padding: "10px 20px 20px 20px",
             gap: "15px"
         }} {...props}>
-            <h1 style={{display: dreamName === "" ? "none" : "flex"}}>{dreamName}</h1>
-            <h4>{dreamDate}</h4>
-            <h2>{dreamContent}</h2>
+            <h1 style={{
+                display: dreamName === "" ? "none" : "block"}}>{dreamName}</h1>
+            <span style={{display: "flex", justifyContent: "space-between"}}>
+                <p>Dream #{dreamId}</p>
+                <h4>{dreamDate}</h4>
+            </span>
+            <h2 style={{
+                width: "70vw",
+                borderRadius: "19px",
+                padding: "10px 20px",
+                minHeight: "85px",
+                color: "#0B1B32",
+                backgroundColor: "#00fb76",
+                margin: "1rem auto",
+            }}>{dreamContent}</h2>
             <h4>{isUnique(dreamUnique)}</h4>
-            <section>
-                <h2>Tags</h2>
-                <h3 style={{display: emotionTags && emotionTags.length > 0 ? "flex" : "none"}}>
-                    Emotions Tags: {emotionTags ? tagsToP(emotionTags) : ""}</h3>
-                <h3 style={{display: peopleTags && peopleTags.length > 0 ? "flex" : "none"}}>
-                    People Tags: {peopleTags ? tagsToP(peopleTags) : ""}</h3>
-                <h3 style={{display: placesTags && placesTags.length > 0 ? "flex" : "none"}}>
-                    Places Tags: {placesTags ? tagsToP(placesTags): ""}</h3>
-                <h3 style={{display: generalTags && generalTags.length > 0 ? "flex" : "none"}}>
-                    General Tags: {generalTags ? tagsToP(generalTags) : ""}</h3>
+            <section style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "auto"}}>
+                <h2 style={{marginTop: "32px"}}>Tags</h2>
+                <span style={{display: emotionTags && emotionTags.length > 0 ? "flex" : "none", justifyContent: "left", width: "85%", minHeight: "2rem", margin: "8px 0"}}>
+                    <h3 style={{marginRight: "10px"}} >Emotions: </h3>
+                    <h3>{emotionTags ? tagsToP(emotionTags) : ""}</h3>
+                </span>
+                <span style={{display: peopleTags && peopleTags.length > 0 ? "flex" : "none", justifyContent: "left", width: "85%", minHeight: "2rem", margin: "8px 0"}}>
+                    <h3 style={{marginRight: "10px"}}>People:</h3>
+                    <h3>{peopleTags ? tagsToP(peopleTags) : ""}</h3>
+                </span>
+                < span style={{display: placesTags && placesTags.length > 0 ? "flex" : "none", justifyContent: "left", width: "85%", minHeight: "2rem", margin: "8px 0"}}>
+                    <h3 style={{marginRight: "10px"}}>Places: </h3>
+                    <h3>{placesTags ? tagsToP(placesTags): ""}</h3>
+                </span>
+                <span style={{display: generalTags && generalTags.length > 0 ? "flex" : "none", justifyContent: "left", width: "85%", minHeight: "2rem", margin: "8px 0"}}>
+                    <h3 style={{marginRight: "10px"}}>General Tags: </h3>
+                    <h3>{generalTags ? tagsToP(generalTags) : ""}</h3>
+                </span>
             </section>
             <section style={{display: dreamIsLucid ? "flex" : "none" , flexDirection:"column"}}>
                 <h2>Lucid</h2>
