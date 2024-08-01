@@ -7,6 +7,8 @@ const DreamPage = (props) => {
     const dreamContent = props.dreamContent;
     const dreamPersonalScore = props.personalScore;
     const dreamPositivityScore = props.positivityScore;
+    const dreamPOV = props.pov;
+    const dreamAge = props.age;
     const dreamPrideScore = props.prideScore;
     const dreamUnique = props.isUnique;
     const dreamSeriesName = props.seriesName;
@@ -28,7 +30,7 @@ const DreamPage = (props) => {
     const wouldDoIRL = props.situationIRL;
     const dreamPersonalInterpretation = props.personalInterpretation;
 
-    console.log(dreamName);
+    console.log(dreamAge);
     console.log(peopleTags);
 
 
@@ -37,11 +39,12 @@ const DreamPage = (props) => {
         return (
             <span style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
                 {arr.map((tag)=><p style={{
-                    padding: "1px 12px 2px 4px",
+                    padding: "1px 8px 2px 2px",
                     backgroundColor: "#808080",
                     borderRadius: "11px",
                     textAlign: "center",
                     display: "block",
+                    margin: "1px 3px 1px 0"
             }}>&nbsp;{tag}</p>)}</span>
         )
     }
@@ -58,8 +61,7 @@ const DreamPage = (props) => {
             padding: "10px 20px 20px 20px",
             gap: "15px"
         }} {...props}>
-            <h1 style={{
-                display: dreamName === "" ? "none" : "block"}}>{dreamName}</h1>
+            <h1 style={{display: dreamName === "" ? "none" : "block", fontWeight: "1000", fontSize: "2.4rem"}}>{dreamName}</h1>
             <span style={{display: "flex", justifyContent: "space-between"}}>
                 <p>Dream #{dreamId}</p>
                 <h4>{dreamDate}</h4>
@@ -72,10 +74,35 @@ const DreamPage = (props) => {
                 color: "#0B1B32",
                 backgroundColor: "#00fb76",
                 margin: "1rem auto",
+                textAlign: "left",
+                fontSize: "18px",
+                fontWeight: "600",
             }}>{dreamContent}</h2>
             <h4>{isUnique(dreamUnique)}</h4>
+            <section style={{marginTop: "20px", display: "flex", flexDirection: "column", alignItems: "center"}}>
+                <span style={{display: dreamPositivityScore? "flex" : "none", justifyContent: "space-between", width: "80%", margin: "10px 0"}}>
+                    <h4>Dream Positivity Score: </h4>
+                    <p>{dreamPositivityScore}</p>
+                </span>
+                <span   span style={{display: dreamPersonalScore ? "flex" : "none", justifyContent: "space-between", width: "80%", margin: "10px 0"}}>
+                    <h4>Dream Personal Score: </h4>
+                    <p>&nbsp;{dreamPersonalScore}</p>
+                </span>
+                <span style={{display: dreamPrideScore > 0 && dreamPrideScore < 11 ? "flex" : "none", justifyContent: "space-between", width: "80%", margin: "10px 0"}}>
+                    <h4>Dream Pride Score: </h4>
+                    <p>{dreamPrideScore}</p>
+                </span>
+                <span style={{display: dreamPOV === "self" || "other" ? "flex" : "none", justifyContent: "space-between", width: "80%", margin: "10px 0"}}>
+                    <h4>Dream Point of View: </h4>
+                    <p>{dreamPOV}</p>
+                </span>
+                <span style={{display: dreamAge? "flex" : "none", justifyContent: "space-between", width: "80%", margin: "10px 0"}}>
+                    <h4>Dream Age:</h4>
+                    <p>{dreamAge}</p>
+                </span>
+            </section>
             <section style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "auto"}}>
-                <h2 style={{marginTop: "32px"}}>Tags</h2>
+                <h2 style={{margin: "32px 0 10px 0"}}>Tags</h2>
                 <span style={{display: emotionTags && emotionTags.length > 0 ? "flex" : "none", justifyContent: "left", width: "85%", minHeight: "2rem", margin: "8px 0"}}>
                     <h3 style={{marginRight: "10px"}} >Emotions: </h3>
                     <h3>{emotionTags ? tagsToP(emotionTags) : ""}</h3>
@@ -93,53 +120,59 @@ const DreamPage = (props) => {
                     <h3>{generalTags ? tagsToP(generalTags) : ""}</h3>
                 </span>
             </section>
-            <section style={{display: dreamIsLucid ? "flex" : "none" , flexDirection:"column"}}>
-                <h2>Lucid</h2>
-                <span style={{display: dreamLucidControl ? "flex" : "none"}}>
+            <section style={{display: dreamIsLucid ? "flex" : "none" , flexDirection:"column", alignItems: "center", marginTop: "25px"}}>
+                <h2 style={{margin: "10px 0"}}>Lucid</h2>
+                <span style={{display: dreamLucidControl ? "flex" : "none", justifyContent: "space-between", width: "80%"}}>
                     <h4>Control: </h4>
                     <p>{dreamLucidControl}</p>
                 </span>
-                <span style={{display: dreamLucidClarity ? "flex" : "none"}}>
+                <span style={{display: dreamLucidClarity ? "flex" : "none", justifyContent: "space-between", width: "80%"}}>
                     <h4>Clarity: </h4>
                     <p>{dreamLucidClarity}</p>
                 </span>
-                <span style={{display: dreamLucidCohesion ? "flex" : "none"}}>
+                <span style={{display: dreamLucidCohesion ? "flex" : "none", justifyContent: "space-between", width: "80%"}}>
                     <h4>Cohesion: </h4>
                     <p>{dreamLucidCohesion}</p>
                 </span>
             </section>
-            <section  style={{display: dreamIsNightmare ? "flex" : "none", flexDirection: "column"}} >
-                <h2>Nightmare</h2>
-                <span   span style={{display: dreamNightmareIntensity ? "flex" : "none"}}>
+            <section  style={{display: dreamIsNightmare ? "flex" : "none", flexDirection: "column", alignItems: "center", marginTop: "25px"}} >
+                <h2 style={{margin: "10px 0"}}>Nightmare</h2>
+                <span   span style={{display: dreamNightmareIntensity ? "flex" : "none", justifyContent: "space-between", width: "80%"}}>
                     <h4>Intensity: </h4>
                     <p>{dreamNightmareIntensity}</p>
                 </span>
-                <h3>Reaction</h3>
-                <p style={{display: dreamNightmareReactionRun ? "flex" : "none"}}>Run</p>
-                <p style={{display: dreamNightmareReactionFightBack ? "flex" : "none"}}>Fight Back</p>
-                <p style={{display: dreamNightmareReactionHide ? "flex" : "none"}}>Hide</p>
-                <p style={{display: dreamNightmareReactionFreeze ? "flex" : "none"}}>Freeze</p>
-                <p style={{display: dreamNightmareReactionGoWithIt ? "flex" : "none"}}>Just Go With It</p>
-            </section>
-            <section>
-                <span   span style={{display: dreamPersonalScore ? "flex" : "none"}}>
-                    <h4>Dream Personal Score: </h4>
-                    <p>{dreamPersonalScore}</p>
-                </span>
-                <span style={{display: dreamPositivityScore ? "flex" : "none"}}>
-                    <h4>Dream Positivity Score: </h4>
-                    <p>{dreamPositivityScore}</p>
-                </span>
-                <span style={{display: dreamPrideScore ? "flex" : "none"}}>
-                    <h4>Dream Pride Score: </h4>
-                    <p>{dreamPrideScore}</p>
+                <h3 style={{margin: "10px 0"}}>Reaction</h3>
+                <span style={{display: "flex", margin: "10px 0"}}>
+                    <p style={{display: dreamNightmareReactionRun ? "flex" : "none", margin: "0 8px"}}>Run</p>
+                    <p style={{display: dreamNightmareReactionFightBack ? "flex" : "none", margin: "0 8px"}}>Fight Back </p>
+                    <p style={{display: dreamNightmareReactionHide ? "flex" : "none", margin: "0 8px"}}>Hide</p>
+                    <p style={{display: dreamNightmareReactionFreeze ? "flex" : "none", margin: "0 8px"}}>Freeze</p>
+                    <p style={{display: dreamNightmareReactionGoWithIt ? "flex" : "none", margin: "0 8px"}}>Just Go With It</p>
                 </span>
             </section>
-            <section>
-                <p>What would you do in real life?</p>
-                <p>{wouldDoIRL}</p>
-                <p>Insights and personal interpretation</p>
-                <p>{dreamPersonalInterpretation}</p>
+            <section style={{display: wouldDoIRL ? "flex" : "none", flexDirection: "column", margin: "32px auto", alignItems: "center"}}>
+                <h2>What would you do in real life?</h2>
+                <p style={{
+                    display: "block",
+                    padding: "12px 18px",
+                    backgroundColor: "#808080",
+                    width: "70vw",
+                    borderRadius: "14px",
+                    marginTop: "14px",
+                    textAlign: "left",
+                }}>{wouldDoIRL}</p>
+            </section>
+            <section style={{display: dreamPersonalInterpretation ? "flex" : "none", flexDirection: "column", margin: "32px auto", alignItems: "center"}}>
+                <h2>Insights and personal interpretation</h2>
+                <p style={{
+                    display: "block",
+                    padding: "12px 18px",
+                    backgroundColor: "#808080",
+                    width: "70vw",
+                    borderRadius: "14px",
+                    marginTop: "14px",
+                    textAlign: "left",
+                }}>{dreamPersonalInterpretation}</p>
             </section>
         </div>
     )

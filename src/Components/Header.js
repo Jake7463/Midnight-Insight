@@ -1,5 +1,5 @@
 import React from "react";
-import LogoV2 from "../img/LogoV3.png"
+import LogoV2 from "../img/LogoV6.png"
 import styled from "styled-components";
 import SidePanel from "./SidePanel";
 

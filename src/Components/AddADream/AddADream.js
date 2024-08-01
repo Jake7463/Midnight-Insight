@@ -39,7 +39,7 @@ const obj = () => ({
     nightmareReactionHide: false,
     nightmareReactionFreeze: false,
     nightmareReactionGoWithIt: false,
-    positivityScore: 0,
+    positivityScore: "",
     personalScore: 0,
     age: "",
     pov: "",
