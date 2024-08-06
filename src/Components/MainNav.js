@@ -73,11 +73,11 @@ export default function MainNav(){
                 <StyledSep2></StyledSep2>
                 <StyleA2 href="/">Add a <br/>Dream</StyleA2>
                 <StyledSep></StyledSep>
-                <StyleA href="/">My Profile</StyleA>
+                <StyleA href="/" style={{color: "#808080"}} >My Profile</StyleA>
                 <StyledSep></StyledSep>
                 <StyleA href="/journal-page">Journal</StyleA>
                 <StyledSep></StyledSep>
-                <StyleA href="/">Reports</StyleA>
+                <StyleA href="/" style={{color: "#808080"}}>Reports</StyleA>
                 <StyledSep2></StyledSep2>
             </Span1>
         </NavStyle>

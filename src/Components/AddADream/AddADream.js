@@ -205,7 +205,7 @@ justify-content: center;
                         id="date"
                         className="date"
                         type="text"
-                        placeholder="Date"
+                        placeholder="Today"
                         onFocus={(e) => (e.target.type = "date")}
                         onBlur={(e) => (e.target.type = "text")}
                         onChange={(e)=>{setAddDreamFormState({...addDreamFormState, date: e.target.value})}}/>

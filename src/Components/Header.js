@@ -5,7 +5,7 @@ import SidePanel from "./SidePanel";
 
 const HeaderStyle = styled.header`
     color: #f1f1f1;
-    background-color: #000000;
+    background-color: #010b1a;
     display: flex;
     justify-content: center;
     align-items: center;
