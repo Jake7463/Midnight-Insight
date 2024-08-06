@@ -11,8 +11,7 @@ import useStorage from "../useStorage";
 import ApproveBtn from "./ApproveBtn";
 import { Navigate, useNavigate } from "react-router";
 import arrowBack from "../../img/arrowBack.svg"
-import { ArrowBack, ArrowImage } from "./arrowBack";
-import advance0 from "../../img/advance0.svg"
+import { ArrowBack, ArrowImage } from "./ArrowBack";
 import advance1 from "../../img/advance1.svg"
 import advance2 from "../../img/advance2.svg"
 import advance3 from "../../img/advance3.svg"
