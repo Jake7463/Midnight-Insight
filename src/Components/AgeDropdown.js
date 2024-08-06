@@ -1,24 +1,20 @@
-import styled from "styled-components";
+import { useState } from "react";
+import { StyledSelect } from "./AddADream/StyledFormInputs";
 
 function AgeDropdown(props){
+    const [select, setSelect] = useState('');
+    // const handleChange = (e) => setSelect(e.target.value);
 
-    const StyledSelect = styled.select`
-    border-radius: 5px;
-    width: 80px;
-    &:hover{
-        cursor: pointer;
-    }
-    padding: 0 0 0 4px;
-`;
 
     return(
         <StyledSelect {...props}>
-            <option value="current">Current</option>
-            <option value="baby">Baby</option>
-            <option value="childhood">Child</option>
-            <option value="teenage">Teenager</option>
-            <option value="youngAdult">Young Adult</option>
-            <option value="other">Other</option>
+            <option disabled={true} value="">-Choose-</option>
+            <option value="Current">Current</option>
+            <option value="Baby">Baby</option>
+            <option value="Childhood">Child</option>
+            <option value="Teenage">Teenager</option>
+            <option value="Young-Adult">Young Adult</option>
+            <option value="Other">Other</option>
         </StyledSelect>
     )
 }

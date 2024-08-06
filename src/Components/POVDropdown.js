@@ -1,19 +1,15 @@
-import styled from "styled-components";
-
-const StyledSelect = styled.select`
-    border-radius: 5px;
-    width: 80px;
-    &:hover{
-        cursor: pointer;
-    }
-    padding: 0 0 0 4px;
-`;
+import { useState } from "react";
+import { StyledSelect } from "./AddADream/StyledFormInputs";
 
 function POVDropdown(props){
+    const [select, setSelect] = useState('');
+    // const handleChange = (e) => setSelect(e.target.value);
+
     return(
-        <StyledSelect {...props}>
-            <option value="self">Self</option>
-            <option value="other">Other</option>
+        <StyledSelect {...props} >
+            <option disabled={true} value="">-Choose-</option>
+            <option value="Self">Self</option>
+            <option value="Other">Other</option>
         </StyledSelect>
     )
 }

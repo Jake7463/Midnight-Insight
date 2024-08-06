@@ -215,6 +215,21 @@ const StyledImg4AadNav = styled.img`
   }
 `;
 
+const StyledSelectTag = styled.select`
+border-radius: 5px;
+width: 80px;
+&:hover{
+    cursor: pointer;
+}
+padding: 0 0 0 4px;
+`;
+
+const StyledOptionTag = styled.option`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
 const StyledContentTextInput = (props) => <StyledTextArea {...props} />;
 const StyledTagInput = (props) => <StyledTags {...props} />;
 const StyledSectionInput =(props) => <StyledSection {...props}/>;
@@ -234,7 +249,9 @@ const StyledTextFromBtn = (props) => <StyledBtn {...props} />
 const StyledDivForPages = (props) => <StyledDivPages {...props} />
 const AdvanceImg = (props) => <StyledImg4AadNav {...props} />
 const SbmtBtn = (props) => <StyledSbmtBtn {...props} />
+const StyledSelect = (props) => <StyledSelectTag {...props} />
+const StyledOption = (props) => <StyledOptionTag {...props} />
 
 
 
-export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledLabelForm, StyledDivPage, StyledLabelCentered, SearchInput, SpanSpaceBetween, PBig, PAll, StyledTrasncriberSpan, StyledH2Form, StyledTextFromBtn, StyledDivForPages, AdvanceImg, SbmtBtn};
+export { StyledContentTextInput, StyledTagInput, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledLabelForm, StyledDivPage, StyledLabelCentered, SearchInput, SpanSpaceBetween, PBig, PAll, StyledTrasncriberSpan, StyledH2Form, StyledTextFromBtn, StyledDivForPages, AdvanceImg, SbmtBtn, StyledSelect, StyledOption};

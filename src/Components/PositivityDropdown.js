@@ -1,20 +1,16 @@
-import styled from "styled-components";
-
-const StyledSelect = styled.select`
-    border-radius: 5px;
-    width: 80px;
-    &:hover{
-        cursor: pointer;
-    }
-    padding: 0 0 0 4px;
-`;
+import { useState } from "react";
+import { StyledSelect } from "./AddADream/StyledFormInputs";
 
 function PositivityDropdown (props){
+    const [select, setSelect] = useState('');
+    // const handleChange = (e) => setSelect(e.target.value);
+
     return(
-        <StyledSelect {...props}>
-            <option value="positive">Positive</option>
-            <option value="neutral">Neutral</option>
-            <option value="negative">Negative</option>
+        <StyledSelect {...props} >
+            <option disabled={true} value="">-Choose-</option>
+            <option value="Positive">Positive</option>
+            <option value="Neutral">Neutral</option>
+            <option value="Negative">Negative</option>
         </StyledSelect>
     )
 }
