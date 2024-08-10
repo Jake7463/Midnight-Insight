@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Midnight-Insight/static/css/main.82793ef2.css",
-    "main.js": "/Midnight-Insight/static/js/main.aeafb601.js",
+    "main.js": "/Midnight-Insight/static/js/main.4fd4fa95.js",
     "static/js/453.92f91ccb.chunk.js": "/Midnight-Insight/static/js/453.92f91ccb.chunk.js",
     "static/media/LogoV6.png": "/Midnight-Insight/static/media/LogoV6.f91c1c3862460f38f770.png",
     "static/media/profile-boy-icon 1.svg": "/Midnight-Insight/static/media/profile-boy-icon 1.eb314604823453bac7ef1f3cce1344b8.svg",
@@ -17,11 +17,11 @@
     "static/media/advance4.svg": "/Midnight-Insight/static/media/advance4.c6f7a33698517fca6f21467b68af0de4.svg",
     "static/media/hamburgerMenu.svg": "/Midnight-Insight/static/media/hamburgerMenu.4367ea268a702e5d46355eeeab91d433.svg",
     "main.82793ef2.css.map": "/Midnight-Insight/static/css/main.82793ef2.css.map",
-    "main.aeafb601.js.map": "/Midnight-Insight/static/js/main.aeafb601.js.map",
+    "main.4fd4fa95.js.map": "/Midnight-Insight/static/js/main.4fd4fa95.js.map",
     "453.92f91ccb.chunk.js.map": "/Midnight-Insight/static/js/453.92f91ccb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.82793ef2.css",
-    "static/js/main.aeafb601.js"
+    "static/js/main.4fd4fa95.js"
   ]
 }
