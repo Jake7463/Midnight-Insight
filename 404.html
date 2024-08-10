@@ -3,9 +3,14 @@
 <head>
   <meta http-equiv="refresh" content="0; url=/" />
   <script type="text/javascript">
-    // This redirects to the correct path in React Router
-    var path = window.location.pathname.substr(1);
-    window.location.replace('/Midnight-Insight/' + path);
+    var pathname = window.location.pathname;
+    var repository = '/Midnight-Insight'; // Ensure this matches your `basename`
+    
+    if (!pathname.startsWith(repository)) {
+      window.location.replace(repository + pathname);
+    } else {
+      window.location.replace('/');
+    }
   </script>
 </head>
 <body></body>
