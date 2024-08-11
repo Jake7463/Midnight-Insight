@@ -67,18 +67,23 @@ const Span1 = styled.span`
     margin: 0;
 `;
 
+const style4link = {
+    all: "unset",
+    color: "#f1f1f1",
+}
+
 export default function MainNav(){
     return(
         <NavStyle>
             <Span1>
                 <StyledSep2></StyledSep2>
-                <Link to="/">Add a <br/>Dream</Link>
+                <Link style={{style4link}} to="/">Add a <br/>Dream</Link>
                 <StyledSep></StyledSep>
-                <Link to="/" style={{color: "#808080"}} >My Profile</Link>
+                <Link style={{style4link, color: "#808080"}} to="/" >My Profile</Link>
                 <StyledSep></StyledSep>
-                <Link to="/journal-page">Journal</Link>
+                <Link style={{style4link}} to="/journal-page">Journal</Link>
                 <StyledSep></StyledSep>
-                <Link to="/" style={{color: "#808080"}}>Reports</Link>
+                <Link style={{style4link, color: "#808080"}} to="/">Reports</Link>
                 <StyledSep2></StyledSep2>
             </Span1>
         </NavStyle>
