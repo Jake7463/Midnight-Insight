@@ -74,8 +74,8 @@ justify-content: center;
     }
     `;
     
-const AddADream  = (object) => {
-    const [addDreamFormState, setAddDreamFormState] = useState(object ? object : obj());
+const AddADream  = (anObject) => {
+    const [addDreamFormState, setAddDreamFormState] = useState(anObject ? anObject : obj());
     const [advance, setAdvance] = useState(advancement)
     const { updateStorage, dreams, series, updateSeries } = useStorage();
     const navigate = useNavigate();
@@ -157,10 +157,13 @@ const AddADream  = (object) => {
     }
 
     const [inputText, setInputText] = useState('');
-    const [isListening, setIsListening] = useState(false);  const handleTranscriptChange = (finalTranscript, interimTranscript) => {
-        if (isListening) {setInputText(finalTranscript + interimTranscript);}
+    const [isListening, setIsListening] = useState(false);
+    const handleTranscriptChange = (finalTranscript, interimTranscript) => {
+        if (isListening) {
+          setInputText(prevText => prevText + finalTranscript + ' ' + interimTranscript + ' ');
+        }
     };
-    const handleListeningChange = (newIsListening) => setIsListening(newIsListening)
+    const handleListeningChange = (newIsListening) => setIsListening(newIsListening);
 
     return(
         <StyledDivForPages>
@@ -179,10 +182,12 @@ const AddADream  = (object) => {
                         id="textAreaInput"
                         placeholder="Not sure how to describe your dream? Try to think of your basic senses - What did you see, feel, smell, taste, touch? Where? Who was there, what happened? If you don't remember 'anything at all', descriptions like 'I remember a blue blob and I remember thinking it had some importance, maybe', are better that not writing at all"
                         value={inputText || addDreamFormState.dreamContent}
-                        onChange={(e)=>{setAddDreamFormState({
+                        onChange={(e)=>{
+                            !isListening && setInputText(e.target.value);
+                            setAddDreamFormState({
                             ...addDreamFormState,
                             dreamContent: e.target.value,
-                            id: id,
+                            id: addDreamFormState.id > 0 ? addDreamFormState.id : id,
                             date: `${((new Date()).getFullYear())}-${(new Date()).getMonth()+1}-${(new Date()).getDate()}`
                         });
                         addDreamFormState.dreamContent === "" ? setIsError({error: true, color: "#e71c00"}) : setIsError({error: false, color: "#f1f1f1"})

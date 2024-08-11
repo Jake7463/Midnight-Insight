@@ -17,8 +17,6 @@ function useStorage() {
     }, [series])
 
     const updateStorage = (obj) => {
-        const anotherTemp = JSON.stringify(obj);
-        const finalTemp = JSON.parse(anotherTemp);
         setDreams((prevDreams) => [...prevDreams, obj]);
         return dreams;
     }
