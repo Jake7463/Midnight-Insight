@@ -68,8 +68,18 @@ const Span1 = styled.span`
 `;
 
 const style4link = {
-    all: "unset",
-    color: "#f1f1f1",
+    color: "#e2d351",
+    textDecoration: "none",
+    fontFamily: "Mulish, sans-serif",
+    fontOpticalSizing: "auto",
+    fontWeight: "600",
+    fontStyle: "normal",
+    alignItems: center,
+    justifyContent: "center",
+    fontSize: "16px",
+    display: "block",
+    justifySelf: "center",
+    textAlign: "cetner",
 }
 
 export default function MainNav(){
