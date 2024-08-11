@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from 'react-router-dom' ;
 
 
 const NavStyle = styled.nav`
@@ -71,13 +72,13 @@ export default function MainNav(){
         <NavStyle>
             <Span1>
                 <StyledSep2></StyledSep2>
-                <StyleA2 href="/">Add a <br/>Dream</StyleA2>
+                <Link to="/">Add a <br/>Dream</Link>
                 <StyledSep></StyledSep>
-                <StyleA href="/" style={{color: "#808080"}} >My Profile</StyleA>
+                <Link to="/" style={{color: "#808080"}} >My Profile</Link>
                 <StyledSep></StyledSep>
-                <StyleA href="/journal-page">Journal</StyleA>
+                <Link to="/journal-page">Journal</Link>
                 <StyledSep></StyledSep>
-                <StyleA href="/" style={{color: "#808080"}}>Reports</StyleA>
+                <Link to="/" style={{color: "#808080"}}>Reports</Link>
                 <StyledSep2></StyledSep2>
             </Span1>
         </NavStyle>
