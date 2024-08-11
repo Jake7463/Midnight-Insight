@@ -67,33 +67,19 @@ const Span1 = styled.span`
     margin: 0;
 `;
 
-const style4link = {
-    color: "#e2d351",
-    textDecoration: "none",
-    fontFamily: "Mulish, sans-serif",
-    fontOpticalSizing: "auto",
-    fontWeight: "600",
-    fontStyle: "normal",
-    alignItems: center,
-    justifyContent: "center",
-    fontSize: "16px",
-    display: "block",
-    justifySelf: "center",
-    textAlign: "cetner",
-}
 
 export default function MainNav(){
     return(
         <NavStyle>
             <Span1>
                 <StyledSep2></StyledSep2>
-                <Link style={{style4link}} to="/">Add a <br/>Dream</Link>
+                <Link style={{textDecoration: "none", fontWeight:"800", color: "#f1f1f1", textAlign: "center", justifySelf: "center", alignSelf: "center"}}  to="/">Add a <br/>Dream</Link>
                 <StyledSep></StyledSep>
-                <Link style={{style4link, color: "#808080"}} to="/" >My Profile</Link>
+                <Link style={{textDecoration: "none", fontWeight:"800", color: "#808080", textAlign: "center", justifySelf: "center", alignSelf: "center"}} to="/" >My Profile</Link>
                 <StyledSep></StyledSep>
-                <Link style={{style4link}} to="/journal-page">Journal</Link>
+                <Link style={{textDecoration: "none", fontWeight:"800", color: "#f1f1f1", textAlign: "center", justifySelf: "center", alignSelf: "center"}} to="/journal-page">Journal</Link>
                 <StyledSep></StyledSep>
-                <Link style={{style4link, color: "#808080"}} to="/">Reports</Link>
+                <Link style={{textDecoration: "none", fontWeight:"800", color: "#808080", textAlign: "center", justifySelf: "center", alignSelf: "center"}} to="/">Reports</Link>
                 <StyledSep2></StyledSep2>
             </Span1>
         </NavStyle>
