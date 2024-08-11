@@ -74,8 +74,8 @@ justify-content: center;
     }
     `;
     
-    function AddADream (){
-    const [addDreamFormState, setAddDreamFormState] = useState(obj());
+const AddADream  = (object) => {
+    const [addDreamFormState, setAddDreamFormState] = useState(object ? object : obj());
     const [advance, setAdvance] = useState(advancement)
     const { updateStorage, dreams, series, updateSeries } = useStorage();
     const navigate = useNavigate();
@@ -156,13 +156,21 @@ justify-content: center;
         setComponentDreamPage(<DreamPage {...addDreamFormState}/>)
     }
 
+    const [inputText, setInputText] = useState('');
+    const [isListening, setIsListening] = useState(false);  const handleTranscriptChange = (finalTranscript, interimTranscript) => {
+        if (isListening) {setInputText(finalTranscript + interimTranscript);}
+    };
+    const handleListeningChange = (newIsListening) => setIsListening(newIsListening)
+
     return(
         <StyledDivForPages>
             <StyledForm onSubmit={(e)=>handleSubmit(e)}>
                 <StyledSectionInput style={{display: advance.a}}>
                     <StyledH1Input style={{fontWeight: "1000", fontSize: "32px", marginTop: "30px"}}>ADD A DREAM</StyledH1Input>
                     <StyledTrasncriberSpan>
-                        <TranscribeFromAudio />
+                        <TranscribeFromAudio
+                        onTranscriptChange={handleTranscriptChange}
+                        onListeningChange={handleListeningChange}/>
                         <ImgtoText />
                     </StyledTrasncriberSpan>
                     <StyledH2Form>Or start typing</StyledH2Form>
@@ -170,7 +178,7 @@ justify-content: center;
                     <StyledContentTextInput
                         id="textAreaInput"
                         placeholder="Not sure how to describe your dream? Try to think of your basic senses - What did you see, feel, smell, taste, touch? Where? Who was there, what happened? If you don't remember 'anything at all', descriptions like 'I remember a blue blob and I remember thinking it had some importance, maybe', are better that not writing at all"
-                        value={addDreamFormState.dreamContent}
+                        value={inputText || addDreamFormState.dreamContent}
                         onChange={(e)=>{setAddDreamFormState({
                             ...addDreamFormState,
                             dreamContent: e.target.value,
