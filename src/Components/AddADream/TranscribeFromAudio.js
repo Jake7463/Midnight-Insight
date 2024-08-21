@@ -20,20 +20,19 @@ const TranscribeFromAudio = ({ onTranscriptChange, onListeningChange }) => {
         if (!SpeechRecognition) {
           console.error('Speech Recognition is not supported in this browser.');
           return;
-        }    const recognition = new SpeechRecognition();
+        }
+        const recognition = new SpeechRecognition();
         recognition.continuous = true;
         recognition.interimResults = true;
-        recognition.lang = 'en-US';    recognition.onresult = (event) => {
+        recognition.lang = 'en-US';
+        recognition.onresult = (e) => {
           let interimTranscript = '';
-          let finalTranscript = '';
-          for (let i = event.resultIndex; i < event.results.length; i++) {
-            const transcript = event.results[i][0].transcript;
-            if (event.results[i].isFinal) {
-              finalTranscript += transcript;
-            } else {
-              interimTranscript += transcript;
-            }}
-          onTranscriptChange(finalTranscript, interimTranscript);
+          for (let i = e.resultIndex; i < e.results.length; i++) {
+            const transcript = e.results[i][0].transcript;
+            interimTranscript += transcript;
+            console.log(e.results[i][0]);
+          }
+          onTranscriptChange(interimTranscript);
         };
         recognition.onerror = (event) => {
           console.error('Speech recognition error', event.error);
@@ -45,7 +44,8 @@ const TranscribeFromAudio = ({ onTranscriptChange, onListeningChange }) => {
         }    return () => {
           recognition.stop();
         };
-      }, [isListening, onTranscriptChange]);  const toggleListening = () => {
+      }, [isListening, onTranscriptChange]);
+      const toggleListening = () => {
         const newIsListening = !isListening;
         setIsListening(newIsListening);
         onListeningChange(newIsListening);

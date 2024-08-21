@@ -158,9 +158,9 @@ const AddADream  = (anObject) => {
 
     const [inputText, setInputText] = useState('');
     const [isListening, setIsListening] = useState(false);
-    const handleTranscriptChange = (finalTranscript, interimTranscript) => {
+    const handleTranscriptChange = (interimTranscript) => {
         if (isListening) {
-          setInputText(prevText => prevText + finalTranscript + ' ' + interimTranscript + ' ');
+          setInputText((prevText) => prevText + interimTranscript);
         }
     };
     const handleListeningChange = (newIsListening) => setIsListening(newIsListening);
