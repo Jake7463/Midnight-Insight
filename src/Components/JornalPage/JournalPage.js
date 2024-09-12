@@ -2,6 +2,7 @@ import { PAll, PBig, SearchInput, SpanSpaceBetween, StyledDivPage, StyledH1Input
 import DreamsToJournal from "./DreamsToJournal";
 import FilterDropdown from "./FilterDropdown";
 import SortDropdown from "./SortDropdown";
+import { JChrono, JDate, JL, JN, JName, JPersonal, JPos, JPride, JSpan } from "./StyledJournal";
 
 
 function JournalPage(){
@@ -33,16 +34,16 @@ function JournalPage(){
                 </SpanSpaceBetween>
             </StyledSectionInput>
             <StyledSectionInput style={{marginBottom: "25px"}}>
-                <SpanSpaceBetween style={{fontSize: "14px", fontWeight: "200"}}>
-                    <PAll style={{marginLeft: "10px"}}>#</PAll>
-                    <PAll>Date</PAll>
-                    <PAll style={{marginRight: "10px"}}>Name</PAll>
-                    <PBig>L</PBig>
-                    <PBig>N</PBig>
-                    <PBig style={{marginRight: "-40px"}}>PoS</PBig>
-                    <PBig style={{marginLeft: "40px"}}>PrS</PBig>
-                    <PBig>PS</PBig>
-                </SpanSpaceBetween>
+                <JSpan style={{fontSize: "14px", fontWeight: "200"}}>
+                    <JChrono style={{backgroundColor: "inherit"}}>#</JChrono>
+                    <JDate style={{backgroundColor: "inherit"}}>Date</JDate>
+                    <JName style={{backgroundColor: "inherit"}}>Name</JName>
+                    <JL style={{backgroundColor: "inherit"}}>L</JL>
+                    <JN style={{backgroundColor: "inherit"}}>N</JN>
+                    <JPos style={{backgroundColor: "inherit"}}>Positivity Score</JPos>
+                    <JPride style={{backgroundColor: "inherit"}}>Pride Score</JPride>
+                    <JPersonal style={{backgroundColor: "inherit"}}>Personal Score</JPersonal>
+                </JSpan>
                 <DreamsToJournal />
             </StyledSectionInput>
         </StyledDivPage>
