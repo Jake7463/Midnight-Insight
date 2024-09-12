@@ -37,7 +37,7 @@ function JournalPage(){
                 <JSpan style={{fontSize: "14px", fontWeight: "200"}}>
                     <JChrono style={{backgroundColor: "inherit"}}>#</JChrono>
                     <JDate style={{backgroundColor: "inherit"}}>Date</JDate>
-                    <JName style={{backgroundColor: "inherit"}}>Name</JName>
+                    <JName style={{backgroundColor: "inherit", textAlign: "center"}}>Name</JName>
                     <JL style={{backgroundColor: "inherit"}}>L</JL>
                     <JN style={{backgroundColor: "inherit"}}>N</JN>
                     <JPos style={{backgroundColor: "inherit"}}>Positivity Score</JPos>

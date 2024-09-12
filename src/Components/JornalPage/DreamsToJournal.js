@@ -11,8 +11,8 @@ function DreamsToJournal (props){
                 <JChrono>#{dream.id}</JChrono>
                 <JDate>{dream.date}</JDate>
                 <JName>{dream.dreamName? dream.dreamName : "Unnamed"}</JName>
-                <JL>{dream.isLucid? "V" : "X"}</JL>
-                <JN>{dream.isNightmare? "v" : "X"}</JN>
+                <JL>{dream.isLucid? "✔" : "∎"}</JL>
+                <JN>{dream.isNightmare? "✔" : "∎"}</JN>
                 <JPos>{dream.positivityScore ? dream.positivityScore : "NA"}</JPos>
                 <JPride>{dream.prideScore ? dream.prideScore : "NA"}</JPride>
                 <JPersonal>{dream.personalScore ? dream.personalScore : "NA"}</JPersonal>

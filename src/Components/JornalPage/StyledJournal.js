@@ -5,7 +5,7 @@ const StyledJSpan = styled.span`
         width: 75vw;
         border-radius: 13px;
         display: grid;
-        grid-template-columns: 0.03fr 0.15fr 0.53fr 0.02fr 0.02fr 0.1fr 0.1fr 0.1fr;
+        grid-template-columns: 0.03fr 0.15fr 0.6fr 0.02fr 0.02fr 0.1fr 0.1fr 0.1fr;
         grid-template-areas: "chrono date name lucid nightmare positivity pride personal-score";
         grid-gap: 15px;
     }
@@ -40,6 +40,7 @@ const StyledJName =styled(StyledJDate)`
     text-overflow: ellipsis; 
     overflow: hidden; 
     white-space: nowrap;
+    text-align: left;
 `;
 
 const StyledJL =styled(StyledJChrono)`
