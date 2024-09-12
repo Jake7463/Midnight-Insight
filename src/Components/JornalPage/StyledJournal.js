@@ -1,7 +1,21 @@
 import styled from "styled-components";
 
 const StyledJSpan = styled.span`
-    @media (min-width: 481.1px){
+    @media screen and (min-width: 1124px) and (max-width: 1585px){
+        width: 83vw;
+        border-radius: 13px;
+        display: grid;
+        grid-template-columns: 0.5fr 3fr 4fr 0fr 0fr 1fr 1fr 1fr;
+        grid-template-areas: "chrono date name lucid nightmare positivity pride personal-score";
+    }
+    @media screen and (min-width: 768px) and (max-width: 1123px){
+        width: 86vw;
+        border-radius: 13px;
+        display: grid;
+        grid-template-columns: 1fr 3fr 4fr 1.5fr 1.5fr 2.5fr 2.5fr 2.5fr;
+        grid-template-areas: "chrono date name lucid nightmare positivity pride personal-score";
+    }
+    @media screen and (min-width: 1585px){
         width: 75vw;
         border-radius: 13px;
         display: grid;
@@ -9,7 +23,14 @@ const StyledJSpan = styled.span`
         grid-template-areas: "chrono date name lucid nightmare positivity pride personal-score";
         grid-gap: 15px;
     }
-    @media (max-width: 480px){
+    @media screen and (min-width: 480.1px) and (max-width: 768px){
+        width: 92vw;
+        border-radius: 13px;
+        display: grid;
+        grid-template-columns: 1fr 3fr 4fr 1fr 1fr;
+        grid-template-areas: "chrono date name lucid nightmare";
+    }
+    @media screen and (max-width: 480px){
         width: 88vw;
         border-radius: 9px;
         display: grid;
@@ -26,11 +47,17 @@ const StyledJDate =styled.p`
     border-radius: 8px;
     margin: 5px 10px;
     align-self: center;
+    @media screen and (min-width: 1124px) and (max-width: 1585px){
+        padding: 2px 4px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1123px){
+        padding: 0 1px;
+    }
 `;
 
 const StyledJChrono = styled(StyledJDate)`
     grid-area: chrono;
-    @media (max-width: 480px){
+    @media screen and (max-width: 480px){
         display: none;
     }
 `;
@@ -53,13 +80,16 @@ const StyledJN =styled(StyledJL)`
 
 const StyledJPos =styled(StyledJL)`
     grid-area: positivity;
+    @media screen and (min-width: 480px) and (max-width: 768px){
+        display: none;
+    }
 `;
 
-const StyledJPride =styled(StyledJL)`
+const StyledJPride =styled(StyledJPos)`
     grid-area: pride;
 `;
 
-const StyledJPersonal =styled(StyledJL)`
+const StyledJPersonal =styled(StyledJPos)`
     grid-area: personal-score;
 `;
 
