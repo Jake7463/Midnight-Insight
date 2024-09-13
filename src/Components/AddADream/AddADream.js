@@ -158,11 +158,17 @@ const AddADream  = (anObject) => {
 
     const [inputText, setInputText] = useState('');
     const [isListening, setIsListening] = useState(false);
-    const handleTranscriptChange = (interimTranscript) => {
+    const handleTranscriptChange = (transcript) => {
         if (isListening) {
-          setInputText((prevText) => prevText + interimTranscript);
+            const updatedText = inputText + transcript;
+            setInputText(updatedText);
+            setAddDreamFormState({
+                ...addDreamFormState,
+                dreamContent: updatedText,
+            });
         }
     };
+
     const handleListeningChange = (newIsListening) => setIsListening(newIsListening);
 
     return(
