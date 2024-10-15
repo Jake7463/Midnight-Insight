@@ -22,7 +22,7 @@ function JournalPage(){
             </StyledSectionInput>
             <StyledSectionInput>
                 <h2 style={{textAlign: "center", fontSize: "18px", fontWeight: "800", padding: "0 10px", marginTop: "25px"}}>Found #Number dreams for current search</h2>
-                <SpanSpaceBetween>
+                {/* <SpanSpaceBetween>
                     <StyledSpanInput style={{flexDirection: "row"}}>
                         <StyledLabelCentered>Sort By:</StyledLabelCentered>
                         <SortDropdown />
@@ -31,7 +31,7 @@ function JournalPage(){
                             <StyledLabelCentered>Filter</StyledLabelCentered>
                             <FilterDropdown />
                     </StyledSpanInput>
-                </SpanSpaceBetween>
+                </SpanSpaceBetween> */}
             </StyledSectionInput>
             <StyledSectionInput style={{marginBottom: "25px"}}>
                 <JSpan style={{fontSize: "14px", fontWeight: "200"}}>

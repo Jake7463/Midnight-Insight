@@ -68,11 +68,12 @@ const DreamPage = (props) => {
             </span>
             <h2 style={{
                 width: "70vw",
+                maxWidth: "900px",
                 borderRadius: "19px",
                 padding: "10px 20px",
                 minHeight: "85px",
                 color: "#0B1B32",
-                backgroundColor: "#00fb76",
+                backgroundColor: "#f1f1f1",
                 margin: "1rem auto",
                 textAlign: "left",
                 fontSize: "18px",

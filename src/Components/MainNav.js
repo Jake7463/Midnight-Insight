@@ -10,6 +10,9 @@ const NavStyle = styled.nav`
     flex-direction: column;
     maring: 0;
     padding: 0;
+    @media (max-width: 460px){
+        display: none;
+    }
 `;
 
 const StyleA = styled.a`
@@ -73,13 +76,13 @@ export default function MainNav(){
         <NavStyle>
             <Span1>
                 <StyledSep2></StyledSep2>
-                <Link style={{textDecoration: "none", fontWeight:"800", color: "#f1f1f1", textAlign: "center", justifySelf: "center", alignSelf: "center"}}  to="/">Add a <br/>Dream</Link>
-                <StyledSep></StyledSep>
-                <Link style={{textDecoration: "none", fontWeight:"800", color: "#808080", textAlign: "center", justifySelf: "center", alignSelf: "center"}} to="/" >My Profile</Link>
-                <StyledSep></StyledSep>
-                <Link style={{textDecoration: "none", fontWeight:"800", color: "#f1f1f1", textAlign: "center", justifySelf: "center", alignSelf: "center"}} to="/journal-page">Journal</Link>
-                <StyledSep></StyledSep>
-                <Link style={{textDecoration: "none", fontWeight:"800", color: "#808080", textAlign: "center", justifySelf: "center", alignSelf: "center"}} to="/">Reports</Link>
+                <Link style={{textDecoration: "none", fontWeight:"800", color: "#265cae", textAlign: "center", justifySelf: "center", alignSelf: "center", backgroundColor: "#f1f1f1", padding: "3px 18px", borderRadius: "9px"}}  to="/">Add a Dream</Link>
+                {/* <StyledSep></StyledSep> */}
+                {/* <Link style={{textDecoration: "none", fontWeight:"800", color: "#808080", textAlign: "center", justifySelf: "center", alignSelf: "center"}} to="/" >My Profile</Link>
+                <StyledSep></StyledSep> */}
+                <Link style={{textDecoration: "none", fontWeight:"800", color: "#265cae", textAlign: "center", justifySelf: "center", alignSelf: "center", backgroundColor: "#f1f1f1", padding: "3px 18px", borderRadius: "9px"}} to="/journal-page">Journal</Link>
+                {/* <StyledSep></StyledSep>
+                <Link style={{textDecoration: "none", fontWeight:"800", color: "#808080", textAlign: "center", justifySelf: "center", alignSelf: "center"}} to="/">Reports</Link> */}
                 <StyledSep2></StyledSep2>
             </Span1>
         </NavStyle>

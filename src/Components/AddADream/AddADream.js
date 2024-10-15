@@ -176,13 +176,13 @@ const AddADream  = (anObject) => {
             <StyledForm onSubmit={(e)=>handleSubmit(e)}>
                 <StyledSectionInput style={{display: advance.a}}>
                     <StyledH1Input style={{fontWeight: "1000", fontSize: "32px", marginTop: "30px"}}>ADD A DREAM</StyledH1Input>
-                    <StyledTrasncriberSpan>
+                    {/* <StyledTrasncriberSpan>
                         <TranscribeFromAudio
                         onTranscriptChange={handleTranscriptChange}
                         onListeningChange={handleListeningChange}/>
                         <ImgtoText />
                     </StyledTrasncriberSpan>
-                    <StyledH2Form>Or start typing</StyledH2Form>
+                    <StyledH2Form>Or start typing</StyledH2Form> */}
                     <StyledLabelForm htmlFor="textAreaInput" id="dreamContent" required={true} style={{color: isError.color}}>Dream Content <sup>*</sup></StyledLabelForm>
                     <StyledContentTextInput
                         id="textAreaInput"

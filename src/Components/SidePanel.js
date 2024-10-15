@@ -85,14 +85,14 @@ export default function SidePanel () {
             {isHamburgerMenuOpen && (
                 <SideNav>
                     <HamburgerClose onClick={ToggleSidebar}><img src={sideX} alt=""/></HamburgerClose>
-                    <ProfilePhoto src={profilePic} alt="profile picture place holder"/>
-                    <SideNavA1 href="/">Add a Dream</SideNavA1>
-                    <SideNavA href="/">Dashboard</SideNavA>
+                    {/* <ProfilePhoto src={profilePic} alt="profile picture place holder"/> */}
+                    <SideNavA1 href="/" style={{marginTop: "30px"}}>Add a Dream</SideNavA1>
+                    {/* <SideNavA href="/">Dashboard</SideNavA> */}
                     <SideNavA href="/">Journal</SideNavA>
-                    <SideNavA href="/">New Report</SideNavA>
+                    {/* <SideNavA href="/">New Report</SideNavA>
                     <SideNavA href="/">View Reports</SideNavA>
-                    <SideNavA href="/">My Profile</SideNavA>
-                    <SideNavA3 href="/">Log out</SideNavA3>
+                    <SideNavA href="/">My Profile</SideNavA> */}
+                    {/* <SideNavA3 href="/">Log out</SideNavA3> */}
                 </SideNav>
             )}
         </>
