@@ -9,7 +9,7 @@ import AgeDropdown from '../AgeDropdown';
 import POVDropdown from '../POVDropdown';
 import useStorage from "../useStorage";
 import ApproveBtn from "./ApproveBtn";
-import { Navigate, useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router-dom";
 import arrowBack from "../../img/arrowBack.svg"
 import { ArrowBack, ArrowImage } from "./ArrowBack";
 import advance1 from "../../img/advance1.svg"
@@ -464,7 +464,7 @@ const AddADream  = (anObject) => {
                             value={addDreamFormState.personalInterpretation }
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, personalInterpretation: e.target.value})}}/>
                     </StyledSpanInput>
-                    <ApproveBtn type="button" onClick={(e)=>{
+                    <ApproveBtn type="submit" onClick={(e)=>{
                         setTemp(JSON.parse(JSON.stringify(addDreamFormState)));
                         dreamPage();
                         click2Continue(e, "e");
@@ -479,7 +479,7 @@ const AddADream  = (anObject) => {
                         <AdvanceImg src={advance4}/>
                     </StyledSpanInput>
                     <DreamPage {...addDreamFormState} />
-                    <SbmtBtn type="submit">Finish & Submit</SbmtBtn>
+                    <SbmtBtn type="button" onClick = {()=>navigate("/journal-page")}>Finish & Submit</SbmtBtn>
                 </StyledSectionInput>
             </StyledForm>
         </StyledDivForPages>
