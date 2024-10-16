@@ -464,10 +464,11 @@ const AddADream  = (anObject) => {
                             value={addDreamFormState.personalInterpretation }
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, personalInterpretation: e.target.value})}}/>
                     </StyledSpanInput>
-                    <ApproveBtn type="submit" onClick={(e)=>{
-                        setTemp(JSON.parse(JSON.stringify(addDreamFormState)));
+                    <ApproveBtn type="button" onClick={(e)=>{
+                        setTemp(JSON.parse(JSON.stringify(...addDreamFormState)));
                         dreamPage();
                         click2Continue(e, "e");
+                        handleSubmit();
                     }}
                     style={{display: advance.d}}/>
                 </StyledSectionInput>
@@ -478,7 +479,7 @@ const AddADream  = (anObject) => {
                         </ArrowBack>
                         <AdvanceImg src={advance4}/>
                     </StyledSpanInput>
-                    <DreamPage {...addDreamFormState} />
+                    {/* <DreamPage {...temp} /> */}
                     <SbmtBtn type="button" onClick = {()=>navigate("/journal-page")}>Finish & Submit</SbmtBtn>
                 </StyledSectionInput>
             </StyledForm>
