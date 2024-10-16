@@ -121,7 +121,7 @@ const DreamPage = (props) => {
                     <h3>{generalTags ? tagsToP(generalTags) : ""}</h3>
                 </span>
             </section>
-            <section style={{display: dreamIsLucid ? "flex" : "none" , flexDirection:"column", alignItems: "center", marginTop: "25px"}}>
+            <section style={{display: dreamIsLucid ? "flex" : "none" , flexDirection:"column", alignItems: "center", marginTop: "25px", gap: "16px"}}>
                 <h2 style={{margin: "10px 0"}}>Lucid</h2>
                 <span style={{display: dreamLucidControl ? "flex" : "none", justifyContent: "space-between", width: "80%"}}>
                     <h4>Control: </h4>

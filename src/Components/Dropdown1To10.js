@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { StyledSelect, option } from "./AddADream/StyledFormInputs";
 
-function Dropdown1To10 (props){
-    const [select, setSelect] = useState('');
-    // const handleChange = (e) => setSelect(e.target.value);
-    
+function Dropdown1To10 ({value, onChange, ...props}){
+
     return(
-        <StyledSelect {...props} >
-            <option disabled={true} value="0">-Choose-</option>
+        <StyledSelect value={value} onChange={onChange} {...props} >
+            <option disabled={true} value="">-Choose-</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

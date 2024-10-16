@@ -87,7 +87,6 @@ const AddADream  = (anObject) => {
     const [isNightmareCollapse, setIsNightmareCollapse] = useState(false);
 
     const [unique, setUnique] = useState(true);
-    const [showUnique, setShowUnique] = useState("none");
 
     const collapseLucid = (bool) => {
         setIsLucidCollapse(bool);
@@ -291,7 +290,7 @@ const AddADream  = (anObject) => {
                             <Dropdown1To10
                                 id="AADClarityScore"
                                 name="AADClarityScore"
-                                value={addDreamFormState.lucidClarity}
+                                value={addDreamFormState.lucidClarity || ""}
                                 onChange={(e)=>{setAddDreamFormState({...addDreamFormState, lucidClarity: e.target.value})}}/>
                         </StyledSpanInput>
                         <StyledSpanInput>
@@ -299,7 +298,7 @@ const AddADream  = (anObject) => {
                             <Dropdown1To10
                                 id="AADCohesionScore"
                                 name="AADCohesionScore"
-                                value={addDreamFormState.lucidCohesion}
+                                value={addDreamFormState.lucidCohesion || ""}
                                 onChange={(e)=>{setAddDreamFormState({...addDreamFormState, lucidCohesion: e.target.value})}} />
                         </StyledSpanInput>
                         <StyledSpanInput>
@@ -307,7 +306,7 @@ const AddADream  = (anObject) => {
                             <Dropdown1To10
                                 id="AADControlScore"
                                 name="AADControlScore"
-                                value={addDreamFormState.lucidControl}
+                                value={addDreamFormState.lucidControl || ""}
                                 onChange={(e)=>{setAddDreamFormState({...addDreamFormState, lucidControl: e.target.value})}}/>
                         </StyledSpanInput>
                     </StyledSpanInput>
@@ -329,7 +328,7 @@ const AddADream  = (anObject) => {
                             <Dropdown1To10
                                 id="AADNightmareIntensity"
                                 name="AADNightmareIntensity"
-                                value={addDreamFormState.nightmareIntensity}
+                                value={addDreamFormState.nightmareIntensity || ""}
                                 onChange={(e)=>{setAddDreamFormState({...addDreamFormState, nightmareIntensity: e.target.value})}}/>
                         </StyledSpanInput>
                         <h3>Reaction</h3>
@@ -380,7 +379,7 @@ const AddADream  = (anObject) => {
                         <PositivityDropdown
                             id="AADPositivity"
                             name="AADPositivity"
-                            value={addDreamFormState.positivityScore}
+                            value={addDreamFormState.positivityScore || ""}
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, positivityScore: e.target.value})}}/>
                     </StyledSpanInput>
                     <StyledSpanInput>
@@ -388,7 +387,7 @@ const AddADream  = (anObject) => {
                         <Dropdown1To10
                             id="AADPersonalScore"
                             name="AADPersonalScore"
-                            value={addDreamFormState.personalScore}
+                            value={addDreamFormState.personalScore || ""}
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, personalScore: e.target.value})}}/>
                     </StyledSpanInput>
                     <StyledSpanInput>
@@ -396,7 +395,7 @@ const AddADream  = (anObject) => {
                         <AgeDropdown
                             id="AADAge"
                             name="AADAge"
-                            value={addDreamFormState.age}
+                            value={addDreamFormState.age || ""}
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, age: e.target.value})}}/>
                     </StyledSpanInput>
                     <StyledSpanInput>
@@ -404,7 +403,7 @@ const AddADream  = (anObject) => {
                         <POVDropdown
                             id="AADPOV"
                             name="AADPOV"
-                            value={addDreamFormState.pov}
+                            value={addDreamFormState.pov || ""}
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, pov: e.target.value})}}/>
                     </StyledSpanInput>
                     <h3 style={{margin: "55px 0 0 0"}}>Was it a unique dream?</h3>
