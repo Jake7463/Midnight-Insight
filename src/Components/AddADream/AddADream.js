@@ -97,16 +97,19 @@ const AddADream  = (anObject) => {
     const changeUnique = (change) => {
         setUnique(change);
     }
-    useEffect(()=>{
-        setAddDreamFormState({...addDreamFormState, isUnique: unique});
-    }, [unique]);
+    // useEffect(()=>{
+    //     if (addDreamFormState.isUnique = true){
+    //         setAddDreamFormState({...addDreamFormState, isUnique: false})
+    //     } else { setAddDreamFormState({...addDreamFormState, isUnique: true})}
+    // }, [unique]);
+    
     const [temp, setTemp] = useState();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        updateStorage(temp)
-        setAddDreamFormState(obj);
-    }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     updateStorage(temp)
+    //     setAddDreamFormState(obj);
+    // }
     console.log(addDreamFormState);
     const click2Continue = (e, step) => {
         e.preventDefault();
@@ -151,8 +154,8 @@ const AddADream  = (anObject) => {
 
     const [componentDreamPage, setComponentDreamPage] = useState("");
 
-    const dreamPage = () => {
-        setComponentDreamPage(<DreamPage {...addDreamFormState}/>)
+    const dreamPage = (temp) => {
+        setComponentDreamPage(<DreamPage {...temp}/>)
     }
 
     const [inputText, setInputText] = useState('');
@@ -172,7 +175,7 @@ const AddADream  = (anObject) => {
 
     return(
         <StyledDivForPages>
-            <StyledForm onSubmit={(e)=>handleSubmit(e)}>
+            <StyledForm>
                 <StyledSectionInput style={{display: advance.a}}>
                     <StyledH1Input style={{fontWeight: "1000", fontSize: "32px", marginTop: "30px"}}>ADD A DREAM</StyledH1Input>
                     {/* <StyledTrasncriberSpan>
@@ -465,10 +468,11 @@ const AddADream  = (anObject) => {
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, personalInterpretation: e.target.value})}}/>
                     </StyledSpanInput>
                     <ApproveBtn type="button" onClick={(e)=>{
-                        setTemp(JSON.parse(JSON.stringify(...addDreamFormState)));
-                        dreamPage();
+                        const temp = addDreamFormState
+                        updateStorage(temp)
+                        setAddDreamFormState(obj)
+                        setTemp(temp)
                         click2Continue(e, "e");
-                        handleSubmit();
                     }}
                     style={{display: advance.d}}/>
                 </StyledSectionInput>
@@ -479,7 +483,7 @@ const AddADream  = (anObject) => {
                         </ArrowBack>
                         <AdvanceImg src={advance4}/>
                     </StyledSpanInput>
-                    {/* <DreamPage {...temp} /> */}
+                    <DreamPage {...temp} />
                     <SbmtBtn type="button" onClick = {()=>navigate("/journal-page")}>Finish & Submit</SbmtBtn>
                 </StyledSectionInput>
             </StyledForm>
