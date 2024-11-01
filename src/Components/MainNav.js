@@ -11,7 +11,9 @@ const linkStyle = {
     alignSelf: "center",
     backgroundColor: "#f1f1f1",
     padding: "3px 18px",
-    borderRadius: "9px"
+    borderRadius: "9px",
+    width: "30vw",
+    maxWidth: "160px",
 }
 export default function MainNav(){
     return(

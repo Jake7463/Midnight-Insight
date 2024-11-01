@@ -77,7 +77,7 @@ justify-content: center;
 const AddADream  = (anObject) => {
     const [addDreamFormState, setAddDreamFormState] = useState(anObject ? anObject : obj());
     const [advance, setAdvance] = useState(advancement)
-    const { updateStorage, dreams, series, updateSeries } = useStorage();
+    const { updateStorage, dreams } = useStorage();
     const navigate = useNavigate();
     const [isError, setIsError] = useState({
         error: true,
@@ -85,8 +85,7 @@ const AddADream  = (anObject) => {
     })
     const [isLucidCollapse, setIsLucidCollapse] = useState(false);
     const [isNightmareCollapse, setIsNightmareCollapse] = useState(false);
-
-    const [unique, setUnique] = useState(true);
+    const id = dreams.length+1;
 
     const collapseLucid = (bool) => {
         setIsLucidCollapse(bool);
@@ -94,30 +93,21 @@ const AddADream  = (anObject) => {
     const collapseNightmare = (bool) => {
         setIsNightmareCollapse(bool);
     }
-    const changeUnique = (change) => {
-        setUnique(change);
+
+    const Unique = () => {
+        setAddDreamFormState({...addDreamFormState, isUnique: true})
     }
-    // useEffect(()=>{
-    //     if (addDreamFormState.isUnique = true){
-    //         setAddDreamFormState({...addDreamFormState, isUnique: false})
-    //     } else { setAddDreamFormState({...addDreamFormState, isUnique: true})}
-    // }, [unique]);
-    
+    const NotUnique = () => {
+        setAddDreamFormState({...addDreamFormState, isUnique: false})
+    }
+
     const [temp, setTemp] = useState();
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     updateStorage(temp)
-    //     setAddDreamFormState(obj);
-    // }
-    console.log(addDreamFormState);
     const click2Continue = (e, step) => {
         e.preventDefault();
         setAdvance({a: "none", b: "none", c: "none", d:"none", e: "none", [step]:"flex"});
         window.scrollTo(0,0);
     }
-    
-    const id = dreams.length+1;
 
     function click2GoBack (e, step){
         e.preventDefault();
@@ -150,6 +140,7 @@ const AddADream  = (anObject) => {
     const mustFill = () =>{
         setIsError({...isError, color: "#e71c00"})
         document.querySelector("#textAreaInput").focus();
+        alert("Fill in 'Dream Content' in order to continue")
     }
 
     const [inputText, setInputText] = useState('');
@@ -194,9 +185,7 @@ const AddADream  = (anObject) => {
                         });
                         addDreamFormState.dreamContent === "" ? setIsError({error: true, color: "#e71c00"}) : setIsError({error: false, color: "#f1f1f1"})
                     }}/>
-                    <ApproveBtn type="button"  style={{display: advance.a}}
-                    onClick={(e)=>{isError.error ? mustFill() : click2Continue(e, "b")}}
-                        onMouseUp={mustFill}/>
+                    <ApproveBtn type="button"  style={{display: advance.a}} onClick={(e)=>{isError.error ? mustFill() : click2Continue(e, "b")}}/>
                 </StyledSectionInput>
                 <StyledSectionInput style={{display: advance.b}}>
                     <StyledSpanInput>
@@ -412,7 +401,7 @@ const AddADream  = (anObject) => {
                                 id="isUnique"
                                 name="uniqueDream"
                                 style={{marginRight: "10px"}}
-                                onChange={(e)=>changeUnique(true)}/>
+                                onChange={()=>Unique()}/>
                            Unique Dream</label>
                         <label htmlFor="isNotUnique">
                             <input
@@ -420,7 +409,7 @@ const AddADream  = (anObject) => {
                                 id="isNotUnique"
                                 name="uniqueDream"
                                 style={{marginRight: "10px"}}
-                                onChange={(e)=>changeUnique(false)}/>
+                                onChange={()=>NotUnique()}/>
                              Repeating / Part of a sreies</label>
                         </StyledSpanInput>
                     </StyledSpan4Radio>
@@ -461,14 +450,14 @@ const AddADream  = (anObject) => {
                             value={addDreamFormState.personalInterpretation }
                             onChange={(e)=>{setAddDreamFormState({...addDreamFormState, personalInterpretation: e.target.value})}}/>
                     </StyledSpanInput>
-                    <ApproveBtn type="button" onClick={(e)=>{
+                    <SbmtBtn type="button" onClick={(e)=>{
                         const temp = addDreamFormState
                         updateStorage(temp)
                         setAddDreamFormState(obj)
                         setTemp(temp)
                         click2Continue(e, "e");
                     }}
-                    style={{display: advance.d}}/>
+                    style={{display: advance.d}}>Submit and Preview</SbmtBtn>
                 </StyledSectionInput>
                 <StyledSectionInput style={{display: advance.e}}>
                     <StyledSpanInput style={{justifyContent: "center", alignItems: "center"}}>
@@ -478,7 +467,7 @@ const AddADream  = (anObject) => {
                         <AdvanceImg src={advance4}/>
                     </StyledSpanInput>
                     <DreamPage {...temp} />
-                    <SbmtBtn type="button" onClick = {()=>navigate("/journal-page")}>Finish & Submit</SbmtBtn>
+                    <SbmtBtn type="button" onClick = {()=>navigate("/journal-page")}>Go to journal</SbmtBtn>
                 </StyledSectionInput>
             </StyledForm>
         </StyledDivForPages>

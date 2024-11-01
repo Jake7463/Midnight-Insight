@@ -1,5 +1,5 @@
 import React from "react";
-import LogoV2 from "../img/LogoV6.png"
+import Logo from "../img/Logo.svg"
 import styled from "styled-components";
 import SidePanel from "./SidePanel";
 
@@ -32,7 +32,7 @@ export default function Header(){
     return(
         <HeaderStyle>
             <SidePanel />
-            <LogoStyle src={LogoV2} alt="logo"/>
+            <LogoStyle src={Logo} alt="logo"/>
         </HeaderStyle>
     )
 }

@@ -50,13 +50,13 @@ const StyledSep = styled.div`
 const StyledSep2 = styled.div`
     width: 2px;
     height: 26px;
-    background-color: #265CAE;
+    background: linear-gradient(#010b1a, #0B1B32);
     display: block;
 `;
 
 const Span1 = styled.span`
     display: flex;
-    background-color: #265CAE;
+    background: linear-gradient(#010b1a, #0B1B32);
     min-height: 32px;
     width: 100%;
     height: fit-content;
