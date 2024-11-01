@@ -30,11 +30,6 @@ const DreamPage = (props) => {
     const wouldDoIRL = props.situationIRL;
     const dreamPersonalInterpretation = props.personalInterpretation;
 
-    console.log(dreamAge);
-    console.log(peopleTags);
-
-
-
     const tagsToP = (arr) => {
         return (
             <span style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>

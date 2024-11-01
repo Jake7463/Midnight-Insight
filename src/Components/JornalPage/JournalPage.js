@@ -6,22 +6,15 @@ import { JChrono, JDate, JL, JN, JName, JPersonal, JPos, JPride, JSpan } from ".
 
 
 function JournalPage(){
-
+    const dreans = JSON.parse(localStorage.getItem("dreams"))
     return(
         <StyledDivPage>
             <StyledSectionInput>
                 <StyledH1Input>Your Dream Journal</StyledH1Input>
-                <StyledSpanInput style={{flexDirection: "row"}}>
-                    <StyledLabelCentered>Dates</StyledLabelCentered>
-                    <SearchInput type="date" style={{width: "120px", textIndent: "5px"}} />
-                </StyledSpanInput>
-                <StyledSpanInput style={{flexDirection: "row"}}>
-                    <StyledLabelCentered>Search:</StyledLabelCentered>
-                    <SearchInput type="text" />
-                </StyledSpanInput>
             </StyledSectionInput>
             <StyledSectionInput>
-                <h2 style={{textAlign: "center", fontSize: "18px", fontWeight: "800", padding: "0 10px", marginTop: "25px"}}>Found #Number dreams for current search</h2>
+                <h2 style={{textAlign: "center", fontSize: "18px", fontWeight: "800", padding: "0 10px", marginTop: "25px"}}>
+                    You have {dreans.length} dreams in your journal</h2>
                 {/* <SpanSpaceBetween>
                     <StyledSpanInput style={{flexDirection: "row"}}>
                         <StyledLabelCentered>Sort By:</StyledLabelCentered>
