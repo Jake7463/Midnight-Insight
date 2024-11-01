@@ -466,7 +466,7 @@ const AddADream  = (anObject) => {
                         </ArrowBack>
                         <AdvanceImg src={advance4}/>
                     </StyledSpanInput>
-                    <DreamPage {...temp} />
+                    <DreamPage {...temp}/>
                     <SbmtBtn type="button" onClick = {()=>navigate("/journal-page")}>Go to journal</SbmtBtn>
                 </StyledSectionInput>
             </StyledForm>

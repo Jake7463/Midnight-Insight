@@ -42,7 +42,7 @@ const DreamPage = (props) => {
             }}>&nbsp;{tag}</p>)}</span>
         )
     }
-    const isUnique = (bool) => bool ? "A Unique Dream" : "Part of Series: " + dreamSeriesName;
+    const isUnique = (bool) => bool == true ? "A Unique Dream" : "Part of Series: " + dreamSeriesName || "Unnamed";
 
     return(
         <div style={{
@@ -79,7 +79,7 @@ const DreamPage = (props) => {
                     <h4>Dream Positivity Score: </h4>
                     <p>{dreamPositivityScore}</p>
                 </span>
-                <span   span style={{display: dreamPersonalScore ? "flex" : "none", justifyContent: "space-between", width: "80%", margin: "10px 0"}}>
+                <span style={{display: dreamPersonalScore ? "flex" : "none", justifyContent: "space-between", width: "80%", margin: "10px 0"}}>
                     <h4>Dream Personal Score: </h4>
                     <p>&nbsp;{dreamPersonalScore}</p>
                 </span>
@@ -132,7 +132,7 @@ const DreamPage = (props) => {
             </section>
             <section  style={{display: dreamIsNightmare ? "flex" : "none", flexDirection: "column", alignItems: "center", marginTop: "25px"}} >
                 <h2 style={{margin: "10px 0"}}>Nightmare</h2>
-                <span   span style={{display: dreamNightmareIntensity ? "flex" : "none", justifyContent: "space-between", width: "80%"}}>
+                <span style={{display: dreamNightmareIntensity ? "flex" : "none", justifyContent: "space-between", width: "80%"}}>
                     <h4>Intensity: </h4>
                     <p>{dreamNightmareIntensity}</p>
                 </span>
