@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom' ;
-import {Nav1, A1, A2, Div1, Div2, S1} from "./Styled.js"
+import {Nav1, Div2, S1} from "./Styled.js"
 
 const linkStyle = {
     textDecoration: "none",

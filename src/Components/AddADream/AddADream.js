@@ -1,5 +1,5 @@
-import TranscribeFromAudio from "./TranscribeFromAudio";
-import ImgtoText from './ImgToText';
+// import TranscribeFromAudio from "./TranscribeFromAudio";
+// import ImgtoText from './ImgToText';
 import styled from "styled-components"
 import { StyledContentTextInput, StyledH2Form, StyledTrasncriberSpan, StyledTagInput, StyledLabelForm, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledDivForPages, AdvanceImg, SbmtBtn } from "./StyledFormInputs";
 import { useState, useEffect } from 'react';
@@ -9,7 +9,7 @@ import AgeDropdown from '../AgeDropdown';
 import POVDropdown from '../POVDropdown';
 import useStorage from "../useStorage";
 import ApproveBtn from "./ApproveBtn";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import arrowBack from "../../img/arrowBack.svg"
 import { ArrowBack, ArrowImage } from "./ArrowBack";
 import advance1 from "../../img/advance1.svg"
@@ -152,26 +152,20 @@ const AddADream  = (anObject) => {
         document.querySelector("#textAreaInput").focus();
     }
 
-    const [componentDreamPage, setComponentDreamPage] = useState("");
-
-    const dreamPage = (temp) => {
-        setComponentDreamPage(<DreamPage {...temp}/>)
-    }
-
     const [inputText, setInputText] = useState('');
-    const [isListening, setIsListening] = useState(false);
-    const handleTranscriptChange = (transcript) => {
-        if (isListening) {
-            const updatedText = inputText + transcript;
-            setInputText(updatedText);
-            setAddDreamFormState({
-                ...addDreamFormState,
-                dreamContent: updatedText,
-            });
-        }
-    };
+    // const [isListening, setIsListening] = useState(false);
+    // const handleTranscriptChange = (transcript) => {
+    //     if (isListening) {
+    //         const updatedText = inputText + transcript;
+    //         setInputText(updatedText);
+    //         setAddDreamFormState({
+    //             ...addDreamFormState,
+    //             dreamContent: updatedText,
+    //         });
+    //     }
+    // };
 
-    const handleListeningChange = (newIsListening) => setIsListening(newIsListening);
+    // const handleListeningChange = (newIsListening) => setIsListening(newIsListening);
 
     return(
         <StyledDivForPages>
@@ -189,9 +183,9 @@ const AddADream  = (anObject) => {
                     <StyledContentTextInput
                         id="textAreaInput"
                         placeholder="Not sure how to describe your dream? Try to think of your basic senses - What did you see, feel, smell, taste, touch? Where? Who was there, what happened? If you don't remember 'anything at all', descriptions like 'I remember a blue blob and I remember thinking it had some importance, maybe', are better that not writing at all"
-                        value={inputText || addDreamFormState.dreamContent}
+                        value={addDreamFormState.dreamContent}
                         onChange={(e)=>{
-                            !isListening && setInputText(e.target.value);
+                            setInputText(e.target.value);
                             setAddDreamFormState({
                             ...addDreamFormState,
                             dreamContent: e.target.value,

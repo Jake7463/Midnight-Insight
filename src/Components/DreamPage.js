@@ -1,4 +1,3 @@
-import { json } from "react-router";
 
 const DreamPage = (props) => {
     const dreamId = props.id;
