@@ -5,7 +5,7 @@ const FooterStyle = styled.footer`
     margin: 0;
     margin-top: auto;
     width: 100%;
-    background-color: #000000;
+    background: linear-gradient(#0B1B32, #010b1a, #010b1a);
     color: #f1f1f1;
     justify-content: center;
     text-align: center;
@@ -19,7 +19,8 @@ const StyledP = styled.p`
 export default function Footer(){
     return(
         <FooterStyle>
-            <StyledP>This footer is so footery OMG!</StyledP>
+            <StyledP>Designed and Built By Jacob Baitman 2024</StyledP>
+            <StyledP>ReactJS, JavaScript, HTML, and <br></br>CSS (Styled Component lib)</StyledP>
         </FooterStyle>
     )
 }

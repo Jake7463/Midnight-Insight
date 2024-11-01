@@ -32,7 +32,7 @@ const DreamPage = (props) => {
     const tagsToP = (arr) => {
         return (
             <span style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
-                {arr.map((tag)=><p style={{
+                {arr.map((tag)=><p key={tag} style={{
                     padding: "1px 8px 2px 2px",
                     backgroundColor: "#808080",
                     borderRadius: "11px",

@@ -2,7 +2,7 @@
 // import ImgtoText from './ImgToText';
 import styled from "styled-components"
 import { StyledContentTextInput, StyledH2Form, StyledTrasncriberSpan, StyledTagInput, StyledLabelForm, StyledSectionInput, StyledSpanInput, StyledH1Input, StyledLabelLN, StyledDivForPages, AdvanceImg, SbmtBtn } from "./StyledFormInputs";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Dropdown1To10 from "../Dropdown1To10";
 import PositivityDropdown from '../PositivityDropdown';
 import AgeDropdown from '../AgeDropdown';

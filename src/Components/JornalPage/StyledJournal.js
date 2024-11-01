@@ -43,7 +43,7 @@ const StyledJDate =styled.p`
     grid-area: date;
     background-color: #265cae;
     text-align: center;
-    padding: 2px 7px;
+    padding: 2px 5px 2px 2px;
     border-radius: 8px;
     margin: 5px 10px;
     align-self: center;
@@ -64,10 +64,11 @@ const StyledJChrono = styled(StyledJDate)`
 
 const StyledJName =styled(StyledJDate)`
     grid-area: name;
-    text-overflow: ellipsis; 
-    overflow: hidden; 
+    text-overflow: ellipsis;
+    overflow: hidden;
     white-space: nowrap;
     text-align: left;
+    padding-left: 5px;
 `;
 
 const StyledJL =styled(StyledJChrono)`

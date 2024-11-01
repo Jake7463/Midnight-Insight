@@ -1,14 +1,13 @@
-import { PAll, PBig, SearchInput, SpanSpaceBetween, StyledDivPage, StyledH1Input, StyledLabelCentered, StyledLabelForm, StyledSectionInput, StyledSpanInput } from "../AddADream/StyledFormInputs";
+import {StyledDivPage, StyledH1Input, StyledSectionInput} from "../AddADream/StyledFormInputs";
 import DreamsToJournal from "./DreamsToJournal";
-import FilterDropdown from "./FilterDropdown";
-import SortDropdown from "./SortDropdown";
+
 import { JChrono, JDate, JL, JN, JName, JPersonal, JPos, JPride, JSpan } from "./StyledJournal";
 
 
 function JournalPage(){
     const dreans = JSON.parse(localStorage.getItem("dreams"))
     return(
-        <StyledDivPage>
+        <StyledDivPage style={{marginBottom:"43px"}}>
             <StyledSectionInput>
                 <StyledH1Input>Your Dream Journal</StyledH1Input>
             </StyledSectionInput>
