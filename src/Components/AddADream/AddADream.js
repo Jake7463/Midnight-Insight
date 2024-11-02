@@ -144,32 +144,12 @@ const AddADream  = (anObject) => {
     }
 
     const [inputText, setInputText] = useState('');
-    // const [isListening, setIsListening] = useState(false);
-    // const handleTranscriptChange = (transcript) => {
-    //     if (isListening) {
-    //         const updatedText = inputText + transcript;
-    //         setInputText(updatedText);
-    //         setAddDreamFormState({
-    //             ...addDreamFormState,
-    //             dreamContent: updatedText,
-    //         });
-    //     }
-    // };
-
-    // const handleListeningChange = (newIsListening) => setIsListening(newIsListening);
 
     return(
         <StyledDivForPages>
             <StyledForm>
                 <StyledSectionInput style={{display: advance.a}}>
                     <StyledH1Input style={{fontWeight: "1000", fontSize: "32px", marginTop: "30px"}}>ADD A DREAM</StyledH1Input>
-                    {/* <StyledTrasncriberSpan>
-                        <TranscribeFromAudio
-                        onTranscriptChange={handleTranscriptChange}
-                        onListeningChange={handleListeningChange}/>
-                        <ImgtoText />
-                    </StyledTrasncriberSpan>
-                    <StyledH2Form>Or start typing</StyledH2Form> */}
                     <StyledLabelForm htmlFor="textAreaInput" id="dreamContent" required={true} style={{color: isError.color}}>Dream Content <sup>*</sup></StyledLabelForm>
                     <StyledContentTextInput
                         id="textAreaInput"
@@ -218,7 +198,7 @@ const AddADream  = (anObject) => {
                         id="emotionTagsInput"
                         className="emotionTagsInput"
                         type="text"
-                        // value={addDreamFormState.emotionTags}
+                        value={addDreamFormState.emotionTags}
                         placeholder="ex: happiness, excited, impatient, disgust, fear, ..."
                         onChange={(e)=>{setTempTags({...tempTags, emotions: e.target.value})}}/>
                     <StyledLabelForm htmlFor="peopleTagsInput">Who was there in your dream?</StyledLabelForm>
@@ -226,7 +206,7 @@ const AddADream  = (anObject) => {
                         id="peopleTagsInput"
                         className="peopleTagsInput"
                         type="text"
-                        // value={addDreamFormState.peopleTags}
+                        value={addDreamFormState.peopleTags}
                         placeholder="ex: mom, pete, prev boss, highschool crush, ..."
                         onChange={(e)=>{setTempTags({...tempTags, people: e.target.value})}}/>
                     <StyledLabelForm htmlFor="placesTagsInput">Where were you in the dream?</StyledLabelForm>
@@ -234,7 +214,7 @@ const AddADream  = (anObject) => {
                         id="placesTagsInput"
                         className="placesTagsInput"
                         type="text"
-                        // value={addDreamFormState.placesTags}
+                        value={addDreamFormState.placesTags}
                         placeholder="ex: 3rd grade house, middle school, volcano, previous workplace"
                         onChange={(e)=>{setTempTags({...tempTags, places: e.target.value})}}/>
                     <StyledLabelForm htmlFor="generalTagsInput">General Tags</StyledLabelForm>
@@ -242,7 +222,7 @@ const AddADream  = (anObject) => {
                         id="generalTagsInput"
                         className="dreamGeneralTags"
                         type="text"
-                        // value={addDreamFormState.generalTags}
+                        value={addDreamFormState.generalTags}
                         placeholder="ex: superpowers ,friendship, lizards, dragon eggs, giant apples, ..."
                         onChange={(e)=>{setTempTags({...tempTags, general: e.target.value})}}/>
                         <ApproveBtn type="button" onClick={(e)=>

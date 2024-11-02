@@ -23,15 +23,15 @@ const LogoStyle = styled.img`
     padding-top: 5px;
     padding-bottom: 5px;
     justify-self: center;
-    @media (max-width: 768px){
-        transform: translateX(-35px);
-    }
+    // @media (max-width: 768px){
+    //     transform: translateX(-35px);
+    // }
 `;
 
 export default function Header(){
     return(
         <HeaderStyle>
-            <SidePanel />
+            {/* <SidePanel /> */}
             <LogoStyle src={Logo} alt="logo"/>
         </HeaderStyle>
     )

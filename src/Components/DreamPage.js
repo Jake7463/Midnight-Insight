@@ -42,20 +42,20 @@ const DreamPage = (props) => {
             }}>&nbsp;{tag}</p>)}</span>
         )
     }
-    const isUnique = (bool) => bool == true ? "A Unique Dream" : "Part of Series: " + dreamSeriesName || "Unnamed";
+    const isUnique = (bool) => bool === true ? "A Unique Dream" : "Part of Series: " + dreamSeriesName || "Unnamed";
 
     return(
         <div style={{
             marginLeft: "auto",
             marginRight: "auto",
-            display: "felx",
+            display: "block",
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
             padding: "10px 20px 20px 20px",
             gap: "15px"
         }} {...props}>
-            <h1 style={{display: dreamName === "" ? "none" : "block", fontWeight: "1000", fontSize: "2.4rem"}}>{dreamName}</h1>
+            <h1 style={{display: dreamName === "" ? "none" : "block", fontWeight: "1000", fontSize: "2.4rem", alignSelf: "center", justifySelf: "center"}}>{dreamName}</h1>
             <span style={{display: "flex", justifyContent: "space-between"}}>
                 <p>Dream #{dreamId}</p>
                 <h4>{dreamDate}</h4>
@@ -73,7 +73,7 @@ const DreamPage = (props) => {
                 fontSize: "18px",
                 fontWeight: "600",
             }}>{dreamContent}</h2>
-            <h4>{isUnique(dreamUnique)}</h4>
+            <h4 style={{alignSelf: "center", justifySelf: "center"}}>{isUnique(dreamUnique)}</h4>
             <section style={{marginTop: "20px", display: "flex", flexDirection: "column", alignItems: "center"}}>
                 <span style={{display: dreamPositivityScore? "flex" : "none", justifyContent: "space-between", width: "80%", margin: "10px 0"}}>
                     <h4>Dream Positivity Score: </h4>

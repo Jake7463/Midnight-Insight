@@ -4,20 +4,22 @@ import DreamPage from "../DreamPage";
 import { useState } from "react";
 
 
-function DreamsToJournal (props){
+function DreamsToJournal (){
     const { dreams } = useStorage();
-    const [show, setShow] = useState()
-    const clickity = (e) =>{
-        show === "none" ? setShow("flex") : setShow("none")
-    }
+    const [visibleDreams, setVisibleDreams] = useState({});
+    const toggleDream = (dreamId) => {
+    setVisibleDreams(prev => ({
+      ...prev,
+      [dreamId]: !prev[dreamId]
+    }));
+  };
+
     return(
         <>
         {dreams.map((dream) => (
-            <JSpan  >
-                <JSpan
-                key={dream.id}
-                style={{backgroundColor: "#f1f1f1"}}
-                onClick = {clickity}>
+            <JSpan style={{display: "flex" ,flexDirection: "column", backgroundColor: "#0B1B32"}} key={dream.id}>
+                <button onClick={()=> toggleDream(dream.id)} style={{color: "#f1f1f1", fontSize: "1rem", backgroundColor: "#0B1B32", borderWidth: "0"}}>
+                <JSpan style={{backgroundColor: "#f1f1f1"}}>
                     <JChrono>#{dream.id}</JChrono>
                     <JDate>{dream.date}</JDate>
                     <JName>{dream.dreamName? dream.dreamName : "Unnamed"}</JName>
@@ -27,7 +29,8 @@ function DreamsToJournal (props){
                     <JPride>{dream.prideScore ? dream.prideScore : "NA"}</JPride>
                     <JPersonal>{dream.personalScore ? dream.personalScore : "NA"}</JPersonal>
                 </JSpan>
-                <DreamPage {...dream} style={{display: "none"}}/>
+                </button>
+                <DreamPage {...dream} style={{display: visibleDreams[dream.id] ? "block" : "none"  }}/>
             </JSpan>
         ))}
         </>
